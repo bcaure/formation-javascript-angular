@@ -1,0 +1,48 @@
+body, input {
+font: 12pt verdana;
+}
+
+/* custom styles for individual items, load this after vis.css/vis-timeline-graph2d.min.css */
+
+.vis-item.green {
+    background-color: greenyellow;
+    border-color: green;
+}
+
+.vis-item.red {
+    background-color: firebrick;
+    border-color: red;
+    color: white;
+}
+
+/* create a custom sized dot at the bottom of the yellow item */
+.vis-item.blue {
+    background-color: steelblue;
+    border-color: blue;
+    color: white;
+}
+
+.vis-item.orange {
+    background-color: gold;
+    border-color: orange;
+}
+.vis-item.vis-selected.orange {
+    /* custom colors for selected orange items */
+    background-color: orange;
+    border-color: orangeyellow;
+}
+
+.vis-item.magenta {
+    background-color: magenta;
+    border-color: purple;
+    color: white;
+}
+
+/* our custom classes overrule the styles for selected events,
+    so lets define a new style for the selected events */
+.vis-item.vis-selected {
+    background-color: white;
+    border-color: black;
+    color: black;
+    box-shadow: 0 0 10px gray;
+}
