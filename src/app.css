@@ -1,6 +1,9 @@
 body, input {
 font: 12pt verdana;
 }
+body, html {
+    font-family: sans-serif;
+}
 
 /* custom styles for individual items, load this after vis.css/vis-timeline-graph2d.min.css */
 
@@ -13,6 +16,11 @@ font: 12pt verdana;
     background-color: firebrick;
     border-color: red;
     color: white;
+}
+
+.important {
+    font-size: 1.2em;
+    font-weight: bold;
 }
 
 /* create a custom sized dot at the bottom of the yellow item */
@@ -45,4 +53,31 @@ font: 12pt verdana;
     border-color: black;
     color: black;
     box-shadow: 0 0 10px gray;
+}
+
+.ie {
+    background: url('ie.png') no-repeat;
+}
+.netscape {
+    background: url('netscape.png') no-repeat;
+}
+.chrome {
+    background: url('chrome.png') no-repeat;
+}
+.firefox {
+    background: url('firefox.png') no-repeat;
+}
+.safari {
+    background: url('safari.png') no-repeat; 
+}
+.flash {
+    background: url('flash.png') no-repeat; 
+}
+.browser {
+    background-size: auto 100%;
+    border: 0px;
+    border-bottom: 5px solid blue;
+} 
+.browser .vis-item-content {
+    margin-left: 100px;
 }

@@ -1,93 +1,18 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-  <title>Timeline | Basic demo</title>
+  <title>Javascript history</title>
 
-  <style type="text/css">
-    body, html {
-      font-family: sans-serif;
-    }
-  </style>
-
+  <meta charset="utf-8">
   <script src="../node_modules/vis/dist/vis.js"></script>
+
   <link href="../node_modules/vis/dist/vis.css" rel="stylesheet" type="text/css" />
   <link href="app.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <div id="visualization"></div>
 
-<script type="text/javascript">
-  // DOM element where the Timeline will be attached
-  var container = document.getElementById('visualization');
-
-  // Create a DataSet (allows two way data-binding)
-  let i = 0;
-  var items = new vis.DataSet([
-  {id: i++, content: 'Mosaic', start: '1993-01-01', end: '1993-01-01', group: 1},
-  {id: i++, content: 'ECMAScript 1', className: 'magenta', start: '1997-01-01', group: 1},
-  {id: i++, content: 'ES4', className: 'magenta', start: '2005-01-01', group: 1},
-  {id: i++, content: 'Ajax (XHR)', start: '2006-01-01', group: 1},
-  {id: i++, content: 'ES5', start: '2009-01-01', className: 'magenta', group: 1},
-  {id: i++, content: 'Workers', start: '2010-01-01', group: 1},
-  {id: i++, content: 'Web sockets', start: '2011-01-01', group: 1},
-  {id: i++, content: 'ES6', start: '2015-01-01', className: 'magenta', group: 1},
-  {id: i++, content: 'ES2016', start: '2016-01-01', className: 'magenta', group: 1},
-  {id: i++, content: 'ES2017', start: '2017-01-01', className: 'magenta', group: 1},
-
-  {id: i++, content: 'Netscape', start: '1994-01-01', className: 'green', end: '2000-12-31', group: 2},
-  {id: i++, content: 'Microsoft Internet Explorer', start: '1995-01-01', className: 'green', end: '2015-12-31', group: 2},
-  {id: i++, content: 'ActionScript', start: '1997-01-01', className: 'green', end: '2004-12-31', group: 2},  
-  {id: i++, content: 'Mozilla Firefox', start: '2005-01-01', end: '2015-12-31', className: 'green', group: 2},
-  {id: i++, content: 'Google Chrome', start: '2010-01-01', end: '2017-12-31', className: 'green', group: 2},
-
-  {id: i++, content: 'script.aculo.us', start: '2005-01-01', group: 3},
-  {id: i++, content: 'Dojo toolkit', start: '2005-01-01', group: 3},
-  {id: i++, content: 'JQuery', start: '2006-01-01', className: 'orange', group: 3},
-  {id: i++, content: 'YUI (Ext.js)', start: '2006-01-01', group: 3},
-  {id: i++, content: 'GWT', start: '2006-01-01', group: 3},
-  {id: i++, content: 'JQuery UI', start: '2007-01-01', group: 3},
-  {id: i++, content: 'AngularJS', start: '2009-01-01', className: 'orange', group: 3},
-  {id: i++, content: 'Knockout.js', start: '2010-01-01', group: 3},
-  {id: i++, content: 'Backbone.js', start: '2010-01-01', group: 3},
-  {id: i++, content: 'Bootstrap', start: '2011-01-01', group: 3},
-  {id: i++, content: 'Ember.js', start: '2011-01-01', group: 3},
-  {id: i++, content: 'KendoUI', start: '2011-01-01', group: 3},
-  {id: i++, content: 'React.js', start: '2013-01-01', className: 'orange', group: 3},
-  {id: i++, content: 'Vue.js', start: '2014-01-01', group: 3},
-  {id: i++, content: 'Aurelia.js', start: '2014-01-01', group: 3},
-  {id: i++, content: 'Polymer', start: '2014-01-01', group: 3},
-  {id: i++, content: 'Preact', start: '2015-01-01', group: 3},
-  {id: i++, content: 'Angular 2', start: '2016-01-01', className: 'orange', group: 3},
-  {id: i++, content: 'RxJs', start: '2014-01-01', className: 'blue', group: 3},
-  {id: i++, content: 'Redux', start: '2015-06-01', className: 'blue', group: 3},
-  {id: i++, content: 'Flux', start: '2015-01-01', className: 'blue', group: 3},
-
-  {id: i++, content: 'Node.js', start: '2009-01-01', className: 'red', group: 4},
-  {id: i++, content: 'Express.js', start: '2010-01-01', group: 4},
-  {id: i++, content: 'Socket.io', start: '2012-01-01', group: 4},
-  {id: i++, content: 'Meteor', start: '2012-01-01', group: 4},
-  {id: i++, content: 'Three.js', start: '2010-01-01', group: 4},
-  {id: i++, content: 'Casper (PhantomJS)', start: '2011-01-01', group: 4},
-  {id: i++, content: 'D3.js', start: '2011-01-01', group: 4},
-
-  ]);
-
-  // Groups
-  // Optional: a field 'className', 'style', 'order', [properties]
-  var groups = [
-    { id: 1, content: 'Spec', order: 3 },
-    { id: 2, content: 'Ref impl', order: 4 },
-    { id: 3, content: 'Front', order: 2 },    
-    { id: 4, content: 'Other', order: 1 },    
-  ]; 
-
-  // Configuration for the Timeline
-  var options = {};
-
-  // Create a Timeline
-  var timeline = new vis.Timeline(container, items, groups, options);
-</script>
 </body>
-
+<script src="index.js"></script>
 
 </html>
