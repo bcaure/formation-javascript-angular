@@ -9,28 +9,42 @@
 
 ## Environnement de dev
 
-### Gestion de dépendances (NPM, yarn, etc.)
+### Gestion de dépendances (NPM et yarn)
 
-### Packaging (webpack)
+### Build et packaging 
+#### analyse de code (linters)
+#### polyfills (sass, babel, browserify)
+#### packaging (minify, uglify, source map)
+#### automatisation (webpack)
+#### déploiement?
 
 # Angular 
 
-## Web components
-
 ## Templates & databinding
+
+## NgForm 
+
+## Web components
+### Composants "presentational" (dumb) et "container" (smart)
+### Découpage
 
 ## Les routes
 
 ## Les pipes
 
-## ElementRef et 
-
 ## Les services
 
 ## Les modules
 
+## Les tests
+
 # Programmation réactive
 
-## ReactiveX (RxJs)
+## ReactiveX (RxJs) 
+### Angular | async
 
-## Redux (NgRx)
+### Angular Reactiveform
+
+## Redux
+
+### Angular redux avec NgRx
