@@ -82,12 +82,20 @@ class Vector {
   
   // bound method
   method = () => {
-    // this refer to class instance
+    // `this` will refer to class instance
   }
 }
 ```
 
 ## Template literals
+
+```js
+firstName + ' ' + lastName
+```
+
+```js
+`${firstName} ${lastName}`
+```
 
 ## Arrow functions
 
@@ -132,9 +140,49 @@ array.forEach(e => {
 
 ## Parameters
 
+Default parameters
+```js
+function foo(a = 5) {
+  return a;
+}
+
+foo() // 5
+foo(6) // 6
+```
+
+Rest parameters
+```js
+function foo(x, ...rest) {
+  return rest.length;
+}
+
+foo() // 0
+foo(6) // 0
+foo(6, 5, 3) // 2
+```
+
 ## Property shorthand
 
+```js
+const a = 'foo';
+const b = 'bar';
+{ a, b }; // { a: 'foo', b: 'bar' }
+```
+
 ## Destructuring
+
+```js
+const object = { a: 'foo', b: 'bar', c: 'baz', d: 'd', e: 'e' };
+const { a, b: renamed, c: renamedAndDefaulted = 3, defaulted = 5, ...rest } = object;
+console.log(a, renamed, renamedAndDefaulted, defaulted, rest); // prints 'foo' 'bar' 'baz' 5 { d: 'd', e: 'e' }
+```
+
+## Spread operator
+
+```
+const obj = { a: 'a', b: 'b' };
+console.log({ ...obj , a: 'changed' }); // prints {a: 'changed', b: 'b'}
+```
 
 ## Array
 
