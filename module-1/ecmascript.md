@@ -206,6 +206,21 @@ console.log({ ...obj , a: 'changed' }); // prints {a: 'changed', b: 'b'}
 Object.assign({}, { foo: 'bar' }, { foo: 'baz', bar: 'baz' });
 ```
 
+## Promise
+
+```
+new Promise((resolve, reject) => {
+
+});
+
+promise
+  .then(() => ...)
+  .then(() => ...)
+  .catch(() => ...);
+
+Promise.all([]);
+```
+
 ## Modules
 
 ```
