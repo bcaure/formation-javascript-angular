@@ -217,6 +217,9 @@ promise
   .then(() => ...)
   .then(() => ...)
   .catch(() => ...);
+  
+Promise.resolve();
+Promise.reject();
 
 Promise.all([]);
 ```
