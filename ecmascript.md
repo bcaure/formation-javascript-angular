@@ -40,18 +40,36 @@ Syntaxe plus expressive pour les _closures_
 ```js
 const array = [1, 2, 3];
 
-array.map(function (e) { return e * 2; });         // es5
-array.map(e => e * 2);                             // es6
+// es5
+array.map(function (e, i) { return e + i; });
+// es6
+array.map((e, i) => e + i);
 
-array.map(function (e) { return { number: e }; }); // es5
-array.map(e => ({ number: e }));                   // es6
+// es5
+array.map(function (e) { return e * 2; });
+// es6 omit parameter parenthesis when there is only one parameter
+array.map(e => e * 2);
 
-array.map(function (e, i) { return e + i; });      // es5
-array.map((e, i) => e + i);                        // es6
+// es5
+array.map(function (e) { return { number: e }; });
+// es6 enclose returned object in parenthesis
+array.map(e => ({ number: e }));
 
-array.map(function () { return 1; });              // es5
-array.map(() => 1);                                // es6
+// es5
+array.map(function () { return 1; });
+// es6
+array.map(() => 1);
 
-array.forEach(function(e) { console.log(e); });    // es5
-array.forEach(e => { console.log(e); });           // es6
+// es5
+array.forEach(function(e) {
+  if (e % 2 === 0) {
+    console.log(e);
+  }
+});
+// es6
+array.forEach(e => {
+  if (e % 2 === 0) {
+    console.log(e);
+  }
+});
 ```
