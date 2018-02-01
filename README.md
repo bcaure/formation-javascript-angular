@@ -1,45 +1,54 @@
-# Mise à niveau Javascript
-## JS avancé
+# Pré-requis
+* npm et node bonne version
+* projet node
 
-### Objets et fonctions
+# Mise à niveau Javascript (1/2j)
+## Mini projet vanilla JS 
 
 ### Shorthands
 
-### Typescript
+### ES6: Objets et fonctions, modules et imports
+
+### Typescript: application du typage sur les objets ES6
 
 ## Environnement de dev
 
-### Gestion de dépendances (NPM et yarn)
+### Packaging du projet vanilla JS
 
 ### Build et packaging 
 #### analyse de code (linters)
 #### polyfills (sass, babel, browserify)
-#### packaging (minify, uglify, source map)
+#### packaging (minify, uglify, source map), modules, code splitting
 #### automatisation (webpack)
 #### déploiement?
 
 # Angular 
 
-## Templates & databinding
+## Web components, templates, faire un composant dumb 
+### directives
+### Cycle de vie
+
+## databinding et change detection
 
 ## NgForm 
 
-## Web components
-### Composants "presentational" (dumb) et "container" (smart)
-### Découpage
+## Composants "presentational" (dumb) et "container" (smart)
+
+## Les services, l'injection de dépendance, l'appel d'API
+### singletons
 
 ## Les routes
 
-## Les pipes
-
-## Les services
-
 ## Les modules
 
+## Les pipes
+
 ## Les tests
+### Jasmine et Karma
+### Protactor
 
 # Programmation réactive
-
+## Les limites de la programmation Angular "basique"
 ## ReactiveX (RxJs) 
 ### Angular | async
 
