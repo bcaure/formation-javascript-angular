@@ -33,6 +33,10 @@ function foo() {
 }
 ```
 
+## Classes
+
+## Template literals
+
 ## Arrow functions
 
 Syntaxe plus expressive pour les _closures_
@@ -73,3 +77,9 @@ array.forEach(e => {
   }
 });
 ```
+
+## Parameters
+
+## Property shorthand
+
+## Destructuring
