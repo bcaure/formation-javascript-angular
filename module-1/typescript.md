@@ -2,3 +2,4 @@
 
 type
 visibility (public, private)
+interface
