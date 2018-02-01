@@ -32,3 +32,26 @@ function foo() {
   console.log(scopedVariable); // throws ReferenceError
 }
 ```
+
+## Arrow functions
+
+Syntaxe plus expressive pour les _closures_
+
+```js
+const array = [1, 2, 3];
+
+array.map(function (e) { return e * 2; });         // es5
+array.map(e => e * 2);                             // es6
+
+array.map(function (e) { return { number: e }; }); // es5
+array.map(e => ({ number: e }));                   // es6
+
+array.map(function (e, i) { return e + i; });      // es5
+array.map((e, i) => e + i);                        // es6
+
+array.map(function () { return 1; });              // es5
+array.map(() => 1);                                // es6
+
+array.forEach(function(e) { console.log(e); });    // es5
+array.forEach(e => { console.log(e); });           // es6
+```
