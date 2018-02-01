@@ -84,4 +84,8 @@ array.forEach(e => {
 
 ## Destructuring
 
+## Array
+
+## Object
+
 ## Modules
