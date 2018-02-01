@@ -82,12 +82,20 @@ class Vector {
   
   // bound method
   method = () => {
-    // this refer to class instance
+    // `this` will refer to class instance
   }
 }
 ```
 
 ## Template literals
+
+```js
+firstName + ' ' + lastName
+```
+
+```js
+`${firstName} ${lastName}`
+```
 
 ## Arrow functions
 
@@ -132,12 +140,101 @@ array.forEach(e => {
 
 ## Parameters
 
+Default parameters
+```js
+function foo(a = 5) {
+  return a;
+}
+
+foo() // 5
+foo(6) // 6
+```
+
+Rest parameters
+```js
+function foo(x, ...rest) {
+  return rest.length;
+}
+
+foo() // 0
+foo(6) // 0
+foo(6, 5, 3) // 2
+```
+
 ## Property shorthand
+
+```js
+const a = 'foo';
+const b = 'bar';
+{ a, b }; // { a: 'foo', b: 'bar' }
+```
 
 ## Destructuring
 
+```js
+const object = { a: 'foo', b: 'bar', c: 'baz', d: 'd', e: 'e' };
+const { a, b: renamed, c: renamedAndDefaulted = 3, defaulted = 5, ...rest } = object;
+console.log(a, renamed, renamedAndDefaulted, defaulted, rest); // prints 'foo' 'bar' 'baz' 5 { d: 'd', e: 'e' }
+```
+
+## Spread operator
+
+```
+const obj = { a: 'a', b: 'b' };
+console.log({ ...obj , a: 'changed' }); // prints {a: 'changed', b: 'b'}
+```
+
 ## Array
+
+```js
+[1, 2, 3].map(e => e + 1); // [2, 3, 4]
+
+[1, 2, 3].filter(e => e % 2 === 0); // [2]
+
+[1, 2, 3].reduce((accumulator, e) => return accumulator + e); // 6
+
+[1, 2, 3].find(e => e === 1); // 1
+
+[1, 2, 3].findIndex(e => e === 3); // 3
+
+[1, 2, 3].some(e => e === 2); // true
+```
 
 ## Object
 
+```js
+Object.assign({}, { foo: 'bar' }, { foo: 'baz', bar: 'baz' });
+```
+
+## Promise
+
+```
+new Promise((resolve, reject) => {
+
+});
+
+promise
+  .then(() => ...)
+  .then(() => ...)
+  .catch(() => ...);
+  
+Promise.resolve();
+Promise.reject();
+
+Promise.all([]);
+```
+
 ## Modules
+
+```
+import foo from './foo';
+import { foo } from './foo'
+import { foo as Foo } from './foo'
+
+export default a
+
+export {
+  a,
+  b
+}
+```
