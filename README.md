@@ -54,6 +54,6 @@
 
 ### Angular Reactiveform
 
-## Redux
-
-### Angular redux avec NgRx
+### Trucs et astuces
+* désérialisation d'objets et pb avec les méthodes d'instances
+* quand peut-on considérer que l'approche redux devient utile?
