@@ -8,7 +8,7 @@
 
 ```js
 function foo() {
-  // `i` and `bar` are already referenced here
+  // `hoistedVariable` is already referenced here
   console.log(hoistedVariable);
   console.log(undefinedVariable); // throws ReferenceError
   for (var i = 0; i < 5; ++i) {
@@ -22,7 +22,7 @@ function foo() {
 
 ```js
 function foo() {
-	console.log(scopedVariable); // throws ReferenceError
+  console.log(scopedVariable); // throws ReferenceError
   for (let i = 0; i < 5; ++i) {
     let scopedVariable = 'foo';
     const scopedConstant = 'bar';
