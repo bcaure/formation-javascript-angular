@@ -68,7 +68,24 @@ const v1 = new Vector(2, 3);
 console.log(v0.add(v1));
 ```
 
+### Propriétés de classes
 
+```js
+class Vector {
+  x = 0;
+  y = 0;
+  
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+  }
+  
+  // bound method
+  method = () => {
+    // this refer to class instance
+  }
+}
+```
 
 ## Template literals
 
