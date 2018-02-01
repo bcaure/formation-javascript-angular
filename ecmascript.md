@@ -35,6 +35,41 @@ function foo() {
 
 ## Classes
 
+### Définition de classe
+```js
+function Vector(x, y) {
+  this.x = x;
+  this.y = y;
+}
+
+Vector.prototype.add = function(vector) {
+  return new Vector(this.x + vector.x, this.y + vector.y);
+}
+
+var v0 = new Vector(1, 2);
+var v1 = new Vector(2, 3);
+console.log(v0.add(v1));
+```
+
+```js
+class Vector {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+  }
+  
+  add(vector) {
+    return new Vector(this.x + vector.x, this.y + vector.y);
+  }
+}
+
+const v0 = new Vector(1, 2);
+const v1 = new Vector(2, 3);
+console.log(v0.add(v1));
+```
+
+
+
 ## Template literals
 
 ## Arrow functions
