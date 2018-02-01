@@ -1,0 +1,1 @@
+Cycle de vie dans l'application.

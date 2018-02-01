@@ -16,6 +16,7 @@
 * custom element
 
 ## Angular component
+### Création
 * 1 html, 1 css, 1 js
 * @Component
 * selector, template, style
