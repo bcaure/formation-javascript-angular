@@ -186,6 +186,37 @@ console.log({ ...obj , a: 'changed' }); // prints {a: 'changed', b: 'b'}
 
 ## Array
 
+```js
+[1, 2, 3].map(e => e + 1); // [2, 3, 4]
+
+[1, 2, 3].filter(e => e % 2 === 0); // [2]
+
+[1, 2, 3].reduce((accumulator, e) => return accumulator + e); // 6
+
+[1, 2, 3].find(e => e === 1); // 1
+
+[1, 2, 3].findIndex(e => e === 3); // 3
+
+[1, 2, 3].some(e => e === 2); // true
+```
+
 ## Object
 
+```js
+Object.assign({}, { foo: 'bar' }, { foo: 'baz', bar: 'baz' });
+```
+
 ## Modules
+
+```
+import foo from './foo';
+import { foo } from './foo'
+import { foo as Foo } from './foo'
+
+export default a
+
+export {
+  a,
+  b
+}
+```
