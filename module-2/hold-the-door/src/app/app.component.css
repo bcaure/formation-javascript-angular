@@ -1,0 +1,17 @@
+.logo {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+.chapter {
+    max-height: 30vh;
+}
+
+.container {
+    display: flex;
+}
+
+.card {
+    flex: 1;
+}

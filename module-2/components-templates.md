@@ -1,14 +1,26 @@
+### Créer l'app
+* ng new hold-the-door
+* cd hold-the-door
+* ng serve --open
+
+* copier data.js
+* ouvrir src/app/app.component.js
+* importer data from data.js
+
+
 ## Angular template
-* la moustache
+* ouvrir src/app/app.component.html
+* la moustache => idem AngularJS
     * pas de modif dans la moustache
     * opérateur ternaire OK
-* structural directives *
-    * ngIf, ngFor, ngSwitch
-    * quand on veut passer du contenu HTML à un composant ("transclusion") : ngContent 
-    * quand on ne veut pas créer un composant à part entière : ngContainer, ngTemplate, ngTemplateOutlet
-
 * attribute directive    
     * ngStyle, ngClass
+    
+* structural directives "*"
+    * ngIf, ngFor, ngSwitch
+    * quand on ne veut pas créer un composant à part entière : ngContainer, ngTemplate, ngTemplateOutlet
+
+
 
 ## Standard web component
 * shadow DOM (isolation CSS)
@@ -21,4 +33,7 @@
 * @Component
 * selector, template, style
 * controller
+
+
+
 
