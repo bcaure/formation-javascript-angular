@@ -2,18 +2,24 @@
 * Installation des dernières version de npm et node.js
 * Des connaissances sur l'écosystème Javascript et la pratique d'un framework (AngularJS 1, React…)
 
-# [Mise à niveau Javascript](module1/README.md)
-
+# [Mise à niveau Javascript](./module-1/README.md)
+## ECMAScript
+## TypeScript
+## VSCode
+## Webpack
+## Devtools
+## RxJS
+ 
 # Angular part 1
-## [Templates et composants](module2/components-templates.md)
-## [Databinding et change detection](module2/databinding.md)
-## [Cycle de vie](module2/lifecycle.md)
-## [Conception avec les composants](module2/components-conception.md)
+## [Templates et composants](module-2/components-templates.md)
+## [Databinding et change detection](module-2/databinding.md)
+## [Cycle de vie](module-2/lifecycle.md)
+## [Conception avec les composants](module-2/components-conception.md)
 
 # Angular part 2
-## Les variables de templates (module3/template-var.md)
-## Les formulaires (module3/ngForm.md)
-## Les pipes (module3/pipe.md)
+## Les variables de templates (module-3/template-var.md)
+## Les formulaires (module-3/ngForm.md)
+## Les pipes (module-3/pipe.md)
 ## Les services, l'injection de dépendance, l'appel d'API
 ### La portée des services (singletons, ...)
 ## Les modules
