@@ -1,59 +1,26 @@
 # Pré-requis
-* npm et node bonne version
-* projet node
+* Installation des dernières version de npm et node.js
+* Des connaissances sur l'écosystème Javascript et la pratique d'un framework (AngularJS 1, React…)
 
-# Mise à niveau Javascript (1/2j)
-## Mini projet vanilla JS 
+# [Mise à niveau Javascript](module1/README.md)
 
-### Shorthands
+# [Angular part 1]
+## [Templates et composants](module2/components-templates.md)
+## [Databinding et change detection](module2/databinding.md)
+## [Cycle de vie](module2/lifecycle.md)
+## [Conception avec les composants](module2/components-conception.md)
 
-### ES6: Objets et fonctions, modules et imports
-
-### Typescript: application du typage sur les objets ES6
-
-## Environnement de dev
-
-### Packaging du projet vanilla JS
-
-### Build et packaging 
-#### analyse de code (linters)
-#### polyfills (sass, babel, browserify)
-#### packaging (minify, uglify, source map), modules, code splitting
-#### automatisation (webpack)
-#### déploiement?
-
-# Angular 
-
-## Web components, templates, faire un composant dumb 
-### directives
-### Cycle de vie
-
-## databinding et change detection
-
-## NgForm 
-
-## Composants "presentational" (dumb) et "container" (smart)
-
+# [Angular part 2]
+## Les variables de templates (module3/template-var.md)
+## Les formulaires (module3/ngForm.md)
+## Les pipes (module3/pipe.md)
 ## Les services, l'injection de dépendance, l'appel d'API
-### singletons
-
-## Les routes
-
+### La portée des services (singletons, ...)
 ## Les modules
-
-## Les pipes
-
 ## Les tests
-### Jasmine et Karma
-### Protactor
 
-# Programmation réactive
-## Les limites de la programmation Angular "basique"
-## ReactiveX (RxJs) 
-### Angular | async
-
-### Angular Reactiveform
-
-### Trucs et astuces
+# Divers
 * désérialisation d'objets et pb avec les méthodes d'instances
 * quand peut-on considérer que l'approche redux devient utile?
+* Angular Reactiveform
+* Redux avec NgRx
