@@ -208,7 +208,7 @@ Object.assign({}, { foo: 'bar' }, { foo: 'baz', bar: 'baz' });
 
 ## Promise
 
-```
+```js
 new Promise((resolve, reject) => {
 
 });
