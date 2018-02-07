@@ -2,6 +2,7 @@
 
 - [ ] [VSCode](./vscode/README.md)
 
+> Add intro on ES6 variables?
 - [x] [Webpack ECMAScript](./webpack/README.md)
 - [x] [Devtools Console, Elements & Sources](./webpack/README.md)
 - [x] [ECMAScript import/export](./webpack/README.md)

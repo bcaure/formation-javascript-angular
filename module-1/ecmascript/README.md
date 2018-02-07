@@ -223,18 +223,3 @@ Promise.reject();
 
 Promise.all([]);
 ```
-
-## Modules
-
-```
-import foo from './foo';
-import { foo } from './foo'
-import { foo as Foo } from './foo'
-
-export default a
-
-export {
-  a,
-  b
-}
-```
