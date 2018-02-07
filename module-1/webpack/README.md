@@ -127,7 +127,7 @@ module.exports = {
 
 ## Modules
 
-```
+```js
 function add(a, b) {
   return a + b;
 }
@@ -139,7 +139,7 @@ export {
 export default add;
 ```
 
-```
+```js
 import { add as namedAdd } from './awesome-lib';
 import add from './awesome-lib';
 
