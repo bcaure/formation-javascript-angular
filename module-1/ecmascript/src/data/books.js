@@ -1,14 +1,14 @@
 export default [
-  { id: 1, name: "A Game of Thrones", ISBN: "978-0553103540", authors: ["George R. R. Martin"], numberOfPages: 694, publisher: "Bantam Books", mediaType: "Hardcover", country: "United States", releaseDate: "1996-08-01T00:00:00", precededById: null, followedBy: 2 },
-  { id: 2, name: "A Clash of Kings", ISBN: "978-0553108033", authors: ["George R. R. Martin"], numberOfPages: 768, publisher: "Bantam Books", mediaType: "Hardback", country: "United States", releaseDate: "1999-02-02T00:00:00", precededById: 1, followedBy: 3 },
-  { id: 3, name: "A Storm of Swords", ISBN: "978-0553106633", authors: ["George R. R. Martin"], numberOfPages: 992, publisher: "Bantam Books", mediaType: "Hardcover", country: "United States", releaseDate: "2000-10-31T00:00:00", precededById: 2, followedBy: 5 },
-  { id: 4, name: "The Hedge Knight", ISBN: "978-0976401100", authors: ["George R. R. Martin"], numberOfPages: 164, publisher: "Dabel Brothers Publishing", mediaType: "Graphic Novel", country: "United States", releaseDate: "2005-03-09T00:00:00", precededById: null, followedBy: 6 },
-  { id: 5, name: "A Feast for Crows", ISBN: "978-0553801507", authors: ["George R. R. Martin"], numberOfPages: 784, publisher: "Bantam Books", mediaType: "Hardcover", country: "United Status", releaseDate: "2005-11-08T00:00:00", precededById: 3, followedBy: 8 },
-  { id: 6, name: "The Sworn Sword", ISBN: "978-0785126508", authors: ["George R. R. Martin"], numberOfPages: 152, publisher: "Marvel", mediaType: "Hardcover", country: "United States", releaseDate: "2008-06-18T00:00:00", precededById: 4, followedBy: 7 },
-  { id: 7, name: "The Mystery Knight", ISBN: "978-0765360267", authors: ["George R. R. Martin"], numberOfPages: 416, publisher: "Tor Fantasy", mediaType: "Paperback", country: "United States", releaseDate: "2011-03-29T00:00:00", precededById: 6, followedBy: null },
-  { id: 8, name: "A Dance with Dragons", ISBN: "978-0553801477", authors: ["George R. R. Martin"], numberOfPages: 1040, publisher: "Bantam Books", mediaType: "Hardcover", country: "United States", releaseDate: "2011-07-12T00:00:00", precededById: 5, followedBy: null },
-  { id: 9, name: "The Princess and the Queen", ISBN: "978-0765332066", authors: ["George R. R. Martin"], numberOfPages: 784, publisher: "Tor Books", mediaType: "Hardcover", country: "United States", releaseDate: "2013-12-03T00:00:00", precededById: null, followedBy: null },
-  { id: 10, name: "The Rogue Prince", ISBN: "978-0345537263", authors: ["George R. R. Martin"], numberOfPages: 832, publisher: "Bantam Books", mediaType: "Hardcover", country: "United States", releaseDate: "2014-06-17T00:00:00", precededById: null, followedBy: null },
-  { id: 11, name: "The World of Ice and Fire", ISBN: "978-0553805444", authors: ["Elio Garcia", "Linda Antonsson", "George R. R. Martin"], numberOfPages: 336, publisher: "Bantam Books", mediaType: "Hardcover", country: "United States", releaseDate: "2014-10-28T00:00:00", precededById: null, followedBy: null },
-  { id: 12, name: "A Knight of the Seven Kingdoms", ISBN: "978-0345533487", authors: ["George R. R. Martin"], numberOfPages: 368, publisher: "Bantam Books", mediaType: "Hardcover", country: "United States", releaseDate: "2015-10-06T00:00:00", precededById: null, followedBy: null }
+  { id: 1, name: 'A Game of Thrones', authors: ['George R. R. Martin'], releaseDate: '1996-08-01T00:00:00Z', precededById: null, followedById: 2 },
+  { id: 2, name: 'A Clash of Kings', authors: ['George R. R. Martin'], releaseDate: '1999-02-02T00:00:00Z', precededById: 1, followedById: 3 },
+  { id: 3, name: 'A Storm of Swords', authors: ['George R. R. Martin'], releaseDate: '2000-10-31T00:00:00Z', precededById: 2, followedById: 5 },
+  { id: 4, name: 'The Hedge Knight', authors: ['George R. R. Martin'], releaseDate: '2005-03-09T00:00:00Z', precededById: null, followedById: 6 },
+  { id: 5, name: 'A Feast for Crows', authors: ['George R. R. Martin'], releaseDate: '2005-11-08T00:00:00Z', precededById: 3, followedById: 8 },
+  { id: 6, name: 'The Sworn Sword', authors: ['George R. R. Martin'], releaseDate: '2008-06-18T00:00:00Z', precededById: 4, followedById: 7 },
+  { id: 7, name: 'The Mystery Knight', authors: ['George R. R. Martin'], releaseDate: '2011-03-29T00:00:00Z', precededById: 6, followedById: null },
+  { id: 8, name: 'A Dance with Dragons', authors: ['George R. R. Martin'], releaseDate: '2011-07-12T00:00:00Z', precededById: 5, followedById: null },
+  { id: 9, name: 'The Princess and the Queen', authors: ['George R. R. Martin'], releaseDate: '2013-12-03T00:00:00Z', precededById: null, followedById: null },
+  { id: 10, name: 'The Rogue Prince', authors: ['George R. R. Martin'], releaseDate: '2014-06-17T00:00:00Z', precededById: null, followedById: null },
+  { id: 11, name: 'The World of Ice and Fire', authors: ['Elio Garcia', 'Linda Antonsson', 'George R. R. Martin'], releaseDate: '2014-10-28T00:00:00Z', precededById: null, followedById: null },
+  { id: 12, name: 'A Knight of the Seven Kingdoms', authors: ['George R. R. Martin'], releaseDate: '2015-10-06T00:00:00Z', precededById: null, followedById: null }
 ];
