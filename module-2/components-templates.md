@@ -23,16 +23,24 @@
 
 
 ## Standard web component
+
 * shadow DOM (isolation CSS)
 * template (html caché, réutilisable)
 * custom element
 
+
 ## Angular component
-### Création
-* 1 html, 1 css, 1 js
-* @Component
-* selector, template, style
-* controller
+
+### Création d'un composant de présenation
+ng generate component characters-grid --module app.module.ts
+
+* 1 html, 1 css, 1 ts
+  * @Component
+  * selector, template, style
+  * controller
+* 1 test karma
+* ajout au module
+
 
 
 

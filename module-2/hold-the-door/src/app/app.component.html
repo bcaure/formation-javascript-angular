@@ -39,17 +39,32 @@
     <p>
       <button mat-raised-button color="primary" (click)="load()">Load characters</button>
     </p>
-    <mat-grid-list cols="7" rowHeight="2:1" gutterSize="20px">
-      <ng-container *ngIf="!inProgress; else spinner">
+    <ng-container *ngIf="!inProgress; else spinner">
+      <mat-grid-list cols="7" rowHeight="2:1" gutterSize="20px">
         <mat-grid-tile *ngFor="let character of charactersAsync">
           <div class="char-card" [ngClass]="{'alias': !character.name}">
             {{ character.name?character.name:character.aliases[0] }}
           </div>
         </mat-grid-tile>
-      </ng-container>
-      <ng-template #spinner>
-        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
-      </ng-template>
-    </mat-grid-list>
+      </mat-grid-list>
+    </ng-container>
+    <ng-template #spinner>
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="Component">
+      <h3>Déplacer le code HTML et CSS à factoriser</h3>
+      <h3>Appeler la balise <strong>app-</strong>characters-grid</h3>
+    <h3>Ajout attribut @Input dans le controller et passer la liste des personages </h3>
+    <p>
+      <button mat-raised-button color="primary" (click)="load()">Load characters</button>
+    </p>
+    <ng-container *ngIf="!inProgress; else spinner">
+      <app-characters-grid [characters]="charactersAsync"></app-characters-grid>
+    </ng-container>
+    <ng-template #spinner>
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </ng-template>
   </mat-tab>
 </mat-tab-group>

@@ -8,11 +8,13 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatButtonModule} from '@angular/material/button';
 import { AppComponent } from './app.component';
+import { CharactersGridComponent } from './characters-grid/characters-grid.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CharactersGridComponent
   ],
   imports: [
     MatTabsModule,
