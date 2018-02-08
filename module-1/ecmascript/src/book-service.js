@@ -7,7 +7,10 @@ function findById(id) {
   return books.find(book => book.id === id);
 }
 
-function find(query = {}) {
+function find(query = {
+  sort: 'name',
+  order: 'asc',
+}) {
   let results = books;
   if (query.name) {
     results = results.filter(filterBy('name', query.name));
