@@ -1,6 +1,8 @@
+@import '../../theme.scss';
+
 mat-grid-tile {
     /* Add shadows to create the "card" effect */
-    background-color: lightgoldenrodyellow;    
+    background-color: $accent;    
     transition: 0.3s;
 }
 
@@ -11,5 +13,10 @@ mat-grid-tile:hover {
 
 .female {
     font-style: italic;
-    color: darkmagenta;
+    color: $warn;
+}
+
+
+.char-card {
+    padding: 10px;
 }

@@ -16,7 +16,7 @@
     <mat-grid-list cols="7" rowHeight="2:1" gutterSize="20px">
       <mat-grid-tile *ngFor="let character of characters">
         <div class="char-card">
-          {{ character.name?character.name:character.aliases[0] }}
+          {{ character.name }}
         </div>
       </mat-grid-tile>
     </mat-grid-list>
@@ -29,7 +29,7 @@
     <mat-grid-list cols="7" rowHeight="2:1" gutterSize="20px">
       <mat-grid-tile *ngFor="let character of characters">
         <div class="char-card" [ngClass]="{'female': character.isFemale}">
-          {{ character.name?character.name:character.aliases[0] }}
+          {{ character.name }}
         </div>
       </mat-grid-tile>
     </mat-grid-list>
@@ -45,7 +45,7 @@
       <mat-grid-list cols="7" rowHeight="2:1" gutterSize="20px">
         <mat-grid-tile *ngFor="let character of charactersAsync">
           <div [ngClass]="{'char-card': true, 'female': character.isFemale}">
-            {{ character.name?character.name:character.aliases[0] }}
+            {{ character.name }}
           </div>
         </mat-grid-tile>
       </mat-grid-list>
@@ -64,17 +64,21 @@
         <h3>Ajout @Input pour la liste des personages </h3>
         <h3>Afficher le personnage sélectionné sans utiliser @Output</h3>
       </div>
-      <div style="flex:1">
-        <h1 class="selected-char">{{ state?.selected?.name }}</h1>
+      <div class="selected-char-card" *ngIf="state1?.selected as selectedChar">
+        <div class="selected-char">{{ selectedChar.name }}</div>
+        <mat-radio-group [ngModel]="selectedChar.isFemale" ng-readonly="true">
+            <mat-radio-button [value]="false">Male</mat-radio-button>
+            <mat-radio-button [value]="true">Female</mat-radio-button>
+        </mat-radio-group>        
       </div>
     </div>
     <p>
-      <button mat-raised-button color="primary" (click)="loadState()">Load characters</button>
+      <button mat-raised-button color="primary" (click)="loadState1()">Load characters</button>
     </p>
-    <ng-container *ngIf="!inProgress; else spinner2">
-      <app-characters-grid [state]="state"></app-characters-grid>
+    <ng-container *ngIf="!inProgress; else spinner1">
+      <app-characters-grid [state]="state1"></app-characters-grid>
     </ng-container>
-    <ng-template #spinner2>
+    <ng-template #spinner1>
       <mat-progress-bar mode="indeterminate"></mat-progress-bar>
     </ng-template>
   </mat-tab>
@@ -84,9 +88,9 @@
       <div style="flex:3">
         <h3>Importer FormsModule from '@angular/forms';</h3>
         <h3>"2way databinding": nom du personnage sélectionné sur un input avec [(ngModel)]</h3>
-        <h3>Idem avec la propriété isFemale et des boutons radio: utiliser [ngModel], (change) et $event.value</h3>
+        <h3>Pour la propriété isFemale et les boutons radio: utiliser (change) et $event.value</h3>
       </div>
-      <div style="flex:1" *ngIf="state?.selected as selectedChar">
+      <div class="selected-char-card" *ngIf="state2?.selected as selectedChar">
         <mat-form-field>
           <input type="text" matInput [(ngModel)]="selectedChar.name">
         </mat-form-field>
@@ -97,10 +101,10 @@
       </div>
     </div>
     <p>
-      <button mat-raised-button color="primary" (click)="loadState()">Load characters</button>
+      <button mat-raised-button color="primary" (click)="loadState2()">Load characters</button>
     </p>
     <ng-container *ngIf="!inProgress; else spinner2">
-      <app-characters-grid [state]="state"></app-characters-grid>
+      <app-characters-grid [state]="state2"></app-characters-grid>
     </ng-container>
     <ng-template #spinner2>
       <mat-progress-bar mode="indeterminate"></mat-progress-bar>
@@ -108,30 +112,24 @@
   </mat-tab>
 
 
-  <mat-tab label="Output">
+  <mat-tab label="@Output">
       <div style="display: flex">
         <div style="flex:3">
           <h3>Mettre la carte du personnage dans un composant dédié</h3>
           <h3>"2way databinding": nom du personnage sélectionné sur un input avec [(ngModel)]</h3>
           <h3>Idem avec la propriété isFemale et des boutons radio: utiliser [ngModel], (change) et $event.value</h3>
         </div>
-        <div style="flex:1" *ngIf="state?.selected as selectedChar">
-          <mat-form-field>
-            <input type="text" matInput [(ngModel)]="selectedChar.name">
-          </mat-form-field>
-          <mat-radio-group [ngModel]="selectedChar.isFemale" (change)="selectedChar.isFemale = $event.value">
-            <mat-radio-button [value]="false">Male</mat-radio-button>
-            <mat-radio-button [value]="true">Female</mat-radio-button>
-          </mat-radio-group>
+        <div class="selected-char-card" *ngIf="state3?.selected as selectedChar">
+          <app-character [character]="selectedChar"></app-character>
         </div>
       </div>
       <p>
-        <button mat-raised-button color="primary" (click)="loadState()">Load characters</button>
+        <button mat-raised-button color="primary" (click)="loadState3()">Load characters</button>
       </p>
-      <ng-container *ngIf="!inProgress; else spinner2">
-        <app-characters-grid [state]="state"></app-characters-grid>
+      <ng-container *ngIf="!inProgress; else spinner3">
+        <app-characters-grid [state]="state3"></app-characters-grid>
       </ng-container>
-      <ng-template #spinner2>
+      <ng-template #spinner3>
         <mat-progress-bar mode="indeterminate"></mat-progress-bar>
       </ng-template>
     </mat-tab>

@@ -1,7 +1,7 @@
 <mat-grid-list cols="7" rowHeight="2:1" gutterSize="20px">
     <mat-grid-tile *ngFor="let character of state?.characters">
       <div [ngClass]="{'char-card': true, 'female': character.isFemale}" (click)="select(character)">
-        {{ character.name?character.name:character.aliases[0] }}
+        {{ character.name }}
       </div>
     </mat-grid-tile>
 </mat-grid-list>

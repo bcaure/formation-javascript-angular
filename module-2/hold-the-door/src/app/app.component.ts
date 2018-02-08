@@ -6,14 +6,16 @@ import { Observable } from 'rxjs/Observable';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   title = 'Game Of Thrones';
   characters: any;
   charactersAsync: any;
   books: any;
-  state: any;
+  state1: any;
+  state2: any;
+  state3: any;
   inProgress = false;
 
   constructor() {
@@ -24,16 +26,16 @@ export class AppComponent {
 
   load() {
     this.inProgress = true;
-    setTimeout(() =>  {
+    setTimeout(() => {
       this.charactersAsync = charactersData;
       this.inProgress = false;
     }, 2000);
   }
 
-  loadState() {
+  loadState1() {
     this.inProgress = true;
-    setTimeout(() =>  {
-      this.state = {
+    setTimeout(() => {
+      this.state1 = {
         characters: charactersData,
         selected: undefined
       };
@@ -41,7 +43,25 @@ export class AppComponent {
     }, 2000);
   }
 
-  radioChange(event) {
-    console.log(event);
+  loadState2() {
+    this.inProgress = true;
+    setTimeout(() => {
+      this.state2 = {
+        characters: charactersData,
+        selected: undefined
+      };
+      this.inProgress = false;
+    }, 2000);
+  }
+
+  loadState3() {
+    this.inProgress = true;
+    setTimeout(() => {
+      this.state3 = {
+        characters: charactersData,
+        selected: undefined
+      };
+      this.inProgress = false;
+    }, 2000);
   }
 }

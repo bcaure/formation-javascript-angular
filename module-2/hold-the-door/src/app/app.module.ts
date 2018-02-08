@@ -13,13 +13,15 @@ import { MatRadioModule } from '@angular/material/radio';
 
 import { AppComponent } from './app.component';
 import { CharactersGridComponent } from './characters-grid/characters-grid.component';
+import { CharacterComponent } from './character/character.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    CharactersGridComponent
+    CharactersGridComponent,
+    CharacterComponent
   ],
   imports: [
     MatTabsModule,

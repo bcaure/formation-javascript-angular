@@ -1,20 +1,26 @@
+@import '~@angular/material/theming';
+@import '../theme.scss';
+
+mat-tab-group {
+    color: $primary;
+    margin: 20px;    
+}
+
+
+
 .logo {
     width: 100%;
     background-color: black;
 }
 
-body {
-    margin: 20px;
-}
-
 .female {
     font-style: italic;
-    color: darkmagenta;
+    color: $warn;
 }
 
 mat-grid-tile {
     /* Add shadows to create the "card" effect */
-    background-color: lightgoldenrodyellow;    
+    background-color: $accent;    
     transition: 0.3s;
 }
 
@@ -23,10 +29,18 @@ mat-grid-tile:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
-.selected-char {
+.char-card {
+    padding: 10px;
+}
+
+.selected-char-card {
+    flex: 1;
+    border-left: 1px solid $primary;
     padding: 20px;
     min-width: 200px;
     min-height: 100px;
-    background-color: lightgoldenrodyellow;
-    margin: 20px
+    margin: 20px    
+}
+.selected-char {
+    margin-bottom: 20px;
 }

@@ -2,6 +2,7 @@
 * ng new hold-the-door
 * cd hold-the-door
 * ng serve --open
+* ng eject
 
 * copier data.js
 * ouvrir src/app/app.component.js
@@ -20,7 +21,22 @@
     * ngIf, ngFor, ngSwitch
     * quand on ne veut pas créer un composant à part entière : ngContainer, ngTemplate, ngTemplateOutlet
 
-
+## Angular material
+* yarn add @angular/material @angular/cdk
+* yarn add @angular/animations
+* app.module.ts:
+  ```
+    import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+    @NgModule({
+    ...
+    imports: [BrowserAnimationsModule],
+    ...
+    })
+  ```
+* rename styles.css to style.scss
+  ``` 
+    @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+  ```
 
 ## Standard web component
 
