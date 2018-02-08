@@ -13,7 +13,7 @@
 <kbd>Ctrl</kbd>+<kbd>K</kbd> <kbd>Ctrl</kbd>+<kbd>U</kbd>
 
 ## Format code
-<kbd>Alt</kbd>+<kbd>Shift</kbd>+<kdb>F</kdb>
+<kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd>
 
 ## Intellisense
 <kbd>Ctrl</kbd>+<kbd>Space</kbd>
