@@ -1,42 +1,30 @@
 # vscode
 
-## Navigate to a file
+## Shortcuts
+
+### Navigate to file
 <kbd>Ctrl</kbd>+<kbd>P</kbd>
 
-## Integrated terminal
+### Integrated terminal
 <kbd>Ctrl</kbd>+<kbd>ù</kbd>
 
-## Comment / Uncomment
+### Comment / Uncomment
 
 <kbd>Ctrl</kbd>+<kbd>K</kbd> <kbd>Ctrl</kbd>+<kbd>C</kbd>
 
 <kbd>Ctrl</kbd>+<kbd>K</kbd> <kbd>Ctrl</kbd>+<kbd>U</kbd>
 
-## Format code
+### Format code
 <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd>
 
-## Intellisense
+### Intellisense
 <kbd>Ctrl</kbd>+<kbd>Space</kbd>
 
-## Symbol navigation
+### Other useful shortcuts
+[https://code.visualstudio.com/docs/getstarted/tips-and-tricks](https://code.visualstudio.com/docs/getstarted/tips-and-tricks)
 
-### Go to symbol in file
-<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>O</kbd>
+## Extensions
 
-### Go to symbol in workspace
-<kbd>Ctrl</kbd>+<kbd>T</kbd>
+### eslint
 
-### Goto line
-<kbd>Ctrl</kbd>+<kbd>G</kbd>
-
-### Go to definition
-<kbd>F12</kbd>
-
-### See usage
-<kbd>Shift</kbd>+<kbd>F12</kbd>
-
-### Peek definition
-<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F12</kbd>
-
-### Rename symbol
-<kbd>F2</kbd>
+Extension, yarn/npm install, `eslint --init`, configurations
