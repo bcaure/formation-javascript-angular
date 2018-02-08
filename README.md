@@ -4,12 +4,11 @@
 
 # [Mise à niveau Javascript](./module-1/README.md)
 ## ECMAScript
-## TypeScript
 ## VSCode
 ## Webpack
 ## Devtools
-## RxJS
- 
+## TypeScript
+
 # Angular part 1
 ## [Templates et composants](module-2/components-templates.md)
 ## [Databinding et change detection](module-2/databinding.md)
@@ -21,6 +20,7 @@
 ## Les formulaires (module-3/ngForm.md)
 ## Les pipes (module-3/pipe.md)
 ## Les services, l'injection de dépendance, l'appel d'API
+## RxJS
 ### La portée des services (singletons, ...)
 ## Les modules
 ## Les tests
