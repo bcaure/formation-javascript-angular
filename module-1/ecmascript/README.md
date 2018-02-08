@@ -208,7 +208,7 @@ Object.assign({}, { foo: 'bar' }, { foo: 'baz', bar: 'baz' });
 
 ## Promise
 
-```
+```js
 new Promise((resolve, reject) => {
 
 });
@@ -222,19 +222,4 @@ Promise.resolve();
 Promise.reject();
 
 Promise.all([]);
-```
-
-## Modules
-
-```
-import foo from './foo';
-import { foo } from './foo'
-import { foo as Foo } from './foo'
-
-export default a
-
-export {
-  a,
-  b
-}
 ```
