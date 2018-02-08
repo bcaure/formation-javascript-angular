@@ -30,13 +30,13 @@
 <kbd>Ctrl</kbd>+<kbd>G</kbd>
 
 ### Go to definition
-<kdb>F12</kdb>
+<kbd>F12</kbd>
 
 ### See usage
-<kdb>Shift</kdb>+<kdb>F12</kdb>
+<kbd>Shift</kbd>+<kbd>F12</kbd>
 
 ### Peek definition
-<kdb>Ctrl</kdb>+<kdb>Shift</kdb>+<kdb>F12</kdb>
+<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F12</kbd>
 
 ### Rename symbol
-<kdb>F2</kdb>
+<kbd>F2</kbd>
