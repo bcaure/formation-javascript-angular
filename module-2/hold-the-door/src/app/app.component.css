@@ -7,7 +7,7 @@ body {
     margin: 20px;
 }
 
-.alias {
+.female {
     font-style: italic;
     color: darkmagenta;
 }
@@ -21,4 +21,12 @@ mat-grid-tile {
 /* On mouse-over, add a deeper shadow */
 mat-grid-tile:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.selected-char {
+    padding: 20px;
+    min-width: 200px;
+    min-height: 100px;
+    background-color: lightgoldenrodyellow;
+    margin: 20px
 }

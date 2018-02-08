@@ -7,11 +7,15 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class CharactersGridComponent implements OnInit {
 
-  @Input() characters: any;
+  @Input() state: any;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  select(it) {
+    this.state.selected = it;
   }
 
 }
