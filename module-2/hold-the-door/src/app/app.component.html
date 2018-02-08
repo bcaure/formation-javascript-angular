@@ -3,37 +3,53 @@
   <img width="300" alt="Angular Logo" src="https://static1.squarespace.com/static/52fc05c9e4b08fc45bd99090/5331dfe2e4b0f77da2ddde51/59ea491b6957da87771f8d48/1508527334950/102017-conquest-fightforbanner-1024x576.jpg?format=1500w">
 </div>
 
-<div class="chapter">
-  <h2>
-    <div>Utiliser ngFor pour lister les personnages</div>
-    <div>Utiliser l'opérateur ternaire pour afficher "name" ou "alias" : </div>
-  </h2>
-  <div class="container">
-    <div *ngFor="let character of characters" class="card">
-      {{ character.name?character.name:character.aliases[0] }}
-    </div>
-  </div>
-</div>
+<mat-tab-group>
+  <mat-tab label="ngFor">
+    <h2>
+      Utiliser ngFor pour lister les personnages
+    </h2>
+    <h3>
+      Utiliser l'opérateur ternaire pour afficher "name" ou "alias" :
+    </h3>
+    <mat-grid-list cols="7" rowHeight="2:1" gutterSize="20px">
+      <mat-grid-tile *ngFor="let character of characters">
+        <div class="char-card">
+          {{ character.name?character.name:character.aliases[0] }}
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-tab>
 
-<div class="chapter">
-  <h2>
-    <div>Utiliser ngClass pour ...</div>
-  </h2>
-  <div class="container">
-    <div *ngFor="let character of characters" class="card">
-      {{ character.name?character.name:character.aliases[0] }}
-    </div>
-  </div>
-</div>
+  <mat-tab label="ngClass">
+    <h2>
+      Utiliser ngClass pour mettre en italic les alias
+    </h2>
+    <mat-grid-list cols="7" rowHeight="2:1" gutterSize="20px">
+      <mat-grid-tile *ngFor="let character of characters">
+        <div class="char-card" [ngClass]="{'alias': !character.name}">
+          {{ character.name?character.name:character.aliases[0] }}
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-tab>
 
-<div class="chapter">
-  <h2>
-    <div>Mettre setTimeout pour simuler une requête http un peu longue </div>
-    <div>Utiliser ngTemplate pour afficher un spinner</div>
-  </h2>
-  <div class="container">
-      <div *ngFor="let character of characters" class="card">
-        {{ character.name?character.name:character.aliases[0] }}
-      </div>
-    </div>
-  </div>
+  <mat-tab label="ngTemplate">
+    <h2>Mettre setTimeout pour simuler une requête http un peu longue </h2>
+    <h3>Utiliser ngTemplate pour afficher un spinner</h3>
+    <p>
+      <button mat-raised-button color="primary" (click)="load()">Load characters</button>
+    </p>
+    <mat-grid-list cols="7" rowHeight="2:1" gutterSize="20px">
+      <ng-container *ngIf="!inProgress; else spinner">
+        <mat-grid-tile *ngFor="let character of charactersAsync">
+          <div class="char-card" [ngClass]="{'alias': !character.name}">
+            {{ character.name?character.name:character.aliases[0] }}
+          </div>
+        </mat-grid-tile>
+      </ng-container>
+      <ng-template #spinner>
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+      </ng-template>
+    </mat-grid-list>
+  </mat-tab>
+</mat-tab-group>

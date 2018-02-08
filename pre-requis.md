@@ -8,3 +8,5 @@
     + FullyQualifiedErrorId : UnrecognizedToken
 
 *c'est que vous êtes dans un term powershell ou vscode => lancer la commande dans un cmd*
+
+*se connecter sur slack*

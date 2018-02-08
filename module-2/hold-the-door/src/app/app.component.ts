@@ -11,9 +11,17 @@ export class AppComponent {
   title = 'Game Of Thrones';
   characters: any;
   charactersAsync: any;
+  inProgress = false;
 
   constructor() {
     this.characters = data;
-    setTimeout(() =>  this.charactersAsync = data , 2000);
+  }
+
+  load() {
+    this.inProgress = true;
+    setTimeout(() =>  {
+      this.charactersAsync = data;
+      this.inProgress = false;
+    }, 2000);
   }
 }
