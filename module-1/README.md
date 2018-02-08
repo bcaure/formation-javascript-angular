@@ -1,6 +1,6 @@
 # Remise à niveau
 
-- [ ] [VSCode](./vscode/README.md)
+- [x] [VSCode](./vscode/README.md)
 
 > Add intro on ES6 variables?
 - [x] [Webpack ECMAScript](./webpack/README.md)
