@@ -26,7 +26,7 @@
 ### Go to symbol in workspace
 <kbd>Ctrl</kbd>+<kbd>T</kbd>
 
-## Goto line
+### Goto line
 <kbd>Ctrl</kbd>+<kbd>G</kbd>
 
 ### Go to definition
