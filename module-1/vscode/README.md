@@ -23,8 +23,14 @@
 ### Other useful shortcuts
 [https://code.visualstudio.com/docs/getstarted/tips-and-tricks](https://code.visualstudio.com/docs/getstarted/tips-and-tricks)
 
+## Git integration
+
+Git init, git diff, git commit git push
+
 ## Extensions
 
 ### eslint
+> Extension, yarn/npm install, `eslint --init`, configurations
 
-Extension, yarn/npm install, `eslint --init`, configurations
+### Debugger for Chrome
+> Use it in webpack "debug" part
