@@ -22,19 +22,22 @@
   ``` 
     @import "~@angular/material/prebuilt-themes/indigo-pink.css";
   ```
+  
 * copier dans app.component.html
   ```
-<mat-grid-list cols="4" rowHeight="2:1" gutterSize="20px">
-  <mat-grid-tile [style.background]="'lightblue'">toto</mat-grid-tile>
-  <mat-grid-tile>titi</mat-grid-tile>
-  <mat-grid-tile [style.background]="'lightblue'">tata</mat-grid-tile>
-  <mat-grid-tile>tonton</mat-grid-tile>
-  <mat-grid-tile>tutu</mat-grid-tile>
-  <mat-grid-tile [style.background]="'lightblue'">tati</mat-grid-tile>
-  <mat-grid-tile>prout</mat-grid-tile>
-</mat-grid-list>
+  <mat-grid-list cols="4" rowHeight="2:1" gutterSize="20px">
+    <mat-grid-tile [style.background]="'lightblue'">toto</mat-grid-tile>
+    <mat-grid-tile>titi</mat-grid-tile>
+    <mat-grid-tile [style.background]="'lightblue'">tata</mat-grid-tile>
+    <mat-grid-tile>tonton</mat-grid-tile>
+    <mat-grid-tile>tutu</mat-grid-tile>
+    <mat-grid-tile [style.background]="'lightblue'">tati</mat-grid-tile>
+    <mat-grid-tile>prout</mat-grid-tile>
+  </mat-grid-list>
   ```  
+  
 * rajouter le module grid dans app.module.ts:
+
   ```
     import { MatGridListModule } from '@angular/material/grid-list';
     @NgModule({
@@ -43,6 +46,7 @@
     ...
     })
   ```
+  
 * vérifier le rendu
 
 ## Angular template
