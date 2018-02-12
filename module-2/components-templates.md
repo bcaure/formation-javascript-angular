@@ -1,12 +1,17 @@
 ### Créer l'app
+* pré-requis : 
+   * node 8.7+
+   * npm 5.6.0+ 
+   * yarn 1.3.2+ 
+   * @angular/cli 1.6.8
 * ng new hold-the-door
 * cd hold-the-door
 * ng serve --open
 * ng eject
 
-* copier data.js
+* copier répertoire data et model
 * ouvrir src/app/app.component.js
-* importer data from data.js
+* importer les données de data comme attribut du controller
 
 
 ## Angular template
