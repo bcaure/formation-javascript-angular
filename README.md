@@ -30,3 +30,7 @@
 * quand peut-on considérer que l'approche redux devient utile?
 * Angular Reactiveform
 * Redux avec NgRx
+* trucs et astuces quand build marche pas :
+    * npm cache clean
+    * supprimer node_modules à la main
+    * supprimer package-lock.json 
