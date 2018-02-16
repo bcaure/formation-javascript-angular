@@ -116,8 +116,8 @@
       <div style="display: flex">
         <div style="flex:3">
           <h3>Mettre la carte du personnage dans un composant dédié</h3>
-          <h3>"2way databinding": nom du personnage sélectionné sur un input avec [(ngModel)]</h3>
-          <h3>Idem avec la propriété isFemale et des boutons radio: utiliser [ngModel], (change) et $event.value</h3>
+          <h3>Ne plus passer le state au composant character-grid, mais seulement la liste des persos en entrée</h3>
+          <h3>et le personnage sélectionné en sortie</h3>
         </div>
         <div class="selected-char-card" *ngIf="state3?.selected as selectedChar">
           <app-character [character]="selectedChar"></app-character>
