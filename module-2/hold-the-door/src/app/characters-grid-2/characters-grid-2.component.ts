@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
-import { EventEmitter } from 'protractor';
+import { EventEmitter } from 'events';
 
 @Component({
   selector: 'app-characters-grid-2',
