@@ -127,7 +127,7 @@
         <button mat-raised-button color="primary" (click)="loadState3()">Load characters</button>
       </p>
       <ng-container *ngIf="!inProgress; else spinner3">
-        <app-characters-grid-2 [characters]="state3.characters" (selectCharacter)="select3($event)"></app-characters-grid>
+        <app-characters-grid-2 [characters]="state3.characters" (selectCharacter)="select3($event)"></app-characters-grid-2>
       </ng-container>
       <ng-template #spinner3>
         <mat-progress-bar mode="indeterminate"></mat-progress-bar>

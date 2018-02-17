@@ -1,4 +1,11 @@
 class Character {
+
+  id: number;
+  name: string;
+  isFemale: boolean;
+  house: number;
+  books: number[];
+
   /**
    * @constructor
    * @param {Object} props - character properties

@@ -1,4 +1,8 @@
 class House {
+
+  id: number;
+  name: string;
+
   /**
    * @constructor
    * @param {Object} props - house properties

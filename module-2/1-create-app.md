@@ -52,4 +52,5 @@
     })
   ```
   
-* ng serve => vérifier le rendu
+* ng serve --open 
+ ===> vérifier le rendu

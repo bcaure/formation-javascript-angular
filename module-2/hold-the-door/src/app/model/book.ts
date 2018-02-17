@@ -1,4 +1,9 @@
 class Book {
+  id: number;
+  name: string;
+  authors: string[];
+  releaseDate: Date;
+  
   /**
    * @constructor
    * @param {Object} props - book properties
