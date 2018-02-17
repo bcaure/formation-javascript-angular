@@ -64,4 +64,7 @@ export class AppComponent {
       this.inProgress = false;
     }, 2000);
   }
+  select3(character) {
+    this.state3.selected = character;
+  }
 }

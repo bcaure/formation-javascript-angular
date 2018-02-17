@@ -1,0 +1,22 @@
+@import '../../theme.scss';
+
+mat-grid-tile {
+    /* Add shadows to create the "card" effect */
+    background-color: $accent;    
+    transition: 0.3s;
+}
+
+/* On mouse-over, add a deeper shadow */
+mat-grid-tile:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.female {
+    font-style: italic;
+    color: $warn;
+}
+
+
+.char-card {
+    padding: 10px;
+}

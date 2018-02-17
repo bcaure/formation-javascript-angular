@@ -115,9 +115,9 @@
   <mat-tab label="@Output">
       <div style="display: flex">
         <div style="flex:3">
-          <h3>Mettre la carte du personnage dans un composant dédié</h3>
-          <h3>"2way databinding": nom du personnage sélectionné sur un input avec [(ngModel)]</h3>
-          <h3>Idem avec la propriété isFemale et des boutons radio: utiliser [ngModel], (change) et $event.value</h3>
+          <h3>Mettre la carte du personnage dans un composant dédié prenant un objet character</h3>
+          <h3>Transformer le composant app-characters-grid pour ne plus passer le state, seulement les characters</h3>
+          <h3></h3>
         </div>
         <div class="selected-char-card" *ngIf="state3?.selected as selectedChar">
           <app-character [character]="selectedChar"></app-character>
@@ -127,7 +127,7 @@
         <button mat-raised-button color="primary" (click)="loadState3()">Load characters</button>
       </p>
       <ng-container *ngIf="!inProgress; else spinner3">
-        <app-characters-grid [state]="state3"></app-characters-grid>
+        <app-characters-grid-2 [characters]="state3.characters" (selectCharacter)="select3($event)"></app-characters-grid>
       </ng-container>
       <ng-template #spinner3>
         <mat-progress-bar mode="indeterminate"></mat-progress-bar>
