@@ -1,8 +1,7 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "project": {
-    "name": "hold-the-door",
-    "ejected": true
+    "name": "hold-the-door"
   },
   "apps": [
     {
@@ -20,7 +19,7 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "styles.scss"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",
@@ -55,8 +54,7 @@
     }
   },
   "defaults": {
-    "styleExt": "css",
-    "component": {
-    }
+    "styleExt": "scss",
+    "component": {}
   }
 }
