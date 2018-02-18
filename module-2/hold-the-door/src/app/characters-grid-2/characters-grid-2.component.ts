@@ -1,5 +1,5 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
-import { EventEmitter } from 'events';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Character } from '../model/character';
 
 @Component({
   selector: 'app-characters-grid-2',
@@ -9,14 +9,14 @@ import { EventEmitter } from 'events';
 export class CharactersGrid2Component implements OnInit {
 
   @Input() characters: any;
-  @Output() selectCharacter: EventEmitter;
+  @Output() select = new EventEmitter<Character>();
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  select(it) {
-    this.selectCharacter.emit(it);
+  onSelect(it: Character) {
+    this.select.emit(it);
   }
 }
