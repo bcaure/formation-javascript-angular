@@ -1,9 +1,12 @@
+import { Character } from './character';
+
 class Book {
   id: number;
   name: string;
   authors: string[];
   releaseDate: Date;
-  
+  characters: Character[];
+
   /**
    * @constructor
    * @param {Object} props - book properties

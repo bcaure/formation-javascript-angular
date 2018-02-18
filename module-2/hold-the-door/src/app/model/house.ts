@@ -1,7 +1,10 @@
+import { Character } from './character';
+
 class House {
 
   id: number;
   name: string;
+  characters: Character[];
 
   /**
    * @constructor

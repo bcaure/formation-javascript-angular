@@ -9,12 +9,14 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
-import { MatRadioModule } from '@angular/material/radio';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 import { AppComponent } from './app.component';
 import { CharactersGridComponent } from './characters-grid/characters-grid.component';
 import { CharacterComponent } from './character/character.component';
 import { CharactersGrid2Component } from './characters-grid-2/characters-grid-2.component';
+import { PanelWithListComponent } from './panel-with-list/panel-with-list.component';
 
 
 
@@ -23,7 +25,8 @@ import { CharactersGrid2Component } from './characters-grid-2/characters-grid-2.
     AppComponent,
     CharactersGridComponent,
     CharacterComponent,
-    CharactersGrid2Component
+    CharactersGrid2Component,
+    PanelWithListComponent
   ],
   imports: [
     MatTabsModule,
@@ -34,6 +37,7 @@ import { CharactersGrid2Component } from './characters-grid-2/characters-grid-2.
     MatButtonModule,
     MatInputModule,
     MatRadioModule,
+    MatExpansionModule,
     BrowserModule,
     FormsModule
   ],

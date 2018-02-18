@@ -67,9 +67,9 @@
       <div class="selected-char-card" *ngIf="state1?.selected as selectedChar">
         <div class="selected-char">{{ selectedChar.name }}</div>
         <mat-radio-group [ngModel]="selectedChar.isFemale" ng-readonly="true">
-            <mat-radio-button [value]="false">Male</mat-radio-button>
-            <mat-radio-button [value]="true">Female</mat-radio-button>
-        </mat-radio-group>        
+          <mat-radio-button [value]="false">Male</mat-radio-button>
+          <mat-radio-button [value]="true">Female</mat-radio-button>
+        </mat-radio-group>
       </div>
     </div>
     <p>
@@ -113,23 +113,30 @@
 
 
   <mat-tab label="{{ title6 }}">
-      <div style="display: flex">
-        <div style="flex:3">
-          <h3>Mettre la carte du personnage dans un composant dédié prenant un objet character</h3>
-          <h3>Transformer le composant app-characters-grid pour ne plus passer le state, seulement les characters</h3>
-          <h3></h3>
+    <div style="display: flex">
+      <div style="flex:3">
+        <h3>Mettre la carte du personnage dans un composant dédié prenant un objet character</h3>
+        <h3>Transformer le composant app-characters-grid pour ne plus passer le state, seulement les characters</h3>
+        <h3></h3>
+      </div>
+      <div class="selected-char-card" *ngIf="state3?.selected as selectedChar">
+        <app-character [character]="selectedChar"></app-character>
+      </div>
+    </div>
+    <ng-container *ngIf="!inProgress; else spinner3">
+      <div *ngIf="state3" style="display: flex">
+        <div *ngIf="state3.books" style="flex: 1">
+          <h4>Books</h4>
+          <app-panel-with-list *ngFor="let book of state3.books" [object]="book"></app-panel-with-list>
         </div>
-        <div class="selected-char-card" *ngIf="state3?.selected as selectedChar">
-          <app-character [character]="selectedChar"></app-character>
+        <div *ngIf="state3.houses" style="flex: 1; margin-left: 20px">
+          <h4>Houses</h4>
+          <app-panel-with-list *ngFor="let house of state3.houses" [object]="house"></app-panel-with-list>
         </div>
       </div>
-      <ng-container *ngIf="!inProgress; else spinner3">
-        <ng-container *ngIf="state3 && state3.characters">
-          <app-characters-grid-2 [characters]="state3.characters" (select)="select3($event)"></app-characters-grid-2>
-        </ng-container>
-      </ng-container>
-      <ng-template #spinner3>
-        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
-      </ng-template>
-    </mat-tab>
+    </ng-container>
+    <ng-template #spinner3>
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </ng-template>
+  </mat-tab>
 </mat-tab-group>

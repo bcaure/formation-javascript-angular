@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import charactersData from './data/characters';
 import booksData from './data/books';
+import housesData from './data/houses';
 import { Observable } from 'rxjs/Observable';
 import { Character } from './model/character';
 import { Book } from './model/book';
 import { MatTabChangeEvent } from '@angular/material/tabs';
+import { House } from './model/house';
 
 @Component({
   selector: 'app-root',
@@ -13,14 +15,12 @@ import { MatTabChangeEvent } from '@angular/material/tabs';
 })
 export class AppComponent {
   title = 'Game Of Thrones';
-  books: Book[];
 
   /** Example 1 & 2 */
   characters: Character[];
   constructor() {
     charactersData.splice(0, 1900);
     this.characters = charactersData.map(props => new Character(props));
-    this.books = booksData.map(props => new Book(props));
   }
 
   /** Example 3 */
@@ -66,13 +66,22 @@ export class AppComponent {
   // tslint:disable-next-line:member-ordering
   readonly title6 = '6) @Output';
   // tslint:disable-next-line:member-ordering
-  state3: { characters: Character[], selected: Character };
+  state3: { books: Book[], houses: House[], selected: Character };
   tabChange(event: MatTabChangeEvent): void {
     if (event.tab.textLabel === this.title6) {
       this.inProgress = true;
       setTimeout(() => {
         this.state3 = {
-          characters: charactersData.map(props => new Character(props)),
+          books: booksData.map(props => {
+            const b = new Book(props);
+            b.characters = charactersData.filter(character => character.books.includes(b.id));
+            return b;
+          }),
+          houses: housesData.map(props => {
+            const h = new House(props);
+            h.characters = charactersData.filter(character => character.house === h.id);
+            return h;
+          }),
           selected: undefined
         };
         this.inProgress = false;

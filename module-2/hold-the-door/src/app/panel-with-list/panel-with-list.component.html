@@ -1,0 +1,11 @@
+<mat-expansion-panel>
+
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      {{ object.name }}
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+
+  <app-characters-grid-2 [characters]="object.characters" (select)="select3($event)"></app-characters-grid-2>
+
+</mat-expansion-panel>
