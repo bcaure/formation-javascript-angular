@@ -4,6 +4,7 @@ import booksData from './data/books';
 import { Observable } from 'rxjs/Observable';
 import { Character } from './model/character';
 import { Book } from './model/book';
+import { MatTabChangeEvent } from '@angular/material/tabs';
 
 @Component({
   selector: 'app-root',
@@ -12,20 +13,19 @@ import { Book } from './model/book';
 })
 export class AppComponent {
   title = 'Game Of Thrones';
-  characters: Character[];
-  charactersAsync: Character[];
   books: Book[];
-  state1: { characters: Character[], selected: Character };
-  state2: { characters: Character[], selected: Character };
-  state3: { characters: Character[], selected: Character };
-  inProgress = false;
 
+  /** Example 1 & 2 */
+  characters: Character[];
   constructor() {
     charactersData.splice(0, 1900);
     this.characters = charactersData.map(props => new Character(props));
     this.books = booksData.map(props => new Book(props));
   }
 
+  /** Example 3 */
+  charactersAsync: Character[];
+  inProgress = false;
   load(): void {
     this.inProgress = true;
     setTimeout(() => {
@@ -34,6 +34,9 @@ export class AppComponent {
     }, 2000);
   }
 
+  /** Example 4 */
+  // tslint:disable-next-line:member-ordering
+  state1: { characters: Character[], selected: Character };
   loadState1(): void {
     this.inProgress = true;
     setTimeout(() => {
@@ -45,6 +48,9 @@ export class AppComponent {
     }, 2000);
   }
 
+  /** Example 5 */
+  // tslint:disable-next-line:member-ordering
+  state2: { characters: Character[], selected: Character };
   loadState2(): void {
     this.inProgress = true;
     setTimeout(() => {
@@ -56,15 +62,22 @@ export class AppComponent {
     }, 2000);
   }
 
-  loadState3(): void {
-    this.inProgress = true;
-    setTimeout(() => {
-      this.state3 = {
-        characters: charactersData.map(props => new Character(props)),
-        selected: undefined
-      };
-      this.inProgress = false;
-    }, 2000);
+  /** Example 6 */
+  // tslint:disable-next-line:member-ordering
+  readonly title6 = '6) @Output';
+  // tslint:disable-next-line:member-ordering
+  state3: { characters: Character[], selected: Character };
+  tabChange(event: MatTabChangeEvent): void {
+    if (event.tab.textLabel === this.title6) {
+      this.inProgress = true;
+      setTimeout(() => {
+        this.state3 = {
+          characters: charactersData.map(props => new Character(props)),
+          selected: undefined
+        };
+        this.inProgress = false;
+      }, 1000);
+    }
   }
 
   select3(character): void {

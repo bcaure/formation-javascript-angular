@@ -3,10 +3,10 @@
   <img width="300" alt="Angular Logo" src="https://static1.squarespace.com/static/52fc05c9e4b08fc45bd99090/5331dfe2e4b0f77da2ddde51/59ea491b6957da87771f8d48/1508527334950/102017-conquest-fightforbanner-1024x576.jpg?format=1500w">
 </div>
 
-<mat-tab-group>
+<mat-tab-group (selectedTabChange)="tabChange($event)">
 
 
-  <mat-tab label="ngFor">
+  <mat-tab label="1) ngFor">
     <h2>
       Utiliser ngFor pour lister les personnages
     </h2>
@@ -22,7 +22,7 @@
     </mat-grid-list>
   </mat-tab>
 
-  <mat-tab label="ngClass">
+  <mat-tab label="2) ngClass">
     <h2>
       Utiliser ngClass pour mettre en italic les femmes
     </h2>
@@ -35,7 +35,7 @@
     </mat-grid-list>
   </mat-tab>
 
-  <mat-tab label="ngTemplate">
+  <mat-tab label="3) ngTemplate">
     <h2>Mettre setTimeout pour simuler une requête http un peu longue </h2>
     <h3>Utiliser ngTemplate pour afficher un spinner</h3>
     <p>
@@ -55,7 +55,7 @@
     </ng-template>
   </mat-tab>
 
-  <mat-tab label="Component">
+  <mat-tab label="4) Component">
     <div style="display: flex">
       <div style="flex:3">
         <h3>Déplacer le code HTML et CSS à factoriser</h3>
@@ -83,7 +83,7 @@
     </ng-template>
   </mat-tab>
 
-  <mat-tab label="Databinding">
+  <mat-tab label="5) Databinding">
     <div style="display: flex">
       <div style="flex:3">
         <h3>Importer FormsModule from '@angular/forms';</h3>
@@ -112,7 +112,7 @@
   </mat-tab>
 
 
-  <mat-tab label="@Output">
+  <mat-tab label="{{ title6 }}">
       <div style="display: flex">
         <div style="flex:3">
           <h3>Mettre la carte du personnage dans un composant dédié prenant un objet character</h3>
@@ -123,9 +123,6 @@
           <app-character [character]="selectedChar"></app-character>
         </div>
       </div>
-      <p>
-        <button mat-raised-button color="primary" (click)="loadState3()">Load characters</button>
-      </p>
       <ng-container *ngIf="!inProgress; else spinner3">
         <ng-container *ngIf="state3 && state3.characters">
           <app-characters-grid-2 [characters]="state3.characters" (select)="select3($event)"></app-characters-grid-2>
