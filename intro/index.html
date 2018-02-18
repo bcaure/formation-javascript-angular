@@ -1,0 +1,168 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>reveal.js</title>
+
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/black.css">
+
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/css/zenburn.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        <img src="images/angular.svg" width="256" />
+        <h1>Formation Angular</h1>
+      </section>
+
+      <!-- JavaScript? -->
+      <section>
+        <section>
+          <h2>JavaScript?</h2>
+        </section>
+        <section>
+          <h3>
+            <span>HTML</span>
+            <span class="fragment fade-in" data-fragment-index="0">+ CSS</span>
+            <span class="fragment fade-in" data-fragment-index="1">+ JS</span>
+          </h3>
+          <table>
+            <tr>
+              <td width="192" align="center">
+                <img src="./images/html.svg" width="64" height="64" />
+              </td>
+              <td class="fragment fade-in" data-fragment-index="0" width="192" align="center">
+                <img src="./images/css.svg" width="64" height="64" />
+              </td>
+              <td class="fragment fade-in" data-fragment-index="1" width="192" align="center">
+                <img src="./images/javascript.svg" width="64" height="64" />
+              </td>
+            </tr>
+            <tr>
+              <td align="center">Données</td>
+              <td class="fragment fade-in" data-fragment-index="0" align="center">Style</td>
+              <td class="fragment fade-in" data-fragment-index="1" align="center">UX &amp; AJAX</em>
+              </td>
+            </tr>
+          </table>
+        </section>
+        <section>
+          <h2>"UX"</h2>
+          <img src="./images/javascript-menu.gif" />
+        </section>
+        <section>
+          <h2>DOM manipulation</h2>
+          <img class="fragment fade-in" data-fragment-index="0" src="./images/simple-card.png" width="200" />
+          <pre class="fragment fade-in" data-fragment-index="1"><code class="html">&lt;div class="article"&gt;
+  &lt;img src="http://placebacon.net/400/300" /&gt;
+  &lt;a href="https://baconipsum.com/"&gt;
+    &lt;h2&gt;Bacon Ipsum&lt;/h2&gt;
+  &lt;/a&gt;
+  &lt;p&gt;Strip steak ham pork belly doner&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+        </section>
+        <section>
+          <h2>JavaScript</h2>
+          <pre><code class="js">function createArticle(article) {
+    var $article = document.createElement('div');
+    $article.className = 'article';
+    var $articleImage = document.createElement('img');
+    $articleImage.src = article.image;
+    $article.appendChild($articleImage);
+    var $articleLink = document.createElement('a');
+    $articleLink.href = article.link;
+    var $articleTitle = document.createElement('h2');
+    $articleTitle.textContent = article.title;
+    $articleLink.appendChild($articleTitle);
+    $article.appendChild($articleLink);
+    var $articleExcerpt = document.createElement('p');
+    $articleExcerpt.textContent = article.excerpt;
+    $article.appendChild($articleExcerpt);
+    return $article;
+  }</code></pre>
+        </section>
+        <section data-background="./images/nope.gif"></section>
+        <section>
+          <h2>jQuery</h2>
+          <pre><code class="js">function createArticlejQuery(article) {
+  return $('&lt;div class="article"&gt;')
+    .append($('&lt;img&gt;').attr('src', article.image))
+    .append($('&lt;a&gt;').attr('href', article.link)
+      .append($('&lt;h2&gt;').text(article.title)))
+    .append($('&lt;p&gt;').text(article.excerpt));
+}</code></pre>
+          <p class="fragment fade-in" data-fragment-index="0">Mieux...</p>
+          <p class="fragment fade-in" data-fragment-index="1">Mais où est passé l'HTML ?</p>
+        </section>
+        <section>
+          <h3>Quelques années plus tard...</h3>
+          <h2 class="fragment fade-in" data-fragment-index="0">AngularJS</h2>
+          <pre class="fragment fade-in" data-fragment-index="1"><code class="html">&lt;div class="article"&gt;
+  &lt;img src="{{article.image}}" /&gt;
+  &lt;a href="{{article.link}}"&gt;
+    &lt;h2&gt;{{article.title}}&lt;/h2&gt;
+  &lt;/a&gt;
+  &lt;p&gt;{{article.excerpt}}&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+        </section>
+
+        <section>
+          <h3>Le frontend commence à se structurer</h3>
+          <img src="./images/angularjs-architecture.svg" />
+        </section>
+      </section>
+      
+      <!-- Angular -->
+      <section>
+        <section>
+          <img src="images/angular.svg" width="256" />
+          <h2>Angular<strike>JS</strike></h2>
+        </section>
+
+        <section>
+          <h3>AngularJS n'est pas parfait</h3>
+          <ul>
+            <li>Peu performant (détection des changements)</li>
+            <li>Difficilement scalable (code-splitting)</li>
+            <li>Peu d'outillage</li>
+          </ul>
+        </section>
+      </section>
+    </div>
+  </div>
+
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.js"></script>
+
+  <script>
+    // More info about config & dependencies:
+    // - https://github.com/hakimel/reveal.js#configuration
+    // - https://github.com/hakimel/reveal.js#dependencies
+    Reveal.initialize({
+      dependencies: [
+        { src: 'plugin/markdown/marked.js' },
+        { src: 'plugin/markdown/markdown.js' },
+        { src: 'plugin/notes/notes.js', async: true },
+        { src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } }
+      ]
+    });
+  </script>
+</body>
+
+</html>
