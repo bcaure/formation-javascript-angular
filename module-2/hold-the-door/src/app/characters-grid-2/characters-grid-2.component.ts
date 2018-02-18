@@ -8,7 +8,7 @@ import { Character } from '../model/character';
 })
 export class CharactersGrid2Component implements OnInit {
 
-  @Input() characters: any;
+  @Input() characters: Character[];
   @Output() select = new EventEmitter<Character>();
 
   constructor() { }

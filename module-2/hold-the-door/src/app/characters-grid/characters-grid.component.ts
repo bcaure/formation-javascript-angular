@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Character } from '../model/character';
 
 @Component({
   selector: 'app-characters-grid',
@@ -7,14 +8,14 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class CharactersGridComponent implements OnInit {
 
-  @Input() state: any;
+  @Input() state: {characters: Character[], selected: Character};
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  select(it) {
+  select(it: Character): void {
     this.state.selected = it;
   }
 
