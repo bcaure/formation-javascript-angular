@@ -2,7 +2,7 @@
 
 mat-grid-tile {
     /* Add shadows to create the "card" effect */
-    background-color: $accent;    
+    border: 1px $accent solid;
     transition: 0.3s;
 }
 
