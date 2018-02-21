@@ -15,9 +15,9 @@
 ## [Cycle de vie](module-2/5-lifecycle.md)
 
 # Angular part 2
-## Les variables de templates (module-3/template-var.md)
-## Les formulaires (module-3/ngForm.md)
-## Les pipes (module-3/pipe.md)
+## [Les variables de templates](module-3/template-var.md)
+## [Les formulaires](module-3/ngForm.md)
+## [Les pipes](module-3/pipe.md)
 ## Les services, l'injection de dépendance, l'appel d'API
 ## RxJS
 ### La portée des services (singletons, ...)
