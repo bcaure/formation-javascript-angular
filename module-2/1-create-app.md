@@ -1,9 +1,4 @@
 ## Créer l'app
-* pré-requis : 
-   * node 8.7+
-   * npm 5.6.0+ 
-   * yarn 1.3.2+ 
-   * @angular/cli 1.6.8
 * ng new hold-the-door --style=scss
 * cd hold-the-door
 * ng serve --open
