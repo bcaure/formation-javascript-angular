@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Character } from '../model/character';
 
 @Component({
@@ -6,13 +6,15 @@ import { Character } from '../model/character';
   templateUrl: './panel-with-list.component.html',
   styleUrls: ['./panel-with-list.component.scss']
 })
-export class PanelWithListComponent implements OnInit {
+export class PanelWithListComponent {
 
   @Input() object: { name: string, characters: Character[] };
 
+  @Output() select = new EventEmitter<Character>();
+
   constructor() { }
 
-  ngOnInit() {
+  onSelect(it: Character) {
+    this.select.emit(it);
   }
-
 }
