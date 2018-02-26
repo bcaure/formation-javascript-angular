@@ -28,14 +28,13 @@
     <div class="slides">
       <section>
         <img class="plain" src="images/angular.svg" width="256" />
-        <h1>Formation Angular</h1>
-        <h2>Module 1</h2>
+        <h2>Back to basics</h2>
       </section>
 
       <section>
         <section>
           <img class="plain" src="./images/toolbox.png" width="256" />
-          <h2>Environnement de développement</h2>
+          <h3>Environnement de développement</h3>
         </section>
         <section>
           <h3>Bien choisir ses outils</h3>
@@ -46,6 +45,14 @@
           <h3>Node &amp; npm</h3>
           <pre><code class="shell">node -v</code></pre>
           <pre><code class="shell">npm -v</code></pre>
+        </section>
+        <section>
+          <img class="plain" src="images/chrome.svg" width="256" />
+          <h3>Chrome</h3>
+          <p>
+            <p class="fragment fadeIn" data-fragement-index="0">Mais testez sur Firefox !</p>
+            <em class="fragment fadeIn" data-fragement-index="1">et IE...</em>
+          </p>
         </section>
         <section>
           <img class="plain" src="images/vscode.svg" width="256" />
@@ -194,6 +201,86 @@ console.log(add(19, 23));</code></pre>
   devtool: 'source-map',
   ...
 };</code></pre>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <img class="plain" src="./images/ecmascript.png" width="256" />
+          <h3>ECMAScript</h3>
+        </section>
+
+        <section>
+          <h3>ECMAScript</h3>
+          <p>ECMAScript est la norme du JavaScript</p>
+          <p>Évolution rapide depuis quelques années :</p>
+          <ul>
+            <li>classes</li>
+            <li>isolation de scope</li>
+            <li>shorthands</li>
+            <li>modules</li>
+            <li>tableaux typés</li>
+            <li>web components</li>
+            <li>...</li>
+          </ul>
+        </section>
+
+        <section>
+          <p>Pas entièrement supporté par tous les navigateurs :(</p>
+          <img class="plain" src="./images/babel.png" width="256" />
+          <p>Compilateur JavaScript pour utiliser tous les standards ECMAScript!</p>
+        </section>
+
+        <section>
+          <h3>Installation de babel</h3>
+          <pre><code class="shell">npm install --save-dev babel-loader babel-core babel-preset-env</code></pre>
+
+          <pre><code class="json">{
+  "presets": ["env"]
+}</code></pre>
+
+          <pre><code class="js">module.exports = {
+  ...
+  { test: /\.js$/, exclude: /node_modules/, use: 'babel-loader' },
+  ...
+};</code></pre>
+        </section>
+
+        <section>
+          <h3>Sélection des navigateurs ciblés</h3>
+          <pre><code class="json">{
+    "presets": [
+      ["env", {
+        "targets": ["last 2 versions", "not ie &lt;= 10"]
+      }]
+    ]
+  }</code></pre>
+        </section>
+
+        <section>
+
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <img class="plain" src="./images/typescript.svg" width="256" />
+          <h3>TypeScript</h3>
+        </section>
+
+        <section>
+          <pre><code class="shell">npm install --save-dev typescript ts-loader</code></pre>
+          <pre><code class="json">{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "module": "es6",
+    "target": "es5",
+    "jsx": "react",
+    "allowJs": true
+  }
+}</code></pre>
         </section>
       </section>
     </div>
