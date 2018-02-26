@@ -89,7 +89,7 @@ export class AppComponent {
     }
   }
 
-  select3(character): void {
+  select3(character) {
     this.state3.selected = character;
   }
 }

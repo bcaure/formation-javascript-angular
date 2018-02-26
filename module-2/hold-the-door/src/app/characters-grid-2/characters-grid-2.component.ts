@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Character } from '../model/character';
 
 @Component({
@@ -6,15 +6,12 @@ import { Character } from '../model/character';
   templateUrl: './characters-grid-2.component.html',
   styleUrls: ['./characters-grid-2.component.scss']
 })
-export class CharactersGrid2Component implements OnInit {
+export class CharactersGrid2Component {
 
   @Input() characters: Character[];
   @Output() select = new EventEmitter<Character>();
 
   constructor() { }
-
-  ngOnInit() {
-  }
 
   onSelect(it: Character) {
     this.select.emit(it);
