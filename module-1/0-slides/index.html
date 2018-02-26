@@ -27,9 +27,174 @@
   <div class="reveal">
     <div class="slides">
       <section>
-        <img src="images/angular.svg" width="256" />
+        <img class="plain" src="images/angular.svg" width="256" />
         <h1>Formation Angular</h1>
         <h2>Module 1</h2>
+      </section>
+
+      <section>
+        <section>
+          <img class="plain" src="./images/toolbox.png" width="256" />
+          <h2>Environnement de développement</h2>
+        </section>
+        <section>
+          <h3>Bien choisir ses outils</h3>
+          <img src="./images/hammer.gif" />
+        </section>
+        <section>
+          <img class="plain" src="images/nodejs.png" width="256" />
+          <h3>Node &amp; npm</h3>
+          <pre><code class="shell">node -v</code></pre>
+          <pre><code class="shell">npm -v</code></pre>
+        </section>
+        <section>
+          <img class="plain" src="images/vscode.svg" width="256" />
+          <h3>VSCode</h3>
+          <a href="https://go.microsoft.com/fwlink/?Linkid=852157">Download</a>
+        </section>
+
+        <section>
+          <h3>Git integration</h3>
+        </section>
+
+        <section>
+          <h3>Raccourcis utiles</h3>
+        </section>
+
+        <section>
+          <h3>Extensions</h3>
+          <ul>
+            <li>eslint</li>
+            <li>tslint</li>
+          </ul>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <img class="plain" src="./images/box.svg" width="256" />
+          <h3>Packaging</h3>
+        </section>
+
+        <!-- Application files and modules -->
+
+        <!-- Gulp -->
+        <!-- Grunt -->
+
+        <section>
+          <img class="plain" src="./images/webpack.svg" width="256" />
+          <h3>Webpack</h3>
+        </section>
+
+        <section>
+          <img class="plain" src="./images/webpack-flow.svg" />
+        </section>
+
+        <section>
+          <h3>Installation de webpack</h3>
+          <pre class="fragment fadeIn" data-fragment-index="0"><code class="shell">npm init -y</code></pre>
+          <pre class="fragment fadeIn" data-fragment-index="1"><code class="shell">npm install --save-dev webpack webpack-cli</code></pre>
+        </section>
+
+        <section>
+          <h3>Hello, Webpack!</h3>
+          <pre class="fragment fadeIn" data-fragment-index="0"><code class="js">// src/index.js
+console.log('Hello, Webpack!');</code></pre>
+        </section>
+
+        <section>
+          <h3>npm run build</h3>
+          <pre><code class="json">"scripts": {
+  "build": "webpack"
+  ...
+}</code></pre>
+        </section>
+
+        <section>
+          <h3>webpack.config.js</h3>
+          <pre><code class="js">module.exports = {
+  mode: process.env.NODE_ENV ? process.env.NODE_ENV : 'development',
+};</code></pre>
+        </section>
+
+        <section>
+          <h3>Installation de webpack-dev-server</h3>
+          <pre><code class="shell">npm install --save-dev webpack-dev-server</code></pre>
+        </section>
+
+        <section>
+          <h3>npm start</h3>
+          <pre><code class="json">"scripts": {
+  "start": "webpack-dev-server",
+  ...
+}</code></pre>
+        </section>
+
+        <section>
+          <h3>Installation de html-webpack-plugin</h3>
+          <pre><code class="shell">npm install --save-dev html-webpack-plugin@webpack-contrib/html-webpack-plugin</code></pre>
+        </section>
+
+        <section>
+          <h3>webpack.config.js</h3>
+          <pre><code class="js">const HtmlWebpackPlugin = require('html-webpack-plugin');
+module.exports = {
+  ...
+  plugins: [new HtmlWebpackPlugin({
+    template: 'src/index.html',
+  })]
+};</code></pre>
+        </section>
+
+        <section>
+          <h3>Modules - Default export</h3>
+          <pre class="fragment fadeIn" data-fragment-index="0"><code class="js">// src/hello.js
+export default 'Hello, Webpack!';</code></pre>
+          <pre class="fragment fadeIn" data-fragment-index="1"><code class="js">// src/index.js
+import hello from './hello';
+console.log(hello);</code></pre>
+        </section>
+
+        <section>
+          <h3>Modules - Named export</h3>
+          <pre class="fragment fadeIn" data-fragment-index="0"><code class="js">// src/mylib.js
+export function add(a, b) {
+  return a + b;
+}</code></pre>
+          <pre class="fragment fadeIn" data-fragment-index="1"><code class="js">// src/index.js
+import { add } from './mylib';
+console.log(add(19, 23));</code></pre>
+        </section>
+
+        <section>
+          <h3>Ajout d'un type de fichier</h3>
+          <p class="fragment fadeIn" data-fragment-index="0">Le JavaScript est géré par défaut par webpack</p>
+          <pre class="fragment fadeIn" data-fragment-index="1"><code class="js">import './style.css';</code></pre>
+          <p class="fragment fadeIn" data-fragment-index="2">Il faut ajouter des
+            <em>Loaders</em> pour gérer les autres types de fichiers</p>
+        </section>
+
+        <section>
+          <h3>Ajout de règles de chargement</h3>
+          <pre><code class="shell">npm install --save-dev style-loader css-loader</code></pre>
+          <pre><code class="js">module.exports = {
+  ...
+  module: {
+    rules: [
+      { test: /\.css$/, use: ['style-loader', 'css-loader'] },
+    ]
+  },
+  ...
+};</code></pre>
+        </section>
+
+        <section>
+          <h3>Debugging</h3>
+          <pre class="fragment fadeIn" data-fragment-index="0"><code class="js">module.exports = {
+  devtool: 'source-map',
+  ...
+};</code></pre>
+        </section>
       </section>
     </div>
   </div>
