@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { MatTabChangeEvent } from '@angular/material/tabs';
-import { Observable } from 'rxjs/Observable';
 import charactersData from './data/characters';
 import booksData from './data/books';
 import housesData from './data/houses';
+import { Observable } from 'rxjs/Observable';
 import { Character } from './model/character';
 import { Book } from './model/book';
+import { MatTabChangeEvent } from '@angular/material/tabs';
 import { House } from './model/house';
 
 @Component({
