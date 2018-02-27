@@ -136,7 +136,37 @@
       <div *ngIf="state3" style="display: flex">
         <div *ngIf="state3.books" style="flex: 1">
           <h4>Books</h4>
-          <app-panel-with-list *ngFor="let book of state3.books" [object]="book"></app-panel-with-list>
+          <app-panel-with-list *ngFor="let book of state3.books" [object]="book" (select)="select3($event)"></app-panel-with-list>
+        </div>
+        <div *ngIf="state3.houses" style="flex: 1; margin-left: 20px">
+          <h4>Houses</h4>
+          <app-panel-with-list *ngFor="let house of state3.houses" [object]="house" (select)="select3($event)"></app-panel-with-list>
+        </div>
+      </div>
+    </ng-container>
+    <ng-template #spinner3>
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="{{ title6 }}">
+    <div style="display: flex">
+      <div style="flex:3">
+        <h3>Transformer les listes d'objet books et houses en Observable de Book[] et Observable House[]</h3>
+        <h3>Transformer le composant app-characters-grid pour ne plus passer le state, seulement les characters</h3>
+        <h3>Au lieu d'afficher directement les personnages, afficher la liste des livres et des maisons grâce à un composant générique. </h3>
+        <h3>Ce composant affiche la liste des objets qu'on lui passe ainsi que ses personnages en utilisant characters-grid.</h3>
+        <h3>Propager l'évènement de sélection pour continuer à afficher le personnage sélectionné dans le composant character</h3>
+      </div>
+      <div class="selected-char-card" *ngIf="state3?.selected as selectedChar">
+        <app-character [character]="selectedChar"></app-character>
+      </div>
+    </div>
+    <ng-container *ngIf="!inProgress; else spinner3">
+      <div *ngIf="state3" style="display: flex">
+        <div *ngIf="state3.books" style="flex: 1">
+          <h4>Books</h4>
+          <app-panel-with-list *ngFor="let book of state3.books" [object]="book" (select)="select3($event)"></app-panel-with-list>
         </div>
         <div *ngIf="state3.houses" style="flex: 1; margin-left: 20px">
           <h4>Houses</h4>
