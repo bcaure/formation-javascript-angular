@@ -373,6 +373,31 @@ console.log(add(19, 23));</code></pre>
         </section>
 
         <section>
+          <h3>TypeScript</h3>
+          <ul>
+            <li>Annotations de types</li>
+            <li>Proche du JavaScript</li>
+            <li>Compatible avec les bibliothèques JavaScript</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Types</h3>
+          <pre class="fragment fadeIn" data-fragment-index="0"><code class="ts">const book: Book = ...;</code></pre>
+          <pre class="fragment fadeIn" data-fragment-index="1"><code class="ts">function read(books: Book[]): void { ... }</code></pre>
+          <pre class="fragment fadeIn" data-fragment-index="2"><code class="ts">const foo: any = ...;</code></pre>
+        </section>
+
+        <section>
+            <h3>Let's Try TypeScript!</h3>
+            <pre class="fragment fadeIn" data-fragment-index="0"><code class="shell">npm install --save-dev tslint</code></pre>
+            <pre class="fragment fadeIn" data-fragment-index="1"><code class="shell">node_modules/.bin/tslint --init</code></pre>
+            <pre class="fragment fadeIn" data-fragment-index="2"><code class="json">"scripts": {
+  "lint": "tslint ./src"
+}</code></pre>
+        </section>
+
+        <section>
           <pre><code class="shell">npm install --save-dev typescript ts-loader</code></pre>
         </section>
 
