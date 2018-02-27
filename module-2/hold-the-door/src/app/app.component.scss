@@ -17,8 +17,11 @@ mat-tab-group {
 }
 
 .female {
-    font-style: italic;
-    color: $warn;
+    color: blue;
+}
+
+.male {
+    color: hotpink;
 }
 
 mat-grid-tile {

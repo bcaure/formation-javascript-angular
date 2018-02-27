@@ -17,6 +17,7 @@ import { CharactersGridComponent } from './characters-grid/characters-grid.compo
 import { CharacterComponent } from './character/character.component';
 import { CharactersGrid2Component } from './characters-grid-2/characters-grid-2.component';
 import { PanelWithListComponent } from './panel-with-list/panel-with-list.component';
+import { CharactersGrid3Component } from './characters-grid-3/characters-grid-3.component';
 
 
 
@@ -26,7 +27,8 @@ import { PanelWithListComponent } from './panel-with-list/panel-with-list.compon
     CharactersGridComponent,
     CharacterComponent,
     CharactersGrid2Component,
-    PanelWithListComponent
+    PanelWithListComponent,
+    CharactersGrid3Component
   ],
   imports: [
     MatTabsModule,

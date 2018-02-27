@@ -1,16 +1,20 @@
 # Lifecycle
 
-## Implementer les interfaces suivantes dans le composant character:
+## OnInit
+* appelé après le constructeur
+* privilégier cette méthode pour appeler des services ou s'abonner à des observables
 
-OnInit, OnChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy
-
-
-## Dans chaque méthode onXXX afficher le nom de la méthode dans la console
+## OnDestroy
+* peut être utilisé pour désallouer des ressources
+* unsubscribe sur les observables
+* libérer de la mémoire en vidant un state qui serait partagé
 
 ## DoCheck
-=> appelé énormément de fois, à chaque évènement du DOM en fait
-=> à utiliser très prudemment seulement si Angular ne détecte pas un changement particulier
+* appelé énormément de fois, à chaque évènement du DOM en fait
+* à utiliser très prudemment seulement si Angular ne détecte pas un changement particulier
 
 ## OnChanges
-=> à chaque modification d'un input
-=> on peut mettre automatiquement un texte en majuscule par exemple
+* à chaque modification d'un input
+
+## AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked
+* voir la doc!
