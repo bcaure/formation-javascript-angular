@@ -228,7 +228,11 @@ console.log(add(19, 23));</code></pre>
         </section>
 
         <section>
-
+          <pre><code class="js">module.exports = {
+  ...
+  { test: /\.(gif)$/i, use: 'file-loader' },
+  ...
+};</code></pre>
         </section>
 
         <section>
@@ -252,30 +256,98 @@ console.log(add(19, 23));</code></pre>
           <p>Évolution rapide depuis quelques années :</p>
           <ul>
             <li>classes</li>
-            <li>isolation de scope</li>
-            <li>shorthands</li>
             <li>modules</li>
-            <li>tableaux typés</li>
-            <li>web components</li>
+            <li>Array methods</li>
+            <li>Arrow functions</li>
+            <li>Template literals</li>
+            <li>Destructuring</li>
             <li>...</li>
           </ul>
         </section>
 
         <section>
+          <h3>Let's try ECMAScript</h3>
+          <pre class="fragment fadeIn" data-fragment-index="0"><code class="shell">npm install --save-dev eslint</code></pre>
+          <pre class="fragment fadeIn" data-fragment-index="1"><code class="shell">node_modules/.bin/eslint --init</code></pre>
+          <pre class="fragment fadeIn" data-fragment-index="2"><code class="json">"scripts": {
+  "lint": "eslint ./src"
+}</code></pre>
+        </section>
+
+        <section>
+          <pre class="fragment fadeIn" data-fragment-index="0"><code class="js">import books from './books';</code></pre>
+        </section>
+
+        <section>
+          <h3>Classes</h3>
+          <pre class="fragment fadeIn" data-fragment-index="0"><code>export class Book {
+  constructor(args) {
+    this.id = args.id;
+    this.name = args.name;
+    this.authors = args.authors;
+    this.releaseDate = new Date(args.releaseDate);
+  }
+}</code></pre>
+        </section>
+
+        <section>
+          <h3>Array methods</h3>
+          <pre class="fragment fadeIn" data-fragment-index="0"><code>books.map(function (book) {
+  return new Book(book);
+});</code></pre>
+          <pre class="fragment fadeIn" data-fragment-index="1"><code>books.filter(function (book) {
+  return book.name.startsWith('The');
+});</code></pre>
+          <pre class="fragment fadeIn" data-fragment-index="2"><code>books.sort(function (a, b) {
+  return a.localeCompare(b);
+});</code></pre>
+        </section>
+
+        <section>
+          <h3>Arrow functions</h3>
+          <pre class="fragment fadeIn" data-fragment-index="0"><code>books.map(book => new Book(book));</code></pre>
+          <pre class="fragment fadeIn" data-fragment-index="1"><code>books.filter(book => book.name.startsWith('The'));</code></pre>
+          <pre class="fragment fadeIn" data-fragment-index="2"><code>books.sort((a, b) => a.localeCompare(b));</code></pre>
+        </section>
+
+        <section>
+          <h3>Templates</h3>
+          <pre class="fragment fadeIn" data-fragment-index="0"><code class="js">'Book ' + book.name + ' by ' + book.authors.join()</code></pre>
+          <pre class="fragment fadeIn" data-fragment-index="1"><code class="js">`Book ${book.name} by ${book.authors.join()}`</code></pre>
+        </section>
+
+        <section>
+          <h3>Destructuring</h3>
+          <pre class="fragment fadeIn" data-fragment-index="0"><code class="js">const { name, releaseDate } = book;</code></pre>
+          <pre class="fragment fadeIn" data-fragment-index="1"><code class="js">const { name = 'Untitled', releaseDate } = book;</code></pre>
+          <pre class="fragment fadeIn" data-fragment-index="2"><code class="js">const { name = 'Untitled', releaseDate, ...rest } = book;</code></pre>
+        </section>
+
+        <section>
+          <h3>Promise</h3>
+        </section>
+
+        <section>
+          <h3>Async/Await</h3>
+        </section>
+
+        <section>
           <p>Pas entièrement supporté par tous les navigateurs :(</p>
-          <img class="plain" src="./images/babel.png" width="256" />
-          <p>Compilateur JavaScript pour utiliser tous les standards ECMAScript!</p>
+          <img class="plain fragment fadeIn" src="./images/babel.png" width="256" data-fragment-index="0" />
+          <p class="fragment fadeIn" data-fragment-index="1">Compilateur JavaScript pour utiliser tous les standards ECMAScript!</p>
         </section>
 
         <section>
           <h3>Installation de babel</h3>
-          <pre><code class="shell">npm install --save-dev babel-loader babel-core babel-preset-env</code></pre>
+          <pre class="fragment fadeIn" data-fragment-index="0"><code class="shell">npm install --save-dev babel-loader babel-core babel-preset-env</code></pre>
+          <pre class="fragment fadeIn" data-fragment-index="1"><code class="shell">npm install babel-polyfill</code></pre>
 
-          <pre><code class="json">{
+          <pre class="fragment fadeIn" data-fragment-index="2"><code class="json">{
   "presets": ["env"]
 }</code></pre>
 
-          <pre><code class="js">module.exports = {
+          <pre class="fragment fadeIn" data-fragment-index="3"><code class="js">module.exports = {
+  entry: ['babel-polyfill', './src/index.js'],
   ...
   { test: /\.js$/, exclude: /node_modules/, use: 'babel-loader' },
   ...
@@ -292,10 +364,6 @@ console.log(add(19, 23));</code></pre>
     ]
   }</code></pre>
         </section>
-
-        <section>
-
-        </section>
       </section>
 
       <section>
@@ -306,16 +374,55 @@ console.log(add(19, 23));</code></pre>
 
         <section>
           <pre><code class="shell">npm install --save-dev typescript ts-loader</code></pre>
+        </section>
+
+        <section>
+          <pre><code class="js">module.exports = {
+  ...
+  entry: ['babel-polyfill', './src/index.ts'],
+  module: {
+    rules: [
+      { test: /\.ts$/, use: ['babel-loader', 'ts-loader'] },
+      ...
+    ]
+  },
+  resolve: {
+    extensions: ['.ts', '.js']
+  },
+  ...
+};</code></pre>
+        </section>
+
+        <section>
           <pre><code class="json">{
   "compilerOptions": {
     "outDir": "./dist/",
     "sourceMap": true,
-    "noImplicitAny": true,
-    "module": "es6",
-    "target": "es5",
-    "jsx": "react",
-    "allowJs": true
+    "target": "es6"
   }
+}</code></pre>
+        </section>
+
+        <section>
+          <pre><code class="js">export class Book {
+  id: string;
+  name: string;
+  authors: string[];
+  releaseDate: Date;
+
+  constructor(args) {
+    this.id = args.id;
+    this.name = args.name;
+    this.authors = args.authors;
+    this.releaseDate = new Date(args.releaseDate);
+  }
+}</code></pre>
+        </section>
+
+        <section>
+          <pre><code class="js">declare module "*.json" {
+  const value: any;
+  export default value;
 }</code></pre>
         </section>
       </section>
