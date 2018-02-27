@@ -7,5 +7,5 @@
   </mat-expansion-panel-header>
 
   <app-characters-grid-2 [characters]="object.characters" (select)="onSelect($event)"></app-characters-grid-2>
-
+  <button (click)="onSelect(object.characters[0])">tutu</button>
 </mat-expansion-panel>

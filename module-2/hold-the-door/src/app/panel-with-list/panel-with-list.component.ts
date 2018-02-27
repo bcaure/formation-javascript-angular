@@ -10,11 +10,11 @@ export class PanelWithListComponent {
 
   @Input() object: { name: string, characters: Character[] };
 
-  @Output() select = new EventEmitter<Character>();
+  @Output() selectCharacter = new EventEmitter<Character>();
 
   constructor() { }
 
   onSelect(it: Character) {
-    this.select.emit(it);
+    this.selectCharacter.emit(it);
   }
 }

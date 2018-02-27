@@ -17,8 +17,13 @@ import { CharactersGridComponent } from './characters-grid/characters-grid.compo
 import { CharacterComponent } from './character/character.component';
 import { CharactersGrid2Component } from './characters-grid-2/characters-grid-2.component';
 import { PanelWithListComponent } from './panel-with-list/panel-with-list.component';
+import { TestComponent } from './test/test.component';
+import { Routes, RouterModule } from '@angular/router';
 
-
+const routes: Routes = [
+  { path: 'test', component: TestComponent },
+  { path: '', component: AppComponent }
+];
 
 @NgModule({
   declarations: [
@@ -26,7 +31,8 @@ import { PanelWithListComponent } from './panel-with-list/panel-with-list.compon
     CharactersGridComponent,
     CharacterComponent,
     CharactersGrid2Component,
-    PanelWithListComponent
+    PanelWithListComponent,
+    TestComponent
   ],
   imports: [
     MatTabsModule,
@@ -39,9 +45,9 @@ import { PanelWithListComponent } from './panel-with-list/panel-with-list.compon
     MatRadioModule,
     MatExpansionModule,
     BrowserModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot( routes, { enableTracing: true } )
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
