@@ -1,0 +1,33 @@
+@import '~@angular/material/theming';
+@import '../theme.scss';
+
+mat-tab-group {
+    color: $primary;
+    margin: 20px;    
+}
+
+
+
+.logo {
+    width: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+}
+
+.char-card {
+    padding: 10px;
+}
+
+.selected-char-card {
+    flex: 1;
+    border-left: 1px solid $primary;
+    padding: 20px;
+    min-width: 200px;
+    min-height: 100px;
+    margin: 20px    
+}
+.selected-char {
+    margin-bottom: 20px;
+}
