@@ -1,7 +1,13 @@
 ## Créer l'app
-* ng new hold-the-door --style=scss
-* cd hold-the-door
-* ng serve --open
+```
+ng new hold-the-door --skip-install --skip-tests --style=scss
+cd hold-the-door
+echo https-proxy=http://fr-proxy.groupinfra.com:3128 > .npmrc
+echo proxy=http://fr-proxy.groupinfra.com:3128 >> .npmrc
+npm install
+ng serve --open
+``` 
+
 * vérifier que l'appli s'affiche et arrêter node
 * si on veut passer en appli "normale" avec webpack & co, par ex pour l'installer sur un serveur, il faut se passer d'Angular cli: 
 ===> Attention ne pas le faire pour le moment!
