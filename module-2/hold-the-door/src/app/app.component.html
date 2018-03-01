@@ -124,8 +124,8 @@
         <h3>Ce composant affiche la liste des objets qu'on lui passe ainsi que ses personnages en utilisant characters-grid et l'inclusion.</h3>
         <h3>Constater la désynchronisation des données characters lorsqu'on édite un personnage</h3>
       </div>
-      <div class="selected-char-card" *ngIf="state3?.selected">
-        <app-character [character]="state3.selected"></app-character>
+      <div class="selected-char-card">
+        <app-character [character]="state3?.selected"></app-character>
       </div>
     </div>
     <ng-container *ngIf="!inProgress; else spinner3">
@@ -163,15 +163,15 @@
         <h3>Constater l'appel à onInit au changement d'onglet</h3>
         <h3>Faire en sorte de détruire les composants masqués en mettant vidant la liste des objets correspondants</h3>
       </div>
-      <div class="selected-char-card" *ngIf="state4?.selected">
-        <app-character [character]="state4.selected"></app-character>
+      <div class="selected-char-card">
+        <app-character [character]="state4?.selected"></app-character>
       </div>
     </div>
-    <ng-container *ngIf="state4 && state4.books && state4.houses">
+    <ng-container *ngIf="state4 && state4.books && state4.houses && state4.characters">
       <mat-tab-group (selectedTabChange)="tabChange($event)">
         <mat-tab label="Characters">
             <h4>Characters</h4>
-            <app-characters-grid-2 [characters]="state4.characters" (select)="select4($event)"></app-characters-grid-2>
+            <app-characters-grid-3 [characters]="state4.characters" (select)="select4($event)"></app-characters-grid-3>
         </mat-tab>
         <mat-tab label="Books">
           <h4>Books</h4>
