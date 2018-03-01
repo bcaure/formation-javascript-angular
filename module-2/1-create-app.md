@@ -1,7 +1,17 @@
 ## Créer l'app
+
+### Réseau sans proxy : 
+
 ```
-ng new hold-the-door --skip-install --skip-tests --style=scss
-cd hold-the-door
+ng new hold-the-dom --skip-tests --style=scss
+cd hold-the-dom
+ng serve --open
+``` 
+
+### Réseau CGI :
+```
+ng new hold-the-dom --skip-install --skip-tests --style=scss
+cd hold-the-dom
 echo https-proxy=http://fr-proxy.groupinfra.com:3128 > .npmrc
 echo proxy=http://fr-proxy.groupinfra.com:3128 >> .npmrc
 npm install
@@ -9,8 +19,10 @@ ng serve --open
 ``` 
 
 * vérifier que l'appli s'affiche et arrêter node
-* si on veut passer en appli "normale" avec webpack & co, par ex pour l'installer sur un serveur, il faut se passer d'Angular cli: 
-===> Attention ne pas le faire pour le moment!
+
+### si on veut packager l'appli pour l'installer sur un serveur
+il faut se passer d'@angular/cli pour générer le fichier webpack 
+===> Attention ne pas le faire pour la formation
 ```
    ng eject
 ```  
@@ -22,11 +34,26 @@ ng serve --open
 * importer les données de data comme attribut du controller
 
 ## Installer Angular material
-* yarn add @angular/material @angular/cdk @angular/animations
+
+* ajouter les dépendances
+	```
+	 npm install --save @angular/material @angular/cdk @angular/animations
+	```
 
 * importer un theme existant dans style.scss 
   ``` 
     @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+  ```
+  
+* rajouter le module grid dans app.module.ts:
+
+  ```
+    import { MatGridListModule } from '@angular/material/grid-list';
+    @NgModule({
+    ...
+    imports: [MatGridListModule],
+    ...
+    })
   ```
   
 * copier dans app.component.html
@@ -41,17 +68,31 @@ ng serve --open
     <mat-grid-tile>prout</mat-grid-tile>
   </mat-grid-list>
   ```  
-  
-* rajouter le module grid dans app.module.ts:
 
-  ```
-    import { MatGridListModule } from '@angular/material/grid-list';
-    @NgModule({
-    ...
-    imports: [MatGridListModule],
-    ...
-    })
-  ```
   
 * ng serve --open 
- ===> vérifier le rendu
+ ===> [vérifier le rendu](./install-ng-material.PNG)
+
+## *Faire un git commit*
+Ce sera plus facile de voir les fichiers que l'on va générer avec ng
+
+
+
+## TODO
+
+mieux expliquer ngtemplateoutlet
+
+databinding => commencer par ngmodel angularJS sur le site
+
+mettre [value]  
+
+evenemetn utiliateur??
+
+trouver un ex pour le change detection amélioré
+
+ne pas parler de zone.js
+
+change detection => le digest ne sera pas appelé si une lib externe n'utilise pas les mécanismes angular
+
+lifecycle 
+=> dans le  oninit d'un composant enfant, on est sûr que les attributes sont bindés à ce moment là

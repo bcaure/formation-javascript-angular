@@ -1,6 +1,6 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="logo">
-  <img height="150" alt="Logo" src="https://static1.squarespace.com/static/52fc05c9e4b08fc45bd99090/5331dfe2e4b0f77da2ddde51/59ea491b6957da87771f8d48/1508527334950/102017-conquest-fightforbanner-1024x576.jpg?format=1500w">
+  <img height="150" alt="Logo" src="assets/got.jpg">
   <div style="flex:2; text-align: center; margin: 0 20px 0 20px">
     <h1>Hold the DOM!</h1>
     <hr />
@@ -14,12 +14,10 @@
 
 
   <mat-tab label="1) ngFor">
-    <h2>
-      Utiliser ngFor pour lister les personnages
-    </h2>
-    <h3>
-      Utiliser l'opérateur ternaire pour afficher "name" ou "alias" :
-    </h3>
+    <h3>Créer un tableau de personnages dans app.component.ts</h3>    
+    <h3>Ajouter characters.json au projet et alimenter le tableau en utilisant le code de l'exercice du module 1</h3>  
+    <h3>Utiliser ngFor pour lister les personnages dans la page</h3>
+    <h3>Utiliser l'opérateur ternaire pour afficher "name" ou "alias" selon ce qui est alimenté :</h3>
     <mat-grid-list cols="7" rowHeight="2:1" gutterSize="20px">
       <mat-grid-tile *ngFor="let character of characters">
         <div class="char-card">

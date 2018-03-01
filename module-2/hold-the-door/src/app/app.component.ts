@@ -14,7 +14,6 @@ import { House } from './model/house';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Game Of Thrones';
 
   /** Example 1 & 2 */
   characters: Character[];

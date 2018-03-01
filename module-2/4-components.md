@@ -7,15 +7,19 @@
 
 ## Angular component
 
-### Création d'un composant de présentation
-ng generate component characters-grid --module app.module.ts
+### Création de composants de présentation
+```
+ng generate component character --module app.module.ts --spec=false
+ng generate component characters-grid --module app.module.ts --spec=false
+```
 
 * 1 html, 1 css, 1 ts
   * @Component
   * selector, template, style
   * controller
-* 1 test karma
 * ajout au module
+
+
 
 ### transclusion avec ngContent
 * quand on veut passer du contenu HTML à un composant 
