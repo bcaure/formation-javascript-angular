@@ -14,8 +14,8 @@
 
 
   <mat-tab label="1) ngFor">
-    <h3>Créer un tableau de personnages dans app.component.ts</h3>    
-    <h3>Ajouter characters.json au projet et alimenter le tableau en utilisant le code de l'exercice du module 1</h3>  
+    <h3>Créer un tableau de personnages dans app.component.ts</h3>
+    <h3>Ajouter characters.json au projet et alimenter le tableau en utilisant le code de l'exercice du module 1</h3>
     <h3>Utiliser ngFor pour lister les personnages dans la page</h3>
     <h3>Utiliser l'opérateur ternaire pour afficher "name" ou "alias" selon ce qui est alimenté :</h3>
     <mat-grid-list cols="7" rowHeight="2:1" gutterSize="20px">
@@ -72,9 +72,9 @@
         <h3>Ajout @Input pour la liste des personages </h3>
         <h3>Afficher le personnage sélectionné sans utiliser @Output</h3>
       </div>
-      <div class="selected-char-card" *ngIf="state1?.selected as selectedChar">
+      <div class="selected-char-card" *ngIf="state1?.selected">
         <div class="selected-char">{{ selectedChar.name }}</div>
-        <mat-radio-group [ngModel]="selectedChar.isFemale" ng-readonly="true">
+        <mat-radio-group [ngModel]="state1.selected.isFemale" ng-readonly="true">
           <mat-radio-button [value]="false">Male</mat-radio-button>
           <mat-radio-button [value]="true">Female</mat-radio-button>
         </mat-radio-group>
@@ -96,11 +96,11 @@
         <h3>"2way databinding": nom du personnage sélectionné sur un input avec [(ngModel)]</h3>
         <h3>Pour la propriété isFemale et les boutons radio: utiliser (change) et $event.value</h3>
       </div>
-      <div class="selected-char-card" *ngIf="state2?.selected as selectedChar">
+      <div class="selected-char-card" *ngIf="state2?.selected">
         <mat-form-field>
-          <input type="text" matInput [(ngModel)]="selectedChar.name">
+          <input type="text" matInput [(ngModel)]="state2.selected.name">
         </mat-form-field>
-        <mat-radio-group [ngModel]="selectedChar.isFemale" (change)="selectedChar.isFemale = $event.value">
+        <mat-radio-group [ngModel]="state2.selected.isFemale" (change)="state2.selected.isFemale = $event.value">
           <mat-radio-button [value]="false">Male</mat-radio-button>
           <mat-radio-button [value]="true">Female</mat-radio-button>
         </mat-radio-group>
@@ -120,24 +120,27 @@
       <div style="flex:3">
         <h3>Mettre la carte du personnage dans un composant dédié prenant un objet character</h3>
         <h3>Transformer le composant app-characters-grid pour ne plus passer le state, seulement les characters</h3>
-        <h3>Au lieu d'afficher directement les personnages, afficher la liste des livres et des maisons grâce à un composant
-          générique. </h3>
-        <h3>Ce composant affiche la liste des objets qu'on lui passe ainsi que ses personnages en utilisant characters-grid.</h3>
-        <h3>Propager l'évènement de sélection pour continuer à afficher le personnage sélectionné dans le composant character</h3>
+        <h3>Afficher la liste des livres et des maisons grâce à un nouveau composant générique</h3>
+        <h3>Ce composant affiche la liste des objets qu'on lui passe ainsi que ses personnages en utilisant characters-grid et l'inclusion.</h3>
+        <h3>Constater la désynchronisation des données characters lorsqu'on édite un personnage</h3>
       </div>
-      <div class="selected-char-card" *ngIf="state3?.selected as selectedChar">
-        <app-character [character]="selectedChar"></app-character>
+      <div class="selected-char-card" *ngIf="state3?.selected">
+        <app-character [character]="state3.selected"></app-character>
       </div>
     </div>
     <ng-container *ngIf="!inProgress; else spinner3">
       <div *ngIf="state3" style="display: flex">
-        <div *ngIf="state3.books" style="flex: 1">
+        <div *ngIf="state3.characters" style="flex: 1; margin: 10px">
+          <h4>Characters</h4>
+          <app-characters-grid-2 [characters]="state3.characters" (select)="select3($event)"></app-characters-grid-2>
+        </div>
+        <div *ngIf="state3.books" style="flex: 1; margin: 10px">
           <h4>Books</h4>
           <app-panel-with-list *ngFor="let book of state3.books" [object]="book">
             <app-characters-grid-2 [characters]="book.characters" (select)="select3($event)"></app-characters-grid-2>
           </app-panel-with-list>
         </div>
-        <div *ngIf="state3.houses" style="flex: 1; margin-left: 20px">
+        <div *ngIf="state3.houses" style="flex: 1; margin: 10px">
           <h4>Houses</h4>
           <app-panel-with-list *ngFor="let house of state3.houses" [object]="house">
             <app-characters-grid-2 [characters]="house.characters" (select)="select3($event)"></app-characters-grid-2>
@@ -154,18 +157,22 @@
   <mat-tab [label]="title7">
     <div style="display: flex">
       <div style="flex:3">
-        <h3>Séparer Books et Houses dans 2 onglets différents en utilisant mat-tab-group</h3>
-        <h3>Ne charger que la liste d'objet correspondant à l'onglet visible, remplacer setTimeout par setInterval pour alimenter les objets en continu</h3>
+        <h3>Séparer Characters, Books et Houses dans 3 onglets différents en utilisant mat-tab-group</h3>
+        <h3>Ne charger la liste d'objet (characters, books ou houses) qu'au moment du clic sur l'onglet correspondant</h3>
         <h3>Transformer CharactersGrid pour implémenter OnInit et OnDestroy, mettre des console.log dans chacune des méthodes</h3>
         <h3>Constater l'appel à onInit au changement d'onglet</h3>
         <h3>Faire en sorte de détruire les composants masqués en mettant vidant la liste des objets correspondants</h3>
       </div>
-      <div class="selected-char-card" *ngIf="state4?.selected as selectedChar">
-        <app-character [character]="selectedChar"></app-character>
+      <div class="selected-char-card" *ngIf="state4?.selected">
+        <app-character [character]="state4.selected"></app-character>
       </div>
     </div>
     <ng-container *ngIf="state4 && state4.books && state4.houses">
       <mat-tab-group (selectedTabChange)="tabChange($event)">
+        <mat-tab label="Characters">
+            <h4>Characters</h4>
+            <app-characters-grid-2 [characters]="state4.characters" (select)="select4($event)"></app-characters-grid-2>
+        </mat-tab>
         <mat-tab label="Books">
           <h4>Books</h4>
           <app-panel-with-list *ngFor="let book of state4.books" [object]="book">

@@ -11,7 +11,7 @@
 </div>
 
 <div>
-  <div class="selected-char-card" *ngIf="selected">
+  <div class="selected-char-card">
     <app-character [character]="selected"></app-character>
   </div>
 </div>
@@ -19,6 +19,11 @@
 <ng-container>
 
   <mat-tab-group (selectedTabChange)="tabChange($event)">
+
+    <mat-tab label="Characters">
+      <h4>Characters</h4>
+      <app-characters-grid [characters]="characters" (select)="select($event)"></app-characters-grid>
+    </mat-tab>
 
     <mat-tab label="Books">
       <h4>Books</h4>

@@ -15,6 +15,7 @@ import { House } from './model/house';
 })
 export class AppComponent implements OnInit {
 
+  characters: Character[]
   books: Book[];
   houses: House[];
   selected: Character;
@@ -25,7 +26,11 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.inProgress = true;
-    this.loadBooks();
+    this.loadCharacters();
+  }
+
+  loadCharacters() {
+    this.characters = charactersData.map(props => new Character(props));
   }
 
   loadBooks() {
@@ -49,12 +54,18 @@ export class AppComponent implements OnInit {
   }
 
   tabChange(event) {
-    if (event.tab.textLabel === 'Houses') {
+    if (event.tab.textLabel === 'Characters') {
       this.books = [];
+      this.houses = [];
+      this.loadCharacters();
+    } else if (event.tab.textLabel === 'Houses') {
+      this.books = [];
+      this.characters = [];
       this.loadHouses();
     } else {
       this.loadBooks();
       this.houses = [];
+      this.characters = [];
     }
   }
 }

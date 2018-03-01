@@ -39,22 +39,22 @@ export class AppComponent {
       case this.title4:
         this.inProgress = true;
         this.state1 = { characters: undefined, selected: undefined };
-        this.loadCharacters(this.state1);
+        this.loadState(this.state1);
         break;
       case this.title5:
         this.inProgress = true;
         this.state2 = { characters: undefined, selected: undefined };
-        this.loadCharacters(this.state2);
+        this.loadState(this.state2);
         break;
       case this.title6:
         this.inProgress = true;
-        this.state3 = { books: undefined, houses: undefined, selected: undefined };
-        this.loadBooksAndHouses(this.state3);
+        this.state3 = { characters: undefined, books: undefined, houses: undefined, selected: undefined };
+        this.loadCharactersBooksAndHouses(this.state3);
         break;
       case this.title7:
         this.inProgress = true;
-        this.state4 = { books: [], houses: [], selected: undefined };
-        this.loadBooks(this.state4);
+        this.state4 = { characters: [], books: [], houses: [], selected: undefined };
+        this.loadCharacters(this.state4);
         break;
     }
   }
@@ -64,7 +64,7 @@ export class AppComponent {
   title4 = '4) Component';
   // tslint:disable-next-line:member-ordering
   state1: { characters: Character[], selected: Character };
-  loadCharacters(state): void {
+  loadState(state): void {
     this.inProgress = true;
     setTimeout(() => {
       state.characters = charactersData.map(props => new Character(props)),
@@ -82,10 +82,11 @@ export class AppComponent {
   // tslint:disable-next-line:member-ordering
   readonly title6 = '6) @Output';
   // tslint:disable-next-line:member-ordering
-  state3: { books: Book[], houses: House[], selected: Character };
-  loadBooksAndHouses(state) {
+  state3: { characters: Character[], books: Book[], houses: House[], selected: Character };
+  loadCharactersBooksAndHouses(state) {
     this.inProgress = true;
     setTimeout(() => {
+      state.characters = charactersData.map(props => new Character(props));
       state.books = booksData.map(props => {
         const b = new Book(props);
         b.characters = charactersData.filter(character => character.books.includes(b.id));
@@ -107,7 +108,10 @@ export class AppComponent {
   // tslint:disable-next-line:member-ordering
   readonly title7 = '7) Lifecycle';
   // tslint:disable-next-line:member-ordering
-  state4: { books: Book[], houses: House[], selected: Character };
+  state4: { characters: Character[], books: Book[], houses: House[], selected: Character };
+  loadCharacters(state) {
+    state.characters = charactersData.map(props => new Character(props));
+  }
   loadBooks(state) {
     state.books = booksData.map(props => {
       const b = new Book(props);
@@ -126,12 +130,18 @@ export class AppComponent {
     this.state4.selected = character;
   }
   tabChange(event) {
-    if (event.tab.textLabel === 'Houses') {
+    if (event.tab.textLabel === 'Characters') {
       this.state4.books = [];
+      this.state4.houses = [];
+      this.loadCharacters(this.state4);
+    } else if (event.tab.textLabel === 'Houses') {
+      this.state4.books = [];
+      this.state4.characters = [];
       this.loadHouses(this.state4);
     } else {
       this.loadBooks(this.state4);
       this.state4.houses = [];
+      this.state4.characters = [];
     }
   }
 }
