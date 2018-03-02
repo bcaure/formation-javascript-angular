@@ -9,6 +9,7 @@ import { Character } from '../model/character';
 export class CharactersGrid2Component {
 
   @Input() characters: Character[];
+  @Input() columnNb: number;
   @Output() select = new EventEmitter<Character>();
 
   constructor() { }

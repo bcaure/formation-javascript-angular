@@ -15,74 +15,111 @@ import { House } from './model/house';
 })
 export class AppComponent {
 
-  /** Example 1 & 2 */
-  characters: Character[];
   constructor() {
     charactersData.splice(0, 1900);
-    this.characters = charactersData.map(props => new Character(props));
-  }
-
-  /** Example 3 */
-  charactersAsync: Character[];
-  inProgress = false;
-  load(): void {
-    this.inProgress = true;
-    setTimeout(() => {
-      this.charactersAsync = charactersData.map(props => new Character(props));
-      this.inProgress = false;
-    }, 2000);
+    this.state1 = { characters: charactersData.map(props => new Character(props)) };
   }
 
   /** No more load buttons, load states on tab change */
   exampleChange(event: MatTabChangeEvent): void {
     switch (event.tab.textLabel) {
+      case this.title1:
+        this.inProgress = false;
+        break;
+      case this.title2:
+        this.inProgress = false;
+        break;
+      case this.title3:
+        this.inProgress = true;
+        this.state3 = { characters: undefined, selected: undefined };
+        this.loadState(this.state3);
+        break;
       case this.title4:
         this.inProgress = true;
-        this.state1 = { characters: undefined, selected: undefined };
-        this.loadState(this.state1);
+        this.state4 = { characters: undefined, selected: undefined };
+        this.loadState(this.state4);
         break;
       case this.title5:
         this.inProgress = true;
-        this.state2 = { characters: undefined, selected: undefined };
-        this.loadState(this.state2);
+        this.state5 = { characters: undefined, selected: undefined };
+        this.loadState(this.state5);
         break;
-      case this.title6:
+        case this.title6:
         this.inProgress = true;
-        this.state3 = { characters: undefined, books: undefined, houses: undefined, selected: undefined };
-        this.loadCharactersBooksAndHouses(this.state3);
+        this.state6 = { characters: [], books: [], houses: [], selected: undefined };
+        this.loadCharactersBooksAndHouses(this.state6);
         break;
       case this.title7:
         this.inProgress = true;
-        this.state4 = { characters: [], books: [], houses: [], selected: undefined };
-        this.loadCharacters(this.state4);
+        this.state7 = { characters: [], books: [], houses: [], selected: undefined };
+        this.loadCharacters(this.state7);
         break;
     }
   }
 
-  /** Example 4 */
+  /** Example 1 */
   // tslint:disable-next-line:member-ordering
-  title4 = '4) Component';
+  title1 = '1) ngFor ngClass';
   // tslint:disable-next-line:member-ordering
-  state1: { characters: Character[], selected: Character };
-  loadState(state): void {
+  state1: { characters: Character[] };
+
+
+  /** Example 2 */
+  // tslint:disable-next-line:member-ordering
+  title2 = '2) Composant Grid';
+  // tslint:disable-next-line:member-ordering
+  state2: { characters: Character[] };
+  // tslint:disable-next-line:member-ordering
+  inProgress = false;
+  load(): void {
     this.inProgress = true;
     setTimeout(() => {
-      state.characters = charactersData.map(props => new Character(props)),
-        this.inProgress = false;
+      this.state2 = { characters: charactersData.map(props => new Character(props)) };
+      this.inProgress = false;
     }, 2000);
   }
 
+
+  /** Example 3 */
+  // tslint:disable-next-line:member-ordering
+  title3 = '3) Character';
+  // tslint:disable-next-line:member-ordering
+  state3: { characters: Character[], selected: Character };
+  loadState(state): void {
+    this.inProgress = true;
+    setTimeout(() => {
+      state.characters = charactersData.map(props => new Character(props));
+      state.selected = state.characters[0];
+      this.inProgress = false;
+    }, 2000);
+  }
+
+  /** Example 4 */
+  // tslint:disable-next-line:member-ordering
+  title4 = '4) ngModel';
+  // tslint:disable-next-line:member-ordering
+  state4: { characters: Character[], selected: Character };
+
+
+
   /** Example 5 */
   // tslint:disable-next-line:member-ordering
-  title5 = '5) Databinding';
+  readonly title5 = '5) @Output';
   // tslint:disable-next-line:member-ordering
-  state2: { characters: Character[], selected: Character };
+  state5: { characters: Character[], selected: Character };
+  select5(character) {
+    this.state5.selected = character;
+  }
+
 
   /** Example 6 */
   // tslint:disable-next-line:member-ordering
-  readonly title6 = '6) @Output';
+  readonly title6 = '6) Transclusion';
   // tslint:disable-next-line:member-ordering
-  state3: { characters: Character[], books: Book[], houses: House[], selected: Character };
+  state6: { characters: Character[], books: Book[], houses: House[], selected: Character };
+  select6(character) {
+    this.state6.selected = character;
+  }
   loadCharactersBooksAndHouses(state) {
     this.inProgress = true;
     setTimeout(() => {
@@ -100,15 +137,13 @@ export class AppComponent {
       this.inProgress = false;
     }, 1000);
   }
-  select3(character) {
-    this.state3.selected = character;
-  }
+
 
   /** Example 7 */
   // tslint:disable-next-line:member-ordering
   readonly title7 = '7) Lifecycle';
   // tslint:disable-next-line:member-ordering
-  state4: { characters: Character[], books: Book[], houses: House[], selected: Character };
+  state7: { characters: Character[], books: Book[], houses: House[], selected: Character };
   loadCharacters(state) {
     state.characters = charactersData.map(props => new Character(props));
   }
@@ -126,22 +161,22 @@ export class AppComponent {
       return h;
     });
   }
-  select4(character) {
-    this.state4.selected = character;
+  select7(character) {
+    this.state7.selected = character;
   }
   tabChange(event) {
     if (event.tab.textLabel === 'Characters') {
-      this.state4.books = [];
-      this.state4.houses = [];
-      this.loadCharacters(this.state4);
+      this.state7.books = [];
+      this.state7.houses = [];
+      this.loadCharacters(this.state7);
     } else if (event.tab.textLabel === 'Houses') {
-      this.state4.books = [];
-      this.state4.characters = [];
-      this.loadHouses(this.state4);
+      this.state7.books = [];
+      this.state7.characters = [];
+      this.loadHouses(this.state7);
     } else {
-      this.loadBooks(this.state4);
-      this.state4.houses = [];
-      this.state4.characters = [];
+      this.loadBooks(this.state7);
+      this.state7.houses = [];
+      this.state7.characters = [];
     }
   }
 }

@@ -12,147 +12,211 @@
 
 <mat-tab-group (selectedTabChange)="exampleChange($event)">
 
+  <!---------------->
+  <!-- EXERCICE 1 -->
+  <!---------------->
 
-  <mat-tab label="1) ngFor">
-    <h3>Créer un tableau de personnages dans app.component.ts</h3>
-    <h3>Ajouter characters.json au projet et alimenter le tableau en utilisant le code de l'exercice du module 1</h3>
+  <mat-tab [label]="title1">
+    <h3>Ajouter characters.json au projet et l'importer dans le contrôleur app.component.ts</h3>
+    <h3>Créer un tableau Character[] en attribut du contrôleur et l'alimenter en utilisant le code de l'exercice du module 1
+      (.map)</h3>
     <h3>Utiliser ngFor pour lister les personnages dans la page</h3>
-    <h3>Utiliser l'opérateur ternaire pour afficher "name" ou "alias" selon ce qui est alimenté :</h3>
-    <mat-grid-list cols="7" rowHeight="2:1" gutterSize="20px">
-      <mat-grid-tile *ngFor="let character of characters">
-        <div class="char-card">
-          {{ character.name }}
-        </div>
-      </mat-grid-tile>
-    </mat-grid-list>
-  </mat-tab>
+    <h3>Utiliser ngClass pour mettre en bleu les femmes et rose les hommes</h3>
 
 
-  <mat-tab label="2) ngClass">
-    <h2>
-      Utiliser ngClass pour mettre en bleu les femmes et rose les hommes
-    </h2>
     <mat-grid-list cols="7" rowHeight="2:1" gutterSize="20px">
-      <mat-grid-tile *ngFor="let character of characters">
+      <mat-grid-tile *ngFor="let character of state1.characters">
         <div class="char-card" [ngClass]="{'female': character.isFemale, 'male':!character.isFemale}">
           {{ character.name }}
         </div>
       </mat-grid-tile>
     </mat-grid-list>
+
+
   </mat-tab>
 
 
-  <mat-tab label="3) ngTemplate">
-    <h2>Mettre setTimeout pour simuler une requête http un peu longue </h2>
+
+
+  <!---------------->
+  <!-- EXERCICE 2 -->
+  <!---------------->
+
+  <mat-tab [label]="title2">
+    <h3>Mettre setTimeout pour simuler une requête http un peu longue </h3>
     <h3>Utiliser ngTemplate pour afficher un spinner</h3>
+    <h3>
+      <code><![CDATA[<ng-container *ngIf="!inProgress; else spinner2">]]></code>
+    </h3>
+    <h3>Déplacer le code HTML et CSS à factoriser dans un composant personnalisé</h3>
+    <h3>Appeler le avec la balise
+      <code><![CDATA[<app-characters-grid [characters]="characters"></app-characters-grid>]]></code>
+    </h3>
+
     <p>
       <button mat-raised-button color="primary" (click)="load()">Load characters</button>
     </p>
-    <ng-container *ngIf="!inProgress; else spinner">
-      <mat-grid-list cols="7" rowHeight="2:1" gutterSize="20px">
-        <mat-grid-tile *ngFor="let character of charactersAsync">
-          <div [ngClass]="{'char-card': true, 'female': character.isFemale}">
-            {{ character.name }}
-          </div>
-        </mat-grid-tile>
-      </mat-grid-list>
-    </ng-container>
-    <ng-template #spinner>
-      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
-    </ng-template>
-  </mat-tab>
-
-
-  <mat-tab [label]="title4">
-    <div style="display: flex">
-      <div style="flex:3">
-        <h3>Déplacer le code HTML et CSS à factoriser</h3>
-        <h3>Appeler la balise
-          <strong>app-</strong>characters-grid</h3>
-        <h3>Ajout @Input pour la liste des personages </h3>
-        <h3>Afficher le personnage sélectionné sans utiliser @Output</h3>
-      </div>
-      <div class="selected-char-card" *ngIf="state1?.selected">
-        <div class="selected-char">{{ selectedChar.name }}</div>
-        <mat-radio-group [ngModel]="state1.selected.isFemale" ng-readonly="true">
-          <mat-radio-button [value]="false">Male</mat-radio-button>
-          <mat-radio-button [value]="true">Female</mat-radio-button>
-        </mat-radio-group>
-      </div>
-    </div>
-    <ng-container *ngIf="!inProgress; else spinner1">
-      <app-characters-grid [state]="state1"></app-characters-grid>
-    </ng-container>
-    <ng-template #spinner1>
-      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
-    </ng-template>
-  </mat-tab>
-
-
-  <mat-tab [label]="title5">
-    <div style="display: flex">
-      <div style="flex:3">
-        <h3>Importer FormsModule from '@angular/forms';</h3>
-        <h3>"2way databinding": nom du personnage sélectionné sur un input avec [(ngModel)]</h3>
-        <h3>Pour la propriété isFemale et les boutons radio: utiliser (change) et $event.value</h3>
-      </div>
-      <div class="selected-char-card" *ngIf="state2?.selected">
-        <mat-form-field>
-          <input type="text" matInput [(ngModel)]="state2.selected.name">
-        </mat-form-field>
-        <mat-radio-group [ngModel]="state2.selected.isFemale" (change)="state2.selected.isFemale = $event.value">
-          <mat-radio-button [value]="false">Male</mat-radio-button>
-          <mat-radio-button [value]="true">Female</mat-radio-button>
-        </mat-radio-group>
-      </div>
-    </div>
     <ng-container *ngIf="!inProgress; else spinner2">
-      <app-characters-grid [state]="state2"></app-characters-grid>
+      <app-characters-grid *ngIf="state2" [characters]="state2.characters"></app-characters-grid>
     </ng-container>
     <ng-template #spinner2>
       <mat-progress-bar mode="indeterminate"></mat-progress-bar>
     </ng-template>
+
   </mat-tab>
 
 
-  <mat-tab [label]="title6">
+
+  <!---------------->
+  <!-- EXERCICE 3 -->
+  <!---------------->
+
+
+  <mat-tab [label]="title3">
     <div style="display: flex">
       <div style="flex:3">
-        <h3>Mettre la carte du personnage dans un composant dédié prenant un objet character</h3>
-        <h3>Transformer le composant app-characters-grid pour ne plus passer le state, seulement les characters</h3>
-        <h3>Afficher la liste des livres et des maisons grâce à un nouveau composant générique</h3>
-        <h3>Ce composant affiche la liste des objets qu'on lui passe ainsi que ses personnages en utilisant characters-grid et l'inclusion.</h3>
-        <h3>Constater la désynchronisation des données characters lorsqu'on édite un personnage</h3>
+        <h3>Transformer le componsant comme ceci</h3>
+        <h3><code><![CDATA[<app-characters-grid [characters]="characters" [selected]="selected">]]></code></h3>
+        <h3>Afficher les infos du personnage sélectionné dans un encart</h3>
+        <h4>(ne pas utiliser @Output pour l'instant)</h4>
       </div>
-      <div class="selected-char-card">
-        <app-character [character]="state3?.selected"></app-character>
+
+
+      <div class="selected-char-card" *ngIf="state3?.selected">
+        <div class="selected-char">{{ state3.selected.name }}</div>
+        <mat-radio-group [ngModel]="state3.selected.isFemale" ng-readonly="true">
+          <mat-radio-button [value]="false">Male</mat-radio-button>
+          <mat-radio-button [value]="true">Female</mat-radio-button>
+        </mat-radio-group>
       </div>
     </div>
     <ng-container *ngIf="!inProgress; else spinner3">
-      <div *ngIf="state3" style="display: flex">
-        <div *ngIf="state3.characters" style="flex: 1; margin: 10px">
-          <h4>Characters</h4>
-          <app-characters-grid-2 [characters]="state3.characters" (select)="select3($event)"></app-characters-grid-2>
-        </div>
-        <div *ngIf="state3.books" style="flex: 1; margin: 10px">
-          <h4>Books</h4>
-          <app-panel-with-list *ngFor="let book of state3.books" [object]="book">
-            <app-characters-grid-2 [characters]="book.characters" (select)="select3($event)"></app-characters-grid-2>
-          </app-panel-with-list>
-        </div>
-        <div *ngIf="state3.houses" style="flex: 1; margin: 10px">
-          <h4>Houses</h4>
-          <app-panel-with-list *ngFor="let house of state3.houses" [object]="house">
-            <app-characters-grid-2 [characters]="house.characters" (select)="select3($event)"></app-characters-grid-2>
-          </app-panel-with-list>
-        </div>
-      </div>
+      <app-characters-grid *ngIf="state3" [characters]="state3.characters" [selected]="state3.selected"></app-characters-grid>
     </ng-container>
     <ng-template #spinner3>
       <mat-progress-bar mode="indeterminate"></mat-progress-bar>
     </ng-template>
+
+
   </mat-tab>
 
+
+
+  <!---------------->
+  <!-- EXERCICE 4 -->
+  <!---------------->
+
+  <mat-tab [label]="title4">
+    <div style="display: flex">
+      <div style="flex:3">
+        <h3>Importer FormsModule from '@angular/forms';</h3>
+        <h3>
+          <i>2-way databinding</i>: nom du personnage sélectionné sur un input avec [(ngModel)]</h3>
+        <h3>Pour la propriété isFemale et les boutons radio: utiliser (change) et $event.value</h3>
+      </div>
+
+
+      <div class="selected-char-card" *ngIf="state4?.selected">
+        <mat-form-field>
+          <input type="text" matInput [(ngModel)]="state4.selected.name">
+        </mat-form-field>
+        <mat-radio-group [ngModel]="state4.selected.isFemale" (change)="state4.selected.isFemale = $event.value">
+          <mat-radio-button [value]="false">Male</mat-radio-button>
+          <mat-radio-button [value]="true">Female</mat-radio-button>
+        </mat-radio-group>
+      </div>
+    </div>
+    <ng-container *ngIf="!inProgress; else spinner4">
+      <app-characters-grid *ngIf="state4" [characters]="state4.characters" [selected]="state4.selected"></app-characters-grid>
+    </ng-container>
+    <ng-template #spinner4>
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </ng-template>
+
+  </mat-tab>
+
+
+
+  <!---------------->
+  <!-- EXERCICE 5 -->
+  <!---------------->
+
+  <mat-tab [label]="title5">
+    <div style="display: flex">
+      <div style="flex:3">
+        <h3>Mettre la carte du personnage dans un composant dédié prenant un objet character</h3>
+        <h3>Transformer le composant app-characters-grid pour ne plus passer le state, seulement les characters</h3>
+        <h3>Ne plus utiliser [(ngModel)] </h3>
+      </div>
+
+
+      <div class="selected-char-card">
+        <app-character [character]="state5?.selected"></app-character>
+      </div>
+    </div>
+    <ng-container *ngIf="!inProgress; else spinner5">
+      <div *ngIf="state5" style="flex: 1; margin: 10px">
+        <h4>Characters</h4>
+        <app-characters-grid-2 [characters]="state5.characters" [columnNb]="7" (select)="select5($event)"></app-characters-grid-2>
+      </div>
+    </ng-container>
+    <ng-template #spinner5>
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </ng-template>
+
+  </mat-tab>
+
+
+  <!---------------->
+  <!-- EXERCICE 6 -->
+  <!---------------->
+
+  <mat-tab [label]="title6">
+    <div style="display: flex">
+      <div style="flex:3">
+        <h3>Afficher la liste des livres et des maisons grâce à un nouveau composant générique</h3>
+        <h3>Ce composant affiche la liste des objets qu'on lui passe ainsi que ses personnages en utilisant characters-grid et
+          l'inclusion.</h3>
+        <h3>Constater la désynchronisation des données characters lorsqu'on édite un personnage</h3>
+      </div>
+
+
+      <div class="selected-char-card">
+        <app-character [character]="state6?.selected"></app-character>
+      </div>
+    </div>
+    <ng-container *ngIf="!inProgress; else spinner6">
+      <div *ngIf="state6" style="display: flex">
+        <div *ngIf="state6.characters" style="flex: 1; margin: 10px">
+          <h4>Characters</h4>
+          <app-characters-grid-2 [characters]="state6.characters" [columnNb]="3" (select)="select6($event)"></app-characters-grid-2>
+        </div>
+        <div *ngIf="state6.books" style="flex: 1; margin: 10px">
+          <h4>Books</h4>
+          <app-panel-with-list *ngFor="let book of state6.books" [object]="book">
+            <app-characters-grid-2 [characters]="book.characters" [columnNb]="3" (select)="select6($event)"></app-characters-grid-2>
+          </app-panel-with-list>
+        </div>
+        <div *ngIf="state6.houses" style="flex: 1; margin: 10px">
+          <h4>Houses</h4>
+          <app-panel-with-list *ngFor="let house of state6.houses" [object]="house">
+            <app-characters-grid-2 [characters]="house.characters" [columnNb]="3" (select)="select6($event)"></app-characters-grid-2>
+          </app-panel-with-list>
+        </div>
+      </div>
+    </ng-container>
+    <ng-template #spinner6>
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </ng-template>
+
+
+  </mat-tab>
+
+
+
+  <!---------------->
+  <!-- EXERCICE 7 -->
+  <!---------------->
 
   <mat-tab [label]="title7">
     <div style="display: flex">
@@ -163,29 +227,33 @@
         <h3>Constater l'appel à onInit au changement d'onglet</h3>
         <h3>Faire en sorte de détruire les composants masqués en mettant vidant la liste des objets correspondants</h3>
       </div>
+
+
       <div class="selected-char-card">
-        <app-character [character]="state4?.selected"></app-character>
+        <app-character [character]="state7?.selected"></app-character>
       </div>
     </div>
-    <ng-container *ngIf="state4 && state4.books && state4.houses && state4.characters">
+    <ng-container *ngIf="state7 && state7.books && state7.houses && state7.characters">
       <mat-tab-group (selectedTabChange)="tabChange($event)">
         <mat-tab label="Characters">
-            <h4>Characters</h4>
-            <app-characters-grid-3 [characters]="state4.characters" (select)="select4($event)"></app-characters-grid-3>
+          <h4>Characters</h4>
+          <app-characters-grid-3 [characters]="state7.characters" (select)="select7($event)"></app-characters-grid-3>
         </mat-tab>
         <mat-tab label="Books">
           <h4>Books</h4>
-          <app-panel-with-list *ngFor="let book of state4.books" [object]="book">
-            <app-characters-grid-3 [characters]="book.characters" (select)="select4($event)"></app-characters-grid-3>
+          <app-panel-with-list *ngFor="let book of state7.books" [object]="book">
+            <app-characters-grid-3 [characters]="book.characters" (select)="select7($event)"></app-characters-grid-3>
           </app-panel-with-list>
         </mat-tab>
         <mat-tab label="Houses">
           <h4>Houses</h4>
-          <app-panel-with-list *ngFor="let house of state4.houses" [object]="house">
-            <app-characters-grid-3 [characters]="house.characters" (select)="select4($event)"></app-characters-grid-3>
+          <app-panel-with-list *ngFor="let house of state7.houses" [object]="house">
+            <app-characters-grid-3 [characters]="house.characters" (select)="select7($event)"></app-characters-grid-3>
           </app-panel-with-list>
         </mat-tab>
       </mat-tab-group>
     </ng-container>
+
+
   </mat-tab>
 </mat-tab-group>

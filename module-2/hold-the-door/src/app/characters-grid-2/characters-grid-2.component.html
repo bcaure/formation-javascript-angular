@@ -1,4 +1,4 @@
-<mat-grid-list cols="3" rowHeight="2:1" gutterSize="20px">
+<mat-grid-list cols="{{ columnNb }}" rowHeight="2:1" gutterSize="20px">
   <mat-grid-tile *ngFor="let character of characters" (click)="onSelect(character)">
     <div [ngClass]="{'female': character.isFemale, 'male':!character.isFemale}">
       {{ character.name }}

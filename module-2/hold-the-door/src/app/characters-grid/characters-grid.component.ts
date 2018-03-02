@@ -8,7 +8,8 @@ import { Character } from '../model/character';
 })
 export class CharactersGridComponent implements OnInit {
 
-  @Input() state: {characters: Character[], selected: Character};
+  @Input() characters: Character[];
+  @Input() selected: Character;
 
   constructor() { }
 
@@ -16,7 +17,9 @@ export class CharactersGridComponent implements OnInit {
   }
 
   select(it: Character): void {
-    this.state.selected = it;
+    this.selected.name = it.name;
+    this.selected.isFemale = it.isFemale;
+    this.selected.id = it.id;
   }
 
 }
