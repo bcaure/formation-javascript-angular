@@ -1,0 +1,26 @@
+<div style="display: flex">
+        <div style="flex:3">
+          <h3>Création d'un formulaire de création de personnage</h3>
+        </div>
+      </div>
+        <div *ngIf="characterToAdd">
+          <form (ngSubmit)="addCharacter(characterForm)" #characterForm="ngForm">
+              <div> 
+                  <label>Name</label>
+                  <input name="name" [(ngModel)]="characterToAdd.name" required minlength="3">
+              </div> 
+              <div> 
+                  <label>Is a female ?</label>
+                  <input type="checkbox" name="isFemale" [(ngModel)]="characterToAdd.isFemale"> 
+              </div>
+              <div *ngIf="houses" style="display: flex">
+                  <label>House</label>
+                  <div *ngIf="houses">
+                    <select class="form-control" [(ngModel)]="characterToAdd.house">
+                        <option *ngFor="let house of houses" [value]="house.id">{{house.name}}</option>
+                    </select>
+                  </div>
+              </div> 
+              <button type="submit" [disabled]="!characterForm.form.valid">ADD</button>          
+          </form>
+        </div>

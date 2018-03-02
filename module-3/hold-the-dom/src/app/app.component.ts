@@ -14,8 +14,6 @@ import { House } from './model/house';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-
-  characters: Character[]
   books: Book[];
   houses: House[];
   selected: Character;
@@ -26,17 +24,13 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.inProgress = true;
-    this.loadCharacters();
-  }
-
-  loadCharacters() {
-    this.characters = charactersData.map(props => new Character(props));
+    this.loadHouses();
   }
 
   loadBooks() {
     this.books = booksData.map(props => {
       const b = new Book(props);
-      b.characters = charactersData.filter(character => character.books.includes(b.id));
+      //b.characters = charactersData.filter(character => character.books.includes(b.id));
       return b;
     });
   }
@@ -44,28 +38,23 @@ export class AppComponent implements OnInit {
   loadHouses() {
     this.houses = housesData.map(props => {
       const h = new House(props);
-      h.characters = charactersData.filter(character => character.house === h.id);
+      //h.characters = charactersData.filter(character => character.house === h.id);
       return h;
     });
   }
 
   select(character) {
+    console.log('select app component');
     this.selected = character;
   }
 
   tabChange(event) {
-    if (event.tab.textLabel === 'Characters') {
+    if (event.tab.textLabel === 'Houses') {
       this.books = [];
-      this.houses = [];
-      this.loadCharacters();
-    } else if (event.tab.textLabel === 'Houses') {
-      this.books = [];
-      this.characters = [];
       this.loadHouses();
     } else {
       this.loadBooks();
       this.houses = [];
-      this.characters = [];
     }
   }
 }

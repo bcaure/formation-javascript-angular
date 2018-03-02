@@ -17,14 +17,29 @@ import { CharacterComponent } from './character/character.component';
 import { PanelWithListComponent } from './panel-with-list/panel-with-list.component';
 import { CharactersGridComponent } from './characters-grid/characters-grid.component';
 
+/** Import de la classe services */
+import { CharacterService } from './services/character.service';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
+// Import routing
+import { RouterModule } from '@angular/router';
+import { ROUTES } from './app.routes';
+import { AuthGuard } from './guards/auth-guard-service';
+import { AddCharacterComponent } from './addCharacter/add-character-component';
+import { CharactersComponent } from './characters/characters.component';
+import { SortByAlphAndSex } from './pipes/sort-by-alph-and-sex';
+import { InfosComponent } from './infos/infos.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CharacterComponent,
     PanelWithListComponent,
-    CharactersGridComponent
+    CharactersGridComponent,
+    AddCharacterComponent,
+    CharactersComponent,
+    SortByAlphAndSex,
+    InfosComponent
   ],
   imports: [
     MatTabsModule,
@@ -37,9 +52,11 @@ import { CharactersGridComponent } from './characters-grid/characters-grid.compo
     MatRadioModule,
     MatExpansionModule,
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    RouterModule.forRoot(ROUTES)
   ],
-  providers: [],
+  providers: [HttpClientModule, CharacterService, AuthGuard, SortByAlphAndSex],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
