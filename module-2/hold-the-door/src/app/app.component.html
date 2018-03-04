@@ -17,9 +17,7 @@
   <!---------------->
 
   <mat-tab [label]="title1">
-    <h3>Ajouter characters.json au projet et l'importer dans le contrôleur app.component.ts</h3>
-    <h3>Créer un tableau Character[] en attribut du contrôleur et l'alimenter en utilisant le code de l'exercice du module 1
-      (.map)</h3>
+    <h3>Alimenter une liste de personnage avec le fichier characters.json de l'exercice du module 1</h3>
     <h3>Utiliser ngFor pour lister les personnages dans la page</h3>
     <h3>Utiliser ngClass pour mettre en bleu les femmes et rose les hommes</h3>
 
@@ -43,13 +41,15 @@
   <!---------------->
 
   <mat-tab [label]="title2">
-    <h3>Mettre setTimeout pour simuler une requête http un peu longue </h3>
-    <h3>Utiliser ngTemplate pour afficher un spinner</h3>
+    <h3>1) Simuler une requête http un peu longue avec setTimeout et afficher un spinner ne utilisant: </h3>
     <h3>
       <code><![CDATA[<ng-container *ngIf="!inProgress; else spinner2">]]></code>
     </h3>
-    <h3>Déplacer le code HTML et CSS à factoriser dans un composant personnalisé</h3>
-    <h3>Appeler le avec la balise
+    <h3>2) Déplacer le code HTML et CSS à factoriser dans un composant personnalisé</h3>
+    <h3>
+      <code><![CDATA[ng generate component characters-grid --module app.module.ts --spec=false]]></code>
+    </h3>
+    <h3>
       <code><![CDATA[<app-characters-grid [characters]="characters"></app-characters-grid>]]></code>
     </h3>
 
@@ -75,19 +75,17 @@
   <mat-tab [label]="title3">
     <div style="display: flex">
       <div style="flex:3">
-        <h3>Transformer le componsant comme ceci</h3>
-        <h3><code><![CDATA[<app-characters-grid [characters]="characters" [selected]="selected">]]></code></h3>
         <h3>Afficher les infos du personnage sélectionné dans un encart</h3>
+        <h4>Transformer le componsant comme ceci</h4>
+        <h3>
+          <code><![CDATA[<app-characters-grid [characters]="characters" [selected]="selected">]]></code>
+        </h3>
         <h4>(ne pas utiliser @Output pour l'instant)</h4>
       </div>
 
 
       <div class="selected-char-card" *ngIf="state3?.selected">
-        <div class="selected-char">{{ state3.selected.name }}</div>
-        <mat-radio-group [ngModel]="state3.selected.isFemale" ng-readonly="true">
-          <mat-radio-button [value]="false">Male</mat-radio-button>
-          <mat-radio-button [value]="true">Female</mat-radio-button>
-        </mat-radio-group>
+        <div class="selected-char">{{ state3.selected.name }} ({{ state3.selected.isFemale ? 'Female' : 'Male' }})</div>
       </div>
     </div>
     <ng-container *ngIf="!inProgress; else spinner3">
@@ -111,7 +109,7 @@
       <div style="flex:3">
         <h3>Importer FormsModule from '@angular/forms';</h3>
         <h3>
-          <i>2-way databinding</i>: nom du personnage sélectionné sur un input avec [(ngModel)]</h3>
+          Modifier le nom du personnage sélectionné sur un input avec [(ngModel)]</h3>
         <h3>Pour la propriété isFemale et les boutons radio: utiliser (change) et $event.value</h3>
       </div>
 
@@ -145,8 +143,14 @@
     <div style="display: flex">
       <div style="flex:3">
         <h3>Mettre la carte du personnage dans un composant dédié prenant un objet character</h3>
-        <h3>Transformer le composant app-characters-grid pour ne plus passer le state, seulement les characters</h3>
-        <h3>Ne plus utiliser [(ngModel)] </h3>
+        <h3>
+          <code>ng generate component characters-grid --module app.module.ts --spec=false</code>
+        </h3>
+        <h3>Transformer le composant app-characters-grid pour gérer la sélection avec @Output</h3>
+        <h3>
+          <code><![CDATA[<app-characters-grid [characters]="characters" (select)="select($event)"></app-characters-grid>]]></code>
+        </h3>
+        <h3>ne plus utiliser [(ngModel)]</h3>
       </div>
 
 
@@ -175,9 +179,16 @@
     <div style="display: flex">
       <div style="flex:3">
         <h3>Afficher la liste des livres et des maisons grâce à un nouveau composant générique</h3>
-        <h3>Ce composant affiche la liste des objets qu'on lui passe ainsi que ses personnages en utilisant characters-grid et
-          l'inclusion.</h3>
-        <h3>Constater la désynchronisation des données characters lorsqu'on édite un personnage</h3>
+        <h3>
+          <code>ng generate component panel-with-list --module app.module.ts --spec=false</code>
+        </h3>
+        <h3>
+          Ce composant affiche la liste des objets qu'on lui passe ainsi que ses personnages 
+        </h3>
+        <h3><code><![CDATA[<app-panel-with-list *ngFor="let book of state6.books" [object]="book">]]></code></h3>
+        <h3>
+          (utiliser ng-content) 
+        </h3>          
       </div>
 
 

@@ -94,6 +94,7 @@ export class AppComponent {
     }, 2000);
   }
 
+
   /** Example 4 */
   // tslint:disable-next-line:member-ordering
   title4 = '4) ngModel';
