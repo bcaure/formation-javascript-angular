@@ -47,7 +47,7 @@
           <pre><code class="shell">npm -v</code></pre>
         </section>
         <section>
-          <img class="plain" src="images/nodejs.png" width="256" />
+          <img class="plain" src="images/angular.svg" width="256" />
           <h3>angular-cli</h3>
           <pre><code class="shell">npm install -g @angular/cli</code></pre>
           <pre><code class="shell">ng -v</code></pre>
@@ -196,6 +196,9 @@ export function add(a, b) {
           <pre class="fragment fadeIn" data-fragment-index="1"><code class="js">// src/index.js
 import { add } from './mylib';
 console.log(add(19, 23));</code></pre>
+          <pre class="fragment fadeIn" data-fragment-index="2"><code class="js">// src/index.js
+import { add as addNumbers } from './mylib';
+console.log(addNumbers(19, 23));</code></pre>
         </section>
 
         <section>
@@ -325,10 +328,16 @@ console.log(add(19, 23));</code></pre>
 
         <section>
           <h3>Promise</h3>
+          <p>Timeout</p>
         </section>
 
         <section>
           <h3>Async/Await</h3>
+        </section>
+
+        <section>
+          <h3>IndexedDB</h3>
+          <p>? / localforage</p>
         </section>
 
         <section>
@@ -357,12 +366,12 @@ console.log(add(19, 23));</code></pre>
         <section>
           <h3>Sélection des navigateurs ciblés</h3>
           <pre><code class="json">{
-    "presets": [
-      ["env", {
-        "targets": ["last 2 versions", "not ie &lt;= 10"]
-      }]
-    ]
-  }</code></pre>
+  "presets": [
+    ["env", {
+      "targets": ["last 2 versions", "not ie &lt;= 10"]
+    }]
+  ]
+}</code></pre>
         </section>
       </section>
 
@@ -390,10 +399,10 @@ console.log(add(19, 23));</code></pre>
         </section>
 
         <section>
-            <h3>Let's Try TypeScript!</h3>
-            <pre class="fragment fadeIn" data-fragment-index="0"><code class="shell">npm install --save-dev tslint</code></pre>
-            <pre class="fragment fadeIn" data-fragment-index="1"><code class="shell">node_modules/.bin/tslint --init</code></pre>
-            <pre class="fragment fadeIn" data-fragment-index="2"><code class="json">"scripts": {
+          <h3>Let's Try TypeScript!</h3>
+          <pre class="fragment fadeIn" data-fragment-index="0"><code class="shell">npm install --save-dev tslint</code></pre>
+          <pre class="fragment fadeIn" data-fragment-index="1"><code class="shell">node_modules/.bin/tslint --init</code></pre>
+          <pre class="fragment fadeIn" data-fragment-index="2"><code class="json">"scripts": {
   "lint": "tslint ./src"
 }</code></pre>
         </section>
@@ -450,6 +459,15 @@ console.log(add(19, 23));</code></pre>
   const value: any;
   export default value;
 }</code></pre>
+          <p>ajouter les décorateurs</p>
+          <p>configurer le linter</p>
+          <p>types non gérés par typescript</p>
+          <p>interfaces</p>
+          <p>mixins</p>
+        </section>
+
+        <section>
+          Web components (if we have time)
         </section>
       </section>
     </div>

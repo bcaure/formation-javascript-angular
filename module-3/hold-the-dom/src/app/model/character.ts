@@ -4,6 +4,7 @@ class Character {
   name: string;
   isFemale: boolean;
   house: number;
+  aliases: string[];
   books: number[];
 
   /**
@@ -16,11 +17,13 @@ class Character {
    * @param {number[]} books - books ids where character made an appearance
    */
   constructor(props) {
-    this.id = props.id;
-    this.name = props.name;
-    this.isFemale = props.isFemale;
-    this.house = props.house;
-    this.books = props.books;
+    if(props != null) {
+      this.id = props.id;
+      this.name = props.name;
+      this.isFemale = props.isFemale;
+      this.house = props.house;
+      this.books = props.books;
+    }
   }
 }
 

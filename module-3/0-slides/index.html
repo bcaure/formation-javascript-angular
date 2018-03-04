@@ -1,0 +1,1146 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>reveal.js</title>
+
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/black.css">
+
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/css/zenburn.css">
+  
+  <style type="text/css">
+	.code-style {
+		font-style: italic !important; 
+		color:#e52b3b !important;
+		}
+  </style>
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        <img class="plain" src="images/angular.svg" width="256" />
+        <h2>Partie 3</h2>
+      </section>
+
+      <section>
+        <section>
+          <img class="plain" src="./images/form.svg" width="256" />
+          <h3>Les formulaires</h3>
+        </section>
+		
+        <section>
+			<h3>Les formulaires</h3>
+			<ul>
+			<li>Aspect crucial dans une application web</li>
+			<li>Des formulaires peuvent être complexe : la gestion des données, les changements qui peuvent affecter une autre page, la validation des données, l'affichage des erreurs</li>
+			</ul>
+        </section>
+		
+        <section>
+          <h3>NgForm</h3>
+		  <ul>
+			<li>Angular fournit un outillage pour gérer cela : <a class="code-style">NgForm</a></li>
+			<li>Directive <a class="code-style">@angular/forms</a></li>
+			<li>Dès l'import de FormsModule, les <a class="code-style">form</a> par défaut deviennent des formulaires Angular</li>
+		  </ul>
+		  <p><b><u>Remarque :</u> Vous pouvez utiliser le ng-no-form pour éviter que le formulaire ne soit considéré comme un ngform mais plutôt comme un formulaire HTML5</b></p>
+        </section>
+		
+		<section>
+          <h3>NgSubmit</h3>
+		  <ul>
+			<li>On peut écouter la directive sur l'évènement <a class="code-style">ngSubmit</a> qui notifie de la soumission du formulaire</li>
+			<li>On place le handler d’événement <a class="code-style">ngSubmit</a> sur l’élément <a class="code-style">form</a></li>
+		  </ul>
+        </section>
+		
+		<section>
+          <h3>Exemple</h3>
+          <img class="plain" src="./images/form1.png" />
+        </section>
+		
+		<section>
+          <h3>Exemple (typescript)</h3>
+          <img class="plain" src="./images/form2.png" />
+        </section>
+		
+		<section>
+          <h3>Reactive forms</h3>
+          <p>ReactiveFormsModule : </p>
+		  <ul>
+			<li>Favorise la gestion explicite des données</li>
+			<li>Permet de faire des contrôles plus fin</li>
+			<li>Autre directive que ng...., commence par form comme la directive <a class="code-style">formGroup</a> pour le formulaire et <a class="code-style">formControlName</a> pour les inputs</li>
+			<li>On passe une valeur et pas une expression</li>
+			<li>Reactive forms sont synchrones</li>
+		  </ul>
+        </section>
+		
+		<section>
+          <h3>Reactive forms</h3>
+		  <ul>
+			<li>Permet de construire les formulaires programmatiquement</li>
+			<li>Facilement testable, car ce n’est que du code</li>
+			<li><a class="code-style">Input</a> ou <a class="code-style">Select</a> représentés par un FormControl</li>
+			<li><a class="code-style">FormControl</a> est la brique élémentaire d’un formulaire, qui encapsule l’état du champ et sa valeur</li>
+		  </ul>
+        </section>
+		
+		<section>
+          <h3>Reactive forms</h3>
+		  <p>Exemple :</p>
+          <img class="plain" src="./images/form3.png" /><br/>
+		  <p>Utilisation de la classe <a class="code-style">FormBuilder</a> qui possède des méthodes utilitaires pour créer des contrôles et des groupes</p>
+        </section>
+		
+		<section>
+          <h3>Reactive forms</h3>
+		  <p>Exemple :</p>
+          <img class="plain" src="./images/form4.png" /><br/>
+        </section>
+		
+		<section>
+          <h3>Les variables de template</h3>
+		  <ul>
+			<li>Une variable de template est une référence à un élément du DOM dans un template</li>
+			<li>Il peut également faire référence à un composant ou une directive Angular</li>
+			<li>Utilisation du symbole <a class="code-style">#</a> ou du prefixe <a class="code-style">ref-</a> pour déclarer une variable de référence (<a class="code-style">ref-fax</a> ou <a class="code-style">#fax</a>)</li>
+		  </ul>
+        </section>
+		
+		<section>
+          <h3>Les variables de template</h3>
+		  <ul>
+			<li>On peut y faire référence dans le template</li>
+			<li>La portée d'une variable de template est le template</li>
+			<li>Il ne faut pas nommer deux variables de template avec le même nom</li>
+		  </ul>
+          <img class="plain" src="./images/form5.png" /><br/>
+        </section>
+		
+		<section>
+          <h3>Validation</h3>
+		  <ul>
+			<li>Champs obligatoires, respect de format</li>
+			<li>Deux types de validation :
+				<ul>
+					<li>Validation côté modèle : <a class="code-style">Validator</a></li>
+					<li>Validation côté template : 
+						<ul>
+							<li><a class="code-style">required</a><img class="plain" src="./images/form6.png" /></li>
+							<li><a class="code-style">minlength</a> et <a class="code-style">maxlength</a>, <a class="code-style">email</a><img class="plain" src="./images/form7.png" /></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		  </ul>
+        </section>
+		
+		<section>
+          <h3>Erreurs et soumission</h3>
+		  <ul>
+			<li>Si on rencontre une erreur de validation : 
+				<ul>
+					<li><a class="code-style">disabled</a> est lié à la propriété <a class="code-style">valid</a> du formulaire :<img class="plain" src="./images/form8.png" /></li>
+					<li><a class="code-style">hasError</a> permet par exemple d’afficher un message si le mot de passe est vide</li>
+				</ul>
+			</li>
+		  </ul>
+		  <p><b><u>Remarque :</u> Une directive custom permet d’abstraire l’affichage des erreurs</b></p><br/>
+        </section>
+		
+		<section>
+          <h3>Erreurs et soumission</h3>
+		  <ul>
+			<li>Angular ajoute automatiquement des classes CSS sur les champs et le formulaire :
+				<ul>
+					<li><a class="code-style">ng-invalid</a> et <a class="code-style">ng-valid</a>, <a class="code-style">ng-dirty</a>, <a class="code-style">ng-touched</a>, 
+					<a class="code-style">ng-untouched</a>, <a class="code-style">ng-pristine</a> </li>
+				</ul>
+			</li>
+			<li>Exemple : <img class="plain" src="./images/form9.png" /></li>
+		  </ul>
+        </section>
+		
+		<section>
+		  <h3>Créer son validateur</h3>
+		  <img class="plain" src="./images/validator.gif" />
+        </section>
+		
+		<section>
+          <h3>Créer son validateur</h3>
+		  <ul>
+			<li>Validateur spécifique : par exemple vérifier si le personnage a plus de 18 ans</li>
+			<li>En utilisant le FormBuilder, depuis le code<img class="plain" src="./images/form10.png" /><br/></li>
+		  </ul>
+		  <p><u>Exemple :</u> Validateur asynchrone pour vériifer auprès du backend si un nom d’utilisateur est disponible par exemple </p><br/>
+        </section>
+		
+		<section>
+          <h3>Exercice</h3>
+		  <p>Créer un formulaire d’ajout de personnage</p><br/>
+		  <ul>
+			<li>NgForm, NgSubmit, variable de template, désactiver le bouton si pas de nom, ajout dans la liste des personnages, reactive form et validator</li>
+		  </ul>
+		  <img class="plain" src="./images/got-characters.jpg" width=512 />
+        </section>
+		
+        <!--<section>
+          <img class="plain" src="images/nodejs.png" width="256" />
+          <h3>angular-cli</h3>
+          <pre><code class="shell">npm install -g @angular/cli</code></pre>
+          <pre><code class="shell">ng -v</code></pre>
+        </section>
+        <section>
+          <img class="plain" src="images/chrome.svg" width="256" />
+          <h3>Chrome</h3>
+          <p>
+            <p class="fragment fadeIn" data-fragment-index="0">Mais testez sur Firefox !</p>
+            <em class="fragment fadeIn" data-fragment-index="1">et IE...</em>
+          </p>
+        </section>
+        <section>
+          <img class="plain" src="images/vscode.svg" width="256" />
+          <h3>VSCode</h3>
+          <a href="https://go.microsoft.com/fwlink/?Linkid=852157">Download</a>
+        </section>
+
+        <section>
+          <h3>Git integration</h3>
+        </section>
+
+        <section>
+          <h3>Raccourcis utiles</h3>
+        </section>
+
+        <section>
+          <h3>Extensions</h3>
+          <ul>
+            <li>eslint</li>
+            <li>tslint</li>
+          </ul>
+        </section>-->
+      </section>
+
+      <section>
+        <section>
+          <img class="plain" src="./images/services.png" width="256" />
+          <h3>Les services</h3>
+        </section>
+		
+		<section>
+          <h3>Les services</h3>
+		  <ul>
+			<li>Des classes que l’on peut injecter dans une autre</li>
+			<li>Singleton => instance unique injectée partout</li>
+			<li>Deux services fournis de base : title et meta</li>
+			<li>Possibilité de créer son propre service</li>
+			<li>Exemple : <img class="plain" src="./images/service1.png"/></li>
+		  </ul>
+        </section>
+		
+		<section>
+          <h3>Injection de dépendances</h3>
+		  <img class="plain" src="./images/injection.gif"/>
+        </section>
+		
+		<section>
+          <h3>Injection de dépendances</h3>
+		  <ul>
+			<li>Design pattern</li>
+			<li>Faire appel à des fonctionnalités définies ailleurs</li>
+			<li>Angular créé l’instance du service lui-même, pas le composant qui a besoin du service => inversion de contrôle</li>
+			<li>Pour utiliser une dépendance :
+				<ul>
+					<li>Rendre disponible l’injection</li>
+					<li>Déclarer la dépendance</li>
+				</ul>
+			</li>
+		  </ul>
+        </section>
+		
+		<section>
+          <h3>Injection de dépendances</h3>
+		  <ul>
+			<li>Rendre disponible l’injection :
+				<ul>
+					<li>Export du service<img class="plain" src="./images/service2.png" /></li>
+					<li><a class="code-style">@Injectable</a> : permet de déclarer que ce service a lui-même des dépendances</li>
+				</ul>
+			</li>
+		  </ul>
+        </section>
+		
+		<section>
+          <h3>Injection de dépendances</h3>
+		  <ul>
+			<li>Déclaration du service dans le provider : déclaration raccourci qui fait un lien entre le token et le service, l’injecteur maintient un dictionnaire de token et injecte les services quand ils sont réclamés)</li>
+		  </ul>
+        </section>
+		
+		<section>
+          <h3>Injection de dépendances</h3>
+          <img class="plain" src="./images/service3.png" width=450/>
+        </section>
+		
+		<section>
+          <h3>Injection de dépendances</h3>
+          <p>On pourrait changer la classe du token pour bouchonner, uniquement en dev par exemple.</p>
+		  <img class="plain" src="./images/service4.png"/>
+		  <p>Injecteur hiérarchique par composant, hérite de l’injecteur de son parent</p> 
+        </section>
+		
+		<section>
+          <h3>Injection de dépendances</h3>
+          <p>Déclarer la dépendance avant de l’utiliser</p>
+		  <img class="plain" src="./images/service5.png"/>
+        </section>
+		
+		<section>
+          <h3>Exercice</h3>
+		  <ul>
+			<li>Implémenter un service vide</li>
+			<li>Déclarer votre service</li>
+			<li>Injecter votre service dans le composant liste des personnages</li>
+		  </ul>
+		  <img class="plain" src="./images/got-house.jpg" width=512/>
+        </section>
+		
+		<section>
+          <h3>HTTP</h3>
+		  <ul>
+			<li>Utiliser les classes du module <a class="code-style">HttpClientModule</a> dans le package angular/common/http</li>
+			<li><a class="code-style">HttpClientModule</a> est une réécriture de <a class="code-style">HttpModule</a></li>
+			<li>Permet de bouchonner ton serveur, et de retourner des réponses données</li>
+			<li>Utilise le paradigme de la programmation réactive => façon de construire une application avec des événements, et d’y réagir</li>
+		  </ul>
+        </section>
+		
+		<section>
+          <h3>HTTP</h3>
+		  <ul>
+			<li>Le module HTTP propose le service <a class="code-style">HttpClient</a></li>
+			<li>Permet de réaliser des requêtes AJAX avec <a class="code-style">XMLHttpRequest</a></li>
+			<li>Propose des méthodes : <a class="code-style">get, <a class="code-style">post</a>, <a class="code-style">put</a>, <a class="code-style">delete</a>, <a class="code-style">patch</a>, <a class="code-style">head</a> et <a class="code-style">jsonp</a></li>
+			<li>Ces méthodes retournent un objet Observable. On peut s’y abonner pour obtenir la réponse</li>
+		</section>
+		
+		<section>
+          <h3>HTTP</h3>
+		  <ul>
+			<li>Ces méthodes retournent un objet Observable. On peut s’y abonner pour obtenir la réponse</li>
+			<li>Accès à la réponse HTTP avec le statut via <a class="code-style">HttpResponse</a> ou <a class="code-style">HttpErrorResponse</a></li>
+			<li>Il existe des intercepteurs à travers <a class="code-style">HttpInterceptor</a></li>
+		  </ul>
+		  <p><b><u>Remarque :</u> une bonne pratique est de mettre dans un service dédié, et de s’abonner à la méthode de son service à partir d’un composant</b></p>
+        </section>
+		
+		<section>
+          <h3>HTTP</h3>
+		  <p>Exemple d’appel à une api : </p>
+		  <img class="plain" src="./images/service6.png"/>
+        </section>
+		
+		<section>
+          <h3>HTTP</h3>
+		  <p>Exemple d’appel à une api : </p>
+		  <img class="plain" src="./images/service7.png"/>
+        </section>
+		
+		<section>
+          <h3>Exercice</h3>
+		  <p>Brancher à l'API :</p>
+		  <ul>
+			<li>Appeler l’api get des personnages</li>
+			<li>Vérifier sur votre page de liste des personnages le branchement</li>
+		  </ul>
+		  <img class="plain" src="./images/got-hodor.jpg"/>
+        </section>
+		
+		<section>
+          <h3>RxJS</h3>
+		  <img class="plain" src="./images/rxjs.png" width=256/>
+		  <ul>
+			<li>Bibliothèque qui permet d’implémenter le concept de programmation réactive
+visant à conserver une cohérence d'ensemble en propageant les modifications d'une source réactive</li>
+			<li>Déclenchement d’évènements, on peut y réagir ou non. Ces évènements peuvent être combinés, transformés, filtrés… en utilisant des méthodes comme map</li>
+		  </ul>
+        </section>
+		
+		<section>
+          <h3>RxJS</h3>
+		  <ul>
+			<li>Toute donnée entrante sera dans un flux. Ces flux peuvent être écoutés, évidemment modifiés (filtrés, fusionnés, …​), et même devenir un nouveau flux que l’on pourra aussi écouter. Cette technique permet d’obtenir des programmes faiblement couplés? tu te contentes de déclencher un événement, et toutes les parties de l’application intéressées réagiront en conséquence</li>
+			<li>Dans Angular => répondre à une requête HTTP, lever un évènement spécifique dans un composant</li>
+		  </ul>
+        </section>
+		
+		<section>
+          <h3>RxJS</h3>
+		  <ul>
+			<li>Ces flux peuvent être subscribe. Un listener de flux est un observer</li>
+			<li>Observer différent promise car il continue d’écouter jusqu’à un évènement de terminaison</li>
+			<li>Observable est une collection de données  dont les valeurs sont reportées dans le temps, en asynchrone</li>
+		  </ul>
+        </section>
+		
+		<section>
+          <h3>RxJS</h3>
+		  <img class="plain" src="./images/observer-obervable.jpg"/>
+        </section>
+		
+		<section>
+          <h3>RxJS</h3>
+		  <p>Un observable, peut être transformé via des fonctions comme :</p>
+		  <ul>
+			<li><a class="code-style">map(fn)</a> va appliquer la fonction fn sur chaque événement et retourner le résultat</li>
+			<li><a class="code-style">subscribe(fn)</a> appliquera la fonction fn à chaque événement qu’elle reçoit</li>
+		  </ul>
+        </section>
+		
+		<section>
+          <h3>RxJS</h3>
+		  <img class="plain" src="./images/service8.png" />
+		  <img class="plain" src="./images/service9.png" />
+        </section>
+		
+		<section>
+          <h3>RxJS</h3>
+		  <p>EventEmitter : Angular propose un adaptateur autour de l’objet Observable : <a class="code-style">EventEmitter</a>.
+Il possède une méthode subscribe() pour réagir aux évènements</p>
+		  <img class="plain" src="./images/service10.png" />
+        </section>
+		
+				<section>
+          <h3>RxJS</h3>
+		  <img class="plain" src="./images/service11.png" />
+        </section>
+		
+		
+		
+
+        <!--<section>
+          <h3>Packaging ?</h3>
+          <p>TODO: le packaging est bon pour les développeurs mais pas pour les utilisateurs</p>
+        </section>
+
+        <section>
+          <h3>"Old School" Packaging</h3>
+          <img class="plain fragment fadeIn" src="./images/grunt.png" height="256" data-fragment-index="0" />
+          <img class="plain fragment fadeIn" src="./images/gulp.svg" height="256" data-fragment-index="1" />
+          <p class="fragment fadeIn" data-fragment-index="2">Taskrunners</p>
+        </section>
+
+        <section>
+          <h3>"Old School" Packaging</h3>
+          <img class="plain" src="./images/taskrunner-flow.svg" />
+          <ul>
+            <li class="fragment fadeIn" data-fragment-index="0">Optimisations difficiles</li>
+            <li class="fragment fadeIn" data-fragment-index="1">Pas conscient des dépendences</li>
+            <li class="fragment fadeIn" data-fragment-index="2">Beaucoup de code pour peu de choses...</li>
+          </ul>
+        </section>
+
+        <section>
+          <img class="plain" src="./images/webpack.svg" width="256" />
+          <h3>Webpack</h3>
+          <p class="fragment fadeIn" data-fragment-index="0">Welcome module bundlers!</p>
+        </section>
+
+        <section>
+          <h3>Webpack</h3>
+          <img class="plain" src="./images/webpack-flow.svg" />
+        </section>
+
+        <section>
+          <h3>Installation de webpack</h3>
+          <pre class="fragment fadeIn" data-fragment-index="0"><code class="shell">npm init -y</code></pre>
+          <pre class="fragment fadeIn" data-fragment-index="1"><code class="shell">npm install --save-dev webpack webpack-cli</code></pre>
+        </section>
+
+        <section>
+          <h3>Hello, Webpack!</h3>
+          <pre class="fragment fadeIn" data-fragment-index="0"><code class="js">// src/index.js
+console.log('Hello, Webpack!');</code></pre>
+        </section>
+
+        <section>
+          <h3>npm run build</h3>
+          <pre><code class="json">"scripts": {
+  "build": "webpack"
+  ...
+}</code></pre>
+        </section>
+
+        <section>
+          <h3>webpack.config.js</h3>
+          <pre><code class="js">module.exports = {
+  mode: process.env.NODE_ENV ? process.env.NODE_ENV : 'development',
+};</code></pre>
+        </section>
+
+        <section>
+          <h3>Installation de webpack-dev-server</h3>
+          <pre><code class="shell">npm install --save-dev webpack-dev-server</code></pre>
+        </section>
+
+        <section>
+          <h3>npm start</h3>
+          <pre><code class="json">"scripts": {
+  "start": "webpack-dev-server",
+  ...
+}</code></pre>
+        </section>
+
+        <section>
+          <h3>Installation de html-webpack-plugin</h3>
+          <pre><code class="shell">npm install --save-dev html-webpack-plugin@webpack-contrib/html-webpack-plugin</code></pre>
+        </section>
+
+        <section>
+          <h3>webpack.config.js</h3>
+          <pre><code class="js">const HtmlWebpackPlugin = require('html-webpack-plugin');
+module.exports = {
+  ...
+  plugins: [new HtmlWebpackPlugin({
+    template: 'src/index.html',
+  })]
+};</code></pre>
+        </section>
+
+        <section>
+          <h3>Modules - Default export</h3>
+          <pre class="fragment fadeIn" data-fragment-index="0"><code class="js">// src/hello.js
+export default 'Hello, Webpack!';</code></pre>
+          <pre class="fragment fadeIn" data-fragment-index="1"><code class="js">// src/index.js
+import hello from './hello';
+console.log(hello);</code></pre>
+        </section>
+
+        <section>
+          <h3>Modules - Named export</h3>
+          <pre class="fragment fadeIn" data-fragment-index="0"><code class="js">// src/mylib.js
+export function add(a, b) {
+  return a + b;
+}</code></pre>
+          <pre class="fragment fadeIn" data-fragment-index="1"><code class="js">// src/index.js
+import { add } from './mylib';
+console.log(add(19, 23));</code></pre>
+        </section>
+
+        <section>
+          <h3>Ajout d'un type de fichier</h3>
+          <p class="fragment fadeIn" data-fragment-index="0">Le JavaScript est géré par défaut par webpack</p>
+          <pre class="fragment fadeIn" data-fragment-index="1"><code class="js">import './style.css';</code></pre>
+          <p class="fragment fadeIn" data-fragment-index="2">Il faut ajouter des
+            <em>Loaders</em> pour gérer les autres types de fichiers</p>
+        </section>
+
+        <section>
+          <h3>Ajout de règles de chargement</h3>
+          <pre><code class="shell">npm install --save-dev style-loader css-loader</code></pre>
+          <pre><code class="js">module.exports = {
+  ...
+  module: {
+    rules: [
+      { test: /\.css$/, use: ['style-loader', 'css-loader'] },
+    ]
+  },
+  ...
+};</code></pre>
+        </section>
+
+        <section>
+          <h3>Un peu d'exercice !</h3>
+          <img class="plain" src="./images/exercise-0.gif">
+          <p>Ajouter
+            <code>file-loader</code> pour charger des images</p>
+        </section>
+
+        <section>
+          <pre><code class="js">module.exports = {
+  ...
+  { test: /\.(gif)$/i, use: 'file-loader' },
+  ...
+};</code></pre>
+        </section>
+
+        <section>
+          <h3>Debugging</h3>
+          <pre class="fragment fadeIn" data-fragment-index="0"><code class="js">module.exports = {
+  devtool: 'source-map',
+  ...
+};</code></pre>
+        </section>-->
+      </section>
+
+      <section>
+        <section>
+          <img class="plain" src="./images/pipe.png" width="256" />
+          <h3>Les pipes</h3>
+        </section>
+
+        <section>
+          <h3>Nom d'une pipe</h3>
+          <ul>
+            <li>Pipe ou tube ou tuyau ou <a class="code-style">|</a></li>
+            <li>Remplace le filter de AngularJS</li>
+            <li>Transformer des données brut en entrée que l’on veut afficher (ou filtrer, tronquer, etc)</li>
+          </ul>
+        </section>
+		
+		<section>
+          <h3>Les pipes</h3>
+          <ul>
+            <li>Il présente quelques avantages supplémentaires :
+				<ul>
+					<li>Built-in pipes : comme le pipe <a class="code-style">async</a>, <a class="code-style">decimal</a> ou <a class="code-style">percent</a>…</li>
+					<li>Certains pipes sont paramétrables</li>
+					<li>Les pipes sont chainables</li>
+					<li>On peut également créer ses propres pipes</li>
+				</ul>
+			</li>
+            <li>Il existe les pipes pures et impures
+			<ul>
+				<li>Angular execute une pipe pure quand il détecte un changement de valeur sur un input de type primitif (<a class="code-style">String</a>, <a class="code-style">Number</a>, <a class="code-style">Boolean</a>...) ou une référence d'objet (<a class="code-style">Date</a>, <a class="code-style">Array</a>...)</li>
+			</ul>
+			</li>
+          </ul>
+        </section>
+		
+		<section>
+          <h3>Utilisation dans le code</h3>
+          <pre><code class="js">import { JsonPipe } from '@angular/common';
+
+			export class CharactersComponent {
+			  characters: Array<any> = [{ name: ‘Jean Neige' }, { name: ‘Petit doigt' }];
+
+			 charactersAsJson: string;
+
+			constructor(jsonPipe: JsonPipe) {
+			this.charactersAsJson = jsonPipe.transform(this.characters);
+			  }
+			}
+			</code></pre>
+        </section>
+		
+		<section>
+          <h3>Les pipes utiles</h3>
+		  Exemple de pipes : 
+          <ul>
+            <li><a class="code-style">json</a> : utile pour le debug => applique <a class="code-style">JSON.stringify()</a>
+			<img class="plain" src="./images/service12.png" /></li>
+			
+			<li><a class="code-style">slice</a> : permet d’afficher un sous ensemble de la collection (ou string)
+Couplé à ngFor, permet de sélectionner les éléments à afficher
+<img class="plain" src="./images/service13.png" /></li>
+          </ul>
+        </section>
+		
+		<section>
+          <h3>Les pipes utiles</h3>
+		  Exemple de pipes : 
+          <ul>
+			<li><a class="code-style">uppercase</a> : permet d’afficher le texte en majuscule
+			<img class="plain" src="./images/service14.png" /></li>
+			<li><a class="code-style">lowercase</a>  : permet d’afficher le texte en minuscule
+			<img class="plain" src="./images/service15.png" /></li>
+			<li><a class="code-style">number</a> : permet de formater un nombre (s’appuie sur l’internationalisation du navigateur)
+			<img class="plain" src="./images/service16.png" /></li>
+          </ul>
+        </section>
+		
+		<section>
+          <h3>Les pipes utiles</h3>
+		  Exemple de pipes :
+          <ul>
+			<li><a class="code-style">percent</a> (s’appuie sur l’internationalisation du navigateur)
+			<img class="plain" src="./images/service17.png" /></li>
+			<li><a class="code-style">currency</a> (s’appuie sur l’internationalisation du navigateur)
+			<img class="plain" src="./images/service18.png" /></li>
+			<li><a class="code-style">date</a> (s’appuie sur l’internationalisation du navigateur)
+			<img class="plain" src="./images/service19.png" /></li>
+          </ul>
+        </section>
+		
+		<section>
+          <h3>Le pipe async</h3>
+          <ul>
+			<li>Permet d’afficher des données obtenues de manière asynchrone</li>
+			<li>Utilise <a class="code-style">PromisePipe</a> ou <a class="code-style">ObservablePipe</a> selon que tes données viennent d’une <a class="code-style">Promise</a> ou d’un <a class="code-style">Observable</a></li>
+			<li>Retourne une chaîne de caractères vide jusqu’à ce que les données deviennent disponibles
+			<img class="plain" src="./images/service20.png" /></li>
+          </ul>
+        </section>
+		
+		<section>
+          <h3>Le pipe custom</h3>
+		  <img class="plain" src="./images/service21.png" />
+        </section>
+		
+		<section>
+          <h3>Exercice</h3>
+		  <img class="plain" src="./images/pipe.gif" />
+        </section>
+		
+		<section>
+          <h3>Exercice</h3>
+          <ul>
+			<li>Utiliser le pipe async dans notre liste de personnage avec l’appel API</li>
+			<li>Créer son propre pipe pour classer les personnages par ordre alphabétique
+				<ul>
+					<li>Les classer également par sexe féminin si deux personnages ont le même nom (cas de changement de sexe)</li>
+					<li>L’appeler à travers le code et le template</li>
+				</ul>
+			</li>
+          </ul>
+        </section>
+		
+		
+		
+		
+		
+		
+
+       <!-- <section>
+          <h3>Let's try ECMAScript</h3>	
+          <pre class="fragment fadeIn" data-fragment-index="0"><code class="shell">npm install --save-dev eslint</code></pre>
+          <pre class="fragment fadeIn" data-fragment-index="1"><code class="shell">node_modules/.bin/eslint --init</code></pre>
+          <pre class="fragment fadeIn" data-fragment-index="2"><code class="json">"scripts": {
+  "lint": "eslint ./src"
+}</code></pre>
+        </section>
+
+        <section>
+          <pre class="fragment fadeIn" data-fragment-index="0"><code class="js">import books from './books';</code></pre>
+        </section>
+
+        <section>
+          <h3>Classes</h3>
+          <pre class="fragment fadeIn" data-fragment-index="0"><code>export class Book {
+  constructor(args) {
+    this.id = args.id;
+    this.name = args.name;
+    this.authors = args.authors;
+    this.releaseDate = new Date(args.releaseDate);
+  }
+}</code></pre>
+        </section>
+
+        <section>
+          <h3>Array methods</h3>
+          <pre class="fragment fadeIn" data-fragment-index="0"><code>books.map(function (book) {
+  return new Book(book);
+});</code></pre>
+          <pre class="fragment fadeIn" data-fragment-index="1"><code>books.filter(function (book) {
+  return book.name.startsWith('The');
+});</code></pre>
+          <pre class="fragment fadeIn" data-fragment-index="2"><code>books.sort(function (a, b) {
+  return a.localeCompare(b);
+});</code></pre>
+        </section>
+
+        <section>
+          <h3>Arrow functions</h3>
+          <pre class="fragment fadeIn" data-fragment-index="0"><code>books.map(book => new Book(book));</code></pre>
+          <pre class="fragment fadeIn" data-fragment-index="1"><code>books.filter(book => book.name.startsWith('The'));</code></pre>
+          <pre class="fragment fadeIn" data-fragment-index="2"><code>books.sort((a, b) => a.localeCompare(b));</code></pre>
+        </section>
+
+        <section>
+          <h3>Templates</h3>
+          <pre class="fragment fadeIn" data-fragment-index="0"><code class="js">'Book ' + book.name + ' by ' + book.authors.join()</code></pre>
+          <pre class="fragment fadeIn" data-fragment-index="1"><code class="js">`Book ${book.name} by ${book.authors.join()}`</code></pre>
+        </section>
+
+        <section>
+          <h3>Destructuring</h3>
+          <pre class="fragment fadeIn" data-fragment-index="0"><code class="js">const { name, releaseDate } = book;</code></pre>
+          <pre class="fragment fadeIn" data-fragment-index="1"><code class="js">const { name = 'Untitled', releaseDate } = book;</code></pre>
+          <pre class="fragment fadeIn" data-fragment-index="2"><code class="js">const { name = 'Untitled', releaseDate, ...rest } = book;</code></pre>
+        </section>
+
+        <section>
+          <h3>Promise</h3>
+        </section>
+
+        <section>
+          <h3>Async/Await</h3>
+        </section>
+
+        <section>
+          <p>Pas entièrement supporté par tous les navigateurs :(</p>
+          <img class="plain fragment fadeIn" src="./images/babel.png" width="256" data-fragment-index="0" />
+          <p class="fragment fadeIn" data-fragment-index="1">Compilateur JavaScript pour utiliser tous les standards ECMAScript!</p>
+        </section>
+
+        <section>
+          <h3>Installation de babel</h3>
+          <pre class="fragment fadeIn" data-fragment-index="0"><code class="shell">npm install --save-dev babel-loader babel-core babel-preset-env</code></pre>
+          <pre class="fragment fadeIn" data-fragment-index="1"><code class="shell">npm install babel-polyfill</code></pre>
+
+          <pre class="fragment fadeIn" data-fragment-index="2"><code class="json">{
+  "presets": ["env"]
+}</code></pre>
+
+          <pre class="fragment fadeIn" data-fragment-index="3"><code class="js">module.exports = {
+  entry: ['babel-polyfill', './src/index.js'],
+  ...
+  { test: /\.js$/, exclude: /node_modules/, use: 'babel-loader' },
+  ...
+};</code></pre>
+        </section>
+
+        <section>
+          <h3>Sélection des navigateurs ciblés</h3>
+          <pre><code class="json">{
+    "presets": [
+      ["env", {
+        "targets": ["last 2 versions", "not ie &lt;= 10"]
+      }]
+    ]
+  }</code></pre>
+        </section>-->
+      </section>
+
+      <section>
+        <section>
+          <img class="plain" src="./images/route.png" width="256" />
+          <h3>Les modules / les routes</h3>
+        </section>
+		
+		<section>
+          <h3>Module</h3>
+          <ul>
+            <li>Gestion de module fondamentale dans Angular</li>
+            <li>Tout est défini dans des modules</li>
+            <li>Le mot clé <a class="code-style">export</a> permet d’exposer une fonction</li>
+			<li>Un composant peut appeler à l’aide de <a class="code-style">import</a></li>
+			<li>Named export : nommer les imports que l’on souhaite utiliser</li>
+          </ul>
+        </section>
+		
+		<section>
+          <h3>Module</h3>
+          <ul>
+            <li>Utilisation d'un alias<img class="plain" src="./images/route1.png" /></li>
+            <li>On peut utiliser le joker * <img class="plain" src="./images/route2.png" /></li>
+          </ul>
+        </section>
+		
+		<section>
+          <h3>Sur ma route</h3>
+          <ul>
+            <li>URL = état de l’application</li>
+			<li>Assigner à une URL un composant</li>
+			<li>Rendre la Single Page Application plus intélligente</li>
+          </ul>
+		  <p><b><u>Remarque :</u> Ne regardez pas la doc</b></p>
+        </section>
+
+		<section>
+          <h3>Différents routeurs :</h3>
+          <ul>
+            <li><a class="code-style">ngRoute</a> : AngularJS, maintenu mais limité pour les grosses applications</li>
+			<li><a class="code-style">ui-router</a> : efficace</li>
+			<li><a class="code-style">Router module</a> : proposé par Angular, complet</li>
+          </ul>
+        </section>
+
+		<section>
+          <h3>Router module</h3>
+          <ul>
+            <li>Commencer par ajouter qu’on utilise le module routeur<img class="plain" src="./images/route3.png" /></li>
+			<li>Configurer vos routes à travers un fichier de configuration<img class="plain" src="./images/route4.png" /></li>
+          </ul>
+        </section>
+
+		<section>
+          <h3>Router module</h3>
+          <ul>
+            <li>Dans l’app module, importer le module de routing avec le fichier de configuration</li>
+          </ul>
+		  <img class="plain" src="./images/route5.png" />
+        </section>
+
+		<section>
+          <h3>Router module</h3>
+          <ul>
+            <li>On inclus le composant à afficher dans la page à l’aide de <a class="code-style"><router-outlet></a> <br/>Déclaration de liens de navigation : 
+<img class="plain" src="./images/route6.png" /></li>
+			<li>Directive routerLinkActive pour appliquer un style quand une route est sélectionnée</li>
+			<li>Côté code, on peut naviguer avec <pre><code class="js">this.router.navigate(['']);</code></pre></li>
+          </ul>
+        </section>	
+
+		<section>
+          <h3>Router module</h3>
+          <ul>
+            <li>Passage de paramètres (1 ou plusieurs) : 
+<pre><code class="js">[routerLink]="['/characters', character.id, houses', house.id]</code></pre></li>
+			<li>On peut ensuite récupérer les paramètres facilement :
+<pre><code class="js">const id = this.route.snapshot.paramMap.get(characterId');</code></pre></li>
+          </ul>
+        </section>	
+
+		<section>
+          <h3>Router module</h3>
+          <ul>
+            <li>Redirection
+<pre><code class="js">{ path: '', pathMatch: 'full', redirectTo: '/breaking' }</code></pre></li>
+			<li>Bien penser à l’ordre des routes => la stratégie du routeur consiste à prendre la première route qui correspond</li>
+			<li>Utilisation de route fille pour l’insertion des composants enfants à l’aide de children, permet par exemple de naviguer dans des onglets</li>
+          </ul>
+        </section>
+
+		<section>
+          <h3>Router module</h3>
+		  Guards : gardes ou gardiens => permet de filtrer les accès à l’application :
+          <ul>
+            <li><a class="code-style">canActivate</a> : peut empêcher l’activation de la route ou de rediriger en cas d’erreur, ou d’une page inaccessible
+			<li><a class="code-style">CanActivate</a> et qui retourne un booléen, une promesse ou un observable</li>
+			<li><a class="code-style">canActivateChild</a> : peut empêcher l’activation des enfants de la route indiquée</li>
+			<li><a class="code-style">canLoad</a> : permet de télécharger un module en lazy loading</li>
+			<li><a class="code-style">canDesactivate</a> : empêche de quitter la route actuelle. Permet de demander une confirmation avant de quitter une page</li>
+          </ul>
+        </section>	
+
+		<section>
+          <h3>Router module</h3>
+		  <ul>
+			<li>Resolver : permet de retourner des données synchrones ou asynchrones
+				<ul>
+					<li>par exemple pour naviguer vers une page lorsque les données sont chargées (résolu)</li>
+				</ul>
+			</li>
+			<li>Evènements du router comme : 
+				<ul>
+					<li><a class="code-style">NavigationStart</a></li>
+					<li><a class="code-style">NavigationEnd</a></li>
+				</ul>
+			</li>
+		  </ul>
+        </section>	
+		
+		<section>
+          <h3>Exercice</h3>
+		  <img class="plain" src="./images/route7.png" />
+        </section>
+
+		<section>
+          <h3>Exercice</h3>
+		  <ul>
+			<li>Créer le fichier de routing</li>
+			<li>Créer une route vers la liste des personnages</li>
+			<li>Créer un lien vers cette route</li>
+			<li>Mettre en place une garde</li>
+		  </ul>
+        </section>			
+		
+		
+		
+		
+		
+		
+<!--
+        <section>
+          <h3>TypeScript</h3>
+          <ul>
+            <li>Annotations de types</li>
+            <li>Proche du JavaScript</li>
+            <li>Compatible avec les bibliothèques JavaScript</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Types</h3>
+          <pre class="fragment fadeIn" data-fragment-index="0"><code class="ts">const name: string = 'Hello';</code></pre>
+          <pre class="fragment fadeIn" data-fragment-index="1"><code class="ts">const book: Book = new Book(...);</code></pre>
+          <pre class="fragment fadeIn" data-fragment-index="2"><code class="ts">function read(books: Book[]): void { ... }</code></pre>
+          <pre class="fragment fadeIn" data-fragment-index="3"><code class="ts">const foo: any = { bar: 'baz' };</code></pre>
+        </section>
+
+        <section>
+            <h3>Let's Try TypeScript!</h3>
+            <pre class="fragment fadeIn" data-fragment-index="0"><code class="shell">npm install --save-dev tslint</code></pre>
+            <pre class="fragment fadeIn" data-fragment-index="1"><code class="shell">node_modules/.bin/tslint --init</code></pre>
+            <pre class="fragment fadeIn" data-fragment-index="2"><code class="json">"scripts": {
+  "lint": "tslint ./src"
+}</code></pre>
+        </section>
+
+        <section>
+          <pre><code class="shell">npm install --save-dev typescript ts-loader</code></pre>
+        </section>
+
+        <section>
+          <pre><code class="js">module.exports = {
+  ...
+  entry: ['babel-polyfill', './src/index.ts'],
+  module: {
+    rules: [
+      { test: /\.ts$/, use: ['babel-loader', 'ts-loader'] },
+      ...
+    ]
+  },
+  resolve: {
+    extensions: ['.ts', '.js']
+  },
+  ...
+};</code></pre>
+        </section>
+
+        <section>
+          <pre><code class="json">{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "sourceMap": true,
+    "target": "es6"
+  }
+}</code></pre>
+        </section>
+
+        <section>
+          <pre><code class="js">export class Book {
+  id: string;
+  name: string;
+  authors: string[];
+  releaseDate: Date;
+
+  constructor(args) {
+    this.id = args.id;
+    this.name = args.name;
+    this.authors = args.authors;
+    this.releaseDate = new Date(args.releaseDate);
+  }
+}</code></pre>
+        </section>
+
+        <section>
+          <pre><code class="js">declare module "*.json" {
+  const value: any;
+  export default value;
+}</code></pre>
+        </section>-->
+      </section>
+	  
+	  <section>
+        <section>
+          <img class="plain" src="./images/ngrx.png" width="256" />
+          <h3>Retour d’expérience Ngrx</h3>
+        </section>
+
+        <section>
+          <h3>Retour d'expérience Ngrx</h3>
+          <p>Voir présentation Powerpoint</p>
+        </section>
+<!--
+        <section>
+          <h3>Types</h3>
+          <pre class="fragment fadeIn" data-fragment-index="0"><code class="ts">const name: string = 'Hello';</code></pre>
+          <pre class="fragment fadeIn" data-fragment-index="1"><code class="ts">const book: Book = new Book(...);</code></pre>
+          <pre class="fragment fadeIn" data-fragment-index="2"><code class="ts">function read(books: Book[]): void { ... }</code></pre>
+          <pre class="fragment fadeIn" data-fragment-index="3"><code class="ts">const foo: any = { bar: 'baz' };</code></pre>
+        </section>
+
+        <section>
+            <h3>Let's Try TypeScript!</h3>
+            <pre class="fragment fadeIn" data-fragment-index="0"><code class="shell">npm install --save-dev tslint</code></pre>
+            <pre class="fragment fadeIn" data-fragment-index="1"><code class="shell">node_modules/.bin/tslint --init</code></pre>
+            <pre class="fragment fadeIn" data-fragment-index="2"><code class="json">"scripts": {
+  "lint": "tslint ./src"
+}</code></pre>
+        </section>
+
+        <section>
+          <pre><code class="shell">npm install --save-dev typescript ts-loader</code></pre>
+        </section>
+
+        <section>
+          <pre><code class="js">module.exports = {
+  ...
+  entry: ['babel-polyfill', './src/index.ts'],
+  module: {
+    rules: [
+      { test: /\.ts$/, use: ['babel-loader', 'ts-loader'] },
+      ...
+    ]
+  },
+  resolve: {
+    extensions: ['.ts', '.js']
+  },
+  ...
+};</code></pre>
+        </section>
+
+        <section>
+          <pre><code class="json">{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "sourceMap": true,
+    "target": "es6"
+  }
+}</code></pre>
+        </section>
+
+        <section>
+          <pre><code class="js">export class Book {
+  id: string;
+  name: string;
+  authors: string[];
+  releaseDate: Date;
+
+  constructor(args) {
+    this.id = args.id;
+    this.name = args.name;
+    this.authors = args.authors;
+    this.releaseDate = new Date(args.releaseDate);
+  }
+}</code></pre>
+        </section>
+
+        <section>
+          <pre><code class="js">declare module "*.json" {
+  const value: any;
+  export default value;
+}</code></pre>
+        </section>-->
+      </section>
+    </div>
+  </div>
+
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.js"></script>
+
+  <script>
+    // More info about config & dependencies:
+    // - https://github.com/hakimel/reveal.js#configuration
+    // - https://github.com/hakimel/reveal.js#dependencies
+    Reveal.initialize({
+      dependencies: [
+        { src: 'plugin/markdown/marked.js' },
+        { src: 'plugin/markdown/markdown.js' },
+        { src: 'plugin/notes/notes.js', async: true },
+        { src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } }
+      ]
+    });
+  </script>
+</body>
+
+</html>

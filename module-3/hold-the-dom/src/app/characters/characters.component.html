@@ -1,0 +1,11 @@
+<div>
+  <div class="selected-char-card">
+    <app-character [character]="selected"></app-character>
+  </div>
+</div>
+
+<!-- Add a character -->
+<app-character-add [houses]="houses" (outputCharacter)="addCharacter($event)"></app-character-add>
+
+<!-- Liste des personnages -->
+<app-characters-grid [characters]="characters" (select)="select($event)"></app-characters-grid>

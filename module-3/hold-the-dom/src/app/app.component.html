@@ -1,6 +1,6 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="logo">
-  <img height="150" alt="Logo"  src="assets/got.jpg">
+  <img height="150" alt="Logo" src="assets/got.jpg">
   <div style="flex:2; text-align: center; margin: 0 20px 0 20px">
     <h1>Hold the DOM!</h1>
     <hr />
@@ -10,19 +10,21 @@
   <img height="150" src="assets/medal-of-hodor.jpg" style="height: 150px;" />
 </div>
 
-<div>
-  <div class="selected-char-card">
-    <app-character [character]="selected"></app-character>
-  </div>
-</div>
+<nav>
+  <a routerLink="/characters" routerLinkActive="active">Characters</a>
+  <a routerLink="/books" routerLinkActive="active">Books</a>
+  <a routerLink="/infos" routerLinkActive="active">Infos</a>
+</nav>
 
-<ng-container>
+
+
+<!--<ng-container>
 
   <mat-tab-group (selectedTabChange)="tabChange($event)">
 
     <mat-tab label="Characters">
       <h4>Characters</h4>
-      <app-characters-grid [characters]="characters" (select)="select($event)"></app-characters-grid>
+      <app-characters [houses]="houses" (selectEvent)="select($event)"></app-characters>
     </mat-tab>
 
     <mat-tab label="Books">
@@ -41,4 +43,7 @@
 
   </mat-tab-group>
 
-</ng-container>
+</ng-container>-->
+
+
+<router-outlet></router-outlet>
