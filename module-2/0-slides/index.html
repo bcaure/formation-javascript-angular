@@ -32,8 +32,8 @@
           <li>le client angular ng</li>
           <li>les composants</li>
           <li>le databinding</li>
-          <li>le change-detection</li>
           <li>le cycle de vie</li>
+          <li>le change-detection</li>
         </ul>
       </section>
 
@@ -96,6 +96,10 @@ ng serve --open
 ``` 
   @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 ```
+  
+* deeppurple-amber
+* purple-green
+* pink-bluegrey
 
 ---
 
@@ -148,9 +152,9 @@ Faire des commit intermédiaires pour voir facilement les fichiers générés
 
       <section data-markdown data-separator="^\n--\n$" data-separator-vertical="^\n---\n$">
         <script type="text/template">
-## Template expressions 
+## Template expressions {{
 
-*ou "interpolation" ou "la moustache")*
+*ou interpolation ou la moustache*
 
 ![moustache](images/moustache.JPG)
 
@@ -158,15 +162,15 @@ Faire des commit intermédiaires pour voir facilement les fichiers générés
 
 * pas de changement avec AngularJS
 * pas de modif dans la moustache  {{ toto = 'titi'}}
-* concaténation et opérations arithmétiques {{ 'toto' + 'titi' }}
+* concat. et arithmétique {{ 'toto' + 'titi' }}
 * opérateur ternaire {{ grosseCom ? 'caca' : 'pipi' }}
 
 ---
 
 ### Structural directives
 ```
-*ngIf
-*ngFor
+*ngIf="lines"
+*ngFor="let l of lines"
 [ngSwitch] 
 ```
 
@@ -221,27 +225,9 @@ _code plus lisible_
 
 ---
 
-### ngTemplateOutlet
-
-* permet de rendre dynamique ng-template
-* sans s'embêter avec un composant et les passages de paramètre
-
-```
-    <ng-template #progressBar let-progression="percentage">
-        <div> {{ percentage }} % </div>
-    </ng-template>
-    <ng-container *ngTemplateOutlet="progressBar;context:ctx"></ng-container>
-
-    ....
-
-    ctx = {percentage: this.percentage};
-```
-
----
-
 _Exercice 2_
 
-                    
+    
         </script>
       </section>     
       

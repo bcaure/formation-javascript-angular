@@ -42,13 +42,17 @@
 
   <mat-tab [label]="title2">
     <h3>1) Simuler une requête http un peu longue avec setTimeout</h3>
+    <h3><code><![CDATA[setTimeout(() => { ... }, 2000)]]></code></h3>
     <h3>2) Afficher une progress bar en utilisant ng-template </h3>
-
+    <h3><code><![CDATA[<ng-template #progressbar>]]></code></h3>
+    <h3><code><![CDATA[<mat-progress-bar mode="indeterminate"></mat-progress-bar>]]></code></h3>
+    <h3><code><![CDATA[</ng-template>]]></code></h3>
+    
 
     <p>
       <button mat-raised-button color="primary" (click)="load()">Load characters</button>
     </p>
-    <ng-container *ngIf="!inProgress; else spinner2">
+    <ng-container *ngIf="!inProgress; else progressbar2">
       <mat-grid-list cols="7" rowHeight="2:1" gutterSize="20px" *ngIf="state2">
         <mat-grid-tile *ngFor="let character of state2.characters">
           <div class="char-card" [ngClass]="{'female': character.isFemale, 'male':!character.isFemale}">
@@ -57,7 +61,7 @@
         </mat-grid-tile>
       </mat-grid-list>
     </ng-container>
-    <ng-template #spinner2>
+    <ng-template #progressbar2>
       <mat-progress-bar mode="indeterminate"></mat-progress-bar>
     </ng-template>
 
@@ -80,10 +84,10 @@
     </div>
 
 
-    <ng-container *ngIf="!inProgress; else spinner3">
+    <ng-container *ngIf="!inProgress; else progressbar3">
       <app-characters-grid *ngIf="state3" [characters]="state3.characters"></app-characters-grid>
     </ng-container>
-    <ng-template #spinner3>
+    <ng-template #progressbar3>
       <mat-progress-bar mode="indeterminate"></mat-progress-bar>
     </ng-template>
 
@@ -113,10 +117,10 @@
         <div class="selected-char">{{ state3.selected.name }} ({{ state3.selected.isFemale ? 'Female' : 'Male' }})</div>
       </div>
     </div>
-    <ng-container *ngIf="!inProgress; else spinner3">
+    <ng-container *ngIf="!inProgress; else progressbar3">
       <app-characters-grid *ngIf="state3" [characters]="state3.characters" [selected]="state3.selected"></app-characters-grid>
     </ng-container>
-    <ng-template #spinner3>
+    <ng-template #progressbar3>
       <mat-progress-bar mode="indeterminate"></mat-progress-bar>
     </ng-template>
 
@@ -149,10 +153,10 @@
         </mat-radio-group>
       </div>
     </div>
-    <ng-container *ngIf="!inProgress; else spinner4">
+    <ng-container *ngIf="!inProgress; else progressbar4">
       <app-characters-grid *ngIf="state4" [characters]="state4.characters" [selected]="state4.selected"></app-characters-grid>
     </ng-container>
-    <ng-template #spinner4>
+    <ng-template #progressbar4>
       <mat-progress-bar mode="indeterminate"></mat-progress-bar>
     </ng-template>
 
@@ -184,13 +188,13 @@
         <app-character [character]="state5?.selected"></app-character>
       </div>
     </div>
-    <ng-container *ngIf="!inProgress; else spinner5">
+    <ng-container *ngIf="!inProgress; else progressbar5">
       <div *ngIf="state5" style="flex: 1; margin: 10px">
         <h4>Characters</h4>
         <app-characters-grid-2 [characters]="state5.characters" [columnNb]="7" (select)="select5($event)"></app-characters-grid-2>
       </div>
     </ng-container>
-    <ng-template #spinner5>
+    <ng-template #progressbar5>
       <mat-progress-bar mode="indeterminate"></mat-progress-bar>
     </ng-template>
 
@@ -224,7 +228,7 @@
         <app-character [character]="state6?.selected"></app-character>
       </div>
     </div>
-    <ng-container *ngIf="!inProgress; else spinner6">
+    <ng-container *ngIf="!inProgress; else progressbar6">
       <div *ngIf="state6" style="display: flex">
         <div *ngIf="state6.characters" style="flex: 1; margin: 10px">
           <h4>Characters</h4>
@@ -244,7 +248,7 @@
         </div>
       </div>
     </ng-container>
-    <ng-template #spinner6>
+    <ng-template #progressbar6>
       <mat-progress-bar mode="indeterminate"></mat-progress-bar>
     </ng-template>
 
