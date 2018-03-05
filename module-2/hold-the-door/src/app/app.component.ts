@@ -55,6 +55,11 @@ export class AppComponent {
         this.state7 = { characters: [], books: [], houses: [], selected: undefined };
         this.loadCharacters(this.state7);
         break;
+      case this.title8:
+        this.inProgress = true;
+        this.state8 = { characters: [], selected: undefined };
+        this.loadCharacters(this.state8);
+        break;
     }
   }
 
@@ -167,7 +172,7 @@ export class AppComponent {
       return h;
     });
   }
-  select7(character) {
+  select7(character: Character) {
     this.state7.selected = character;
   }
   tabChange(event) {
@@ -184,5 +189,17 @@ export class AppComponent {
       this.state7.houses = [];
       this.state7.characters = [];
     }
+  }
+
+  /** Example 8 */
+  // tslint:disable-next-line:member-ordering
+  readonly title8 = '8) Change detection';
+  // tslint:disable-next-line:member-ordering
+  state8: { characters: Character[], selected: Character };
+  select8(character: Character) {
+    this.state8.selected = character;
+  }
+  changeCharacter(event: Character) {
+    this.state8.characters = this.state8.characters.map(character => character.id === event.id ? event : character);
   }
 }

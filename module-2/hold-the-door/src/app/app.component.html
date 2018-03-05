@@ -292,6 +292,41 @@
         </mat-tab>
       </mat-tab-group>
     </ng-container>
+  </mat-tab>
+
+
+
+  <!---------------->
+  <!-- EXERCICE 8 -->
+  <!---------------->
+
+  <mat-tab [label]="title8">
+    <div style="display: flex">
+      <div style="flex:3">
+        <h3>Modifier le change detection du composant Character</h3>
+        <h3>
+          <code><![CDATA[@Component({ 
+            .... 
+            changeDetection: ChangeDetectionStrategy.OnPush 
+          })]]></code>
+        </h3>
+        <h3>Constater que la modif d'un character ne se répercute plus dans la liste</h3>
+        <h3>Modifier le composant app-character ainsi: </h3>
+        <h3>
+          <code><![CDATA[<app-character [character]="selected" (modify)="changeCharacter($event)"></app-character>]]></code>
+        </h3>
+        <h3>changeCharacter(): créer une nouvelle liste avec le nouveau character pour que le change detection fonctionne </h3>
+      </div>
+
+
+      <div class="selected-char-card">
+        <app-character-2 [character]="state8?.selected" (modify)="changeCharacter($event)"></app-character-2>
+      </div>
+    </div>
+    <ng-container *ngIf="state8 && state8.characters">
+      <h4>Characters</h4>
+      <app-characters-grid-4 [characters]="state8.characters" (select)="select8($event)"></app-characters-grid-4>
+    </ng-container>
 
 
   </mat-tab>
