@@ -29,7 +29,8 @@ export class AppComponent {
       case this.title2:
         this.inProgress = false;
         break;
-      case this.title3:
+      case this.title31:
+      case this.title32:
         this.inProgress = true;
         this.state3 = { characters: undefined, selected: undefined };
         this.loadState(this.state3);
@@ -66,7 +67,7 @@ export class AppComponent {
 
   /** Example 2 */
   // tslint:disable-next-line:member-ordering
-  title2 = '2) Composant Grid';
+  title2 = '2) Progress bar';
   // tslint:disable-next-line:member-ordering
   state2: { characters: Character[] };
   // tslint:disable-next-line:member-ordering
@@ -80,9 +81,12 @@ export class AppComponent {
   }
 
 
+
   /** Example 3 */
   // tslint:disable-next-line:member-ordering
-  title3 = '3) Character';
+  title31 = '3.1) Composant Grid';
+  // tslint:disable-next-line:member-ordering
+  title32 = '3.2) Sélection';
   // tslint:disable-next-line:member-ordering
   state3: { characters: Character[], selected: Character };
   loadState(state): void {
@@ -93,6 +97,7 @@ export class AppComponent {
       this.inProgress = false;
     }, 2000);
   }
+
 
 
   /** Example 4 */

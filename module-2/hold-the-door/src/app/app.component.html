@@ -41,23 +41,21 @@
   <!---------------->
 
   <mat-tab [label]="title2">
-    <h3>1) Simuler une requête http un peu longue avec setTimeout et afficher un spinner ne utilisant: </h3>
-    <h3>
-      <code><![CDATA[<ng-container *ngIf="!inProgress; else spinner2">]]></code>
-    </h3>
-    <h3>2) Déplacer le code HTML et CSS à factoriser dans un composant personnalisé</h3>
-    <h3>
-      <code><![CDATA[ng generate component characters-grid --module app.module.ts --spec=false]]></code>
-    </h3>
-    <h3>
-      <code><![CDATA[<app-characters-grid [characters]="characters"></app-characters-grid>]]></code>
-    </h3>
+    <h3>1) Simuler une requête http un peu longue avec setTimeout</h3>
+    <h3>2) Afficher une progress bar en utilisant ng-template </h3>
+
 
     <p>
       <button mat-raised-button color="primary" (click)="load()">Load characters</button>
     </p>
     <ng-container *ngIf="!inProgress; else spinner2">
-      <app-characters-grid *ngIf="state2" [characters]="state2.characters"></app-characters-grid>
+      <mat-grid-list cols="7" rowHeight="2:1" gutterSize="20px" *ngIf="state2">
+        <mat-grid-tile *ngFor="let character of state2.characters">
+          <div class="char-card" [ngClass]="{'female': character.isFemale, 'male':!character.isFemale}">
+            {{ character.name }}
+          </div>
+        </mat-grid-tile>
+      </mat-grid-list>
     </ng-container>
     <ng-template #spinner2>
       <mat-progress-bar mode="indeterminate"></mat-progress-bar>
@@ -66,13 +64,40 @@
   </mat-tab>
 
 
+  <!------------------>
+  <!-- EXERCICE 3-1 -->
+  <!------------------>
 
-  <!---------------->
-  <!-- EXERCICE 3 -->
-  <!---------------->
+  <mat-tab [label]="title31">
+    <div>
+      <h3>Déplacer le code HTML et CSS à factoriser dans un composant personnalisé</h3>
+      <h3>
+        <code><![CDATA[ng generate component characters-grid --module app.module.ts --spec=false]]></code>
+      </h3>
+      <h3>
+        <code><![CDATA[<app-characters-grid></app-characters-grid>]]></code>
+      </h3>
+    </div>
 
 
-  <mat-tab [label]="title3">
+    <ng-container *ngIf="!inProgress; else spinner3">
+      <app-characters-grid *ngIf="state3" [characters]="state3.characters"></app-characters-grid>
+    </ng-container>
+    <ng-template #spinner3>
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </ng-template>
+
+
+  </mat-tab>
+
+
+
+  <!------------------>
+  <!-- EXERCICE 3-2 -->
+  <!------------------>
+
+
+  <mat-tab [label]="title32">
     <div style="display: flex">
       <div style="flex:3">
         <h3>Afficher les infos du personnage sélectionné dans un encart</h3>
@@ -183,12 +208,14 @@
           <code>ng generate component panel-with-list --module app.module.ts --spec=false</code>
         </h3>
         <h3>
-          Ce composant affiche la liste des objets qu'on lui passe ainsi que ses personnages 
+          Ce composant affiche la liste des objets qu'on lui passe ainsi que ses personnages
         </h3>
-        <h3><code><![CDATA[<app-panel-with-list *ngFor="let book of state6.books" [object]="book">]]></code></h3>
         <h3>
-          (utiliser ng-content) 
-        </h3>          
+          <code><![CDATA[<app-panel-with-list *ngFor="let book of state6.books" [object]="book">]]></code>
+        </h3>
+        <h3>
+          (utiliser ng-content)
+        </h3>
       </div>
 
 

@@ -32,153 +32,634 @@
           <li>le client angular ng</li>
           <li>les composants</li>
           <li>le databinding</li>
+          <li>le change-detection</li>
+          <li>le cycle de vie</li>
         </ul>
       </section>
 
 
-      <section data-markdown data-separator="^\n---\n$">
+      <section data-markdown data-separator="^\n--\n$" data-separator-vertical="^\n---\n$">
         <script type="text/template">
 
-          ## Ma 1ère app!
-          ![happy](images/happy.gif)
+## Ma 1ère app!
+![happy](images/happy.gif)
 
-          ---
+---
 
-          ### Sans proxy : 
-          
-          ```
-          ng new hold-the-dom --skip-tests --style=scss
-          cd hold-the-dom
-          ng serve --open
-          ``` 
+### Sans proxy : 
 
-          ---
+```
+ng new hold-the-dom --skip-tests --style=scss
+cd hold-the-dom
+ng serve --open
+``` 
 
-          
-          ### Réseau CGI :
+---
 
-          ```
-          ng new hold-the-dom --skip-install --skip-tests --style=scss
-          cd hold-the-dom
-          echo https-proxy=http://fr-proxy.groupinfra.com:3128 > .npmrc
-          echo proxy=http://fr-proxy.groupinfra.com:3128 >> .npmrc
-          npm install
-          ng serve --open
-          ``` 
 
-          ---   
+### Réseau CGI :
 
-          
-          ### générer le fichier webpack 
-          
-          *NE PAS LE FAIRE POUR CONTINUER D'UTILISER NG!*
+```
+ng new hold-the-dom --skip-install --skip-tests --style=scss
+cd hold-the-dom
+echo https-proxy=http://fr-proxy.groupinfra.com:3128 > .npmrc
+echo proxy=http://fr-proxy.groupinfra.com:3128 >> .npmrc
+npm install
+ng serve --open
+```
 
-          ```
-              ng eject
-          ```  
+---
 
-          ---
+## Importer les données GoT
 
-          
-          ## Importer les éléments du module 1
-          
-          * copier les répertoires data et model
+* copier les répertoires data et model
 
-          ![model-data](images/dir-model-data.JPG)
+![model-data](images/dir-model-data.JPG)
 
-          ---
+---
 
-          
-          ## Installer Angular material
-          
-          * ajouter les dépendances
 
-            ```
-              npm install --save @angular/material 
-              npm install --save @angular/cdk @angular/animations
-            ```
+## Installer Angular material
 
-            ---
+```
+  npm install --save @angular/material 
+  npm install --save @angular/cdk @angular/animations
+```
 
-          
-          ### Importer un theme existant 
-          
-          * dans style.scss 
+---
 
-            ``` 
-              @import "~@angular/material/prebuilt-themes/indigo-pink.css";
-            ```
 
-            ---
-            
-          ### Rajouter le module grid 
-          
-          * dans app.module.ts:
-          
-            ```
-              import { MatGridListModule } from '@angular/material/grid-list';
-              @NgModule({
-              ...
-              imports: [MatGridListModule],
-              ...
-              })
-            ```
+### Importer un theme existant 
 
-            ---
+* dans style.scss 
 
-                
-          ### Test
-          
-          * copier dans app.component.html
+``` 
+  @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+```
 
-            ```
-            <mat-grid-list cols="4" rowHeight="2:1" gutterSize="20px">
-              <mat-grid-tile [style.background]="'lightblue'">toto</mat-grid-tile>
-              <mat-grid-tile>titi</mat-grid-tile>
-              <mat-grid-tile [style.background]="'lightblue'">tata</mat-grid-tile>
-              <mat-grid-tile>tonton</mat-grid-tile>
-              <mat-grid-tile>tutu</mat-grid-tile>
-              <mat-grid-tile [style.background]="'lightblue'">tati</mat-grid-tile>
-              <mat-grid-tile>prout</mat-grid-tile>
-            </mat-grid-list>
-            ```  
+---
 
-            ---
-          
-            
-            * ng serve --open 
-            ===> [vérifier le rendu](./install-ng-material.PNG)
+### Rajouter le module grid 
 
-            ---            
-            
-            ## Faire un git commit
-            Ce sera plus facile de voir les fichiers que l'on va générer avec ng
-            
-            
-            
-            ## TODO
-            
-            mieux expliquer ngtemplateoutlet
-            
-            databinding => commencer par ngmodel angularJS sur le site
-            
-            mettre [value]  
-            
-            evenemetn utiliateur??
-            
-            trouver un ex pour le change detection amélioré
-            
-            ne pas parler de zone.js
-            
-            change detection => le digest ne sera pas appelé si une lib externe n'utilise pas les mécanismes angular
-            
-            lifecycle 
-            => dans le  oninit d'un composant enfant, on est sûr que les attributes sont bindés à ce moment là
-            
+* dans app.module.ts:
+
+```
+  import { MatGridListModule } from '@angular/material/grid-list';
+  @NgModule({
+  ...
+  imports: [MatGridListModule],
+  ...
+  })
+```
+
+---
+
+    
+### Test
+
+* copier dans app.component.html
+
+```
+<mat-grid-list cols="4" rowHeight="2:1" gutterSize="20px">
+  <mat-grid-tile [style.background]="'lightblue'">toto</mat-grid-tile>
+  <mat-grid-tile>titi</mat-grid-tile>
+  <mat-grid-tile [style.background]="'lightblue'">tata</mat-grid-tile>
+  <mat-grid-tile>tonton</mat-grid-tile>
+  <mat-grid-tile>tutu</mat-grid-tile>
+  <mat-grid-tile [style.background]="'lightblue'">tati</mat-grid-tile>
+  <mat-grid-tile>prout</mat-grid-tile>
+</mat-grid-list>
+```  
+
+---
+
+
+* ng serve --open 
+===> [vérifier le rendu](./install-ng-material.PNG)
+
+---
+
+## Git commit!
+Faire des commit intermédiaires pour voir facilement les fichiers générés
+
 					</script>
       </section>
 
 
+      <section data-markdown data-separator="^\n--\n$" data-separator-vertical="^\n---\n$">
+        <script type="text/template">
+## Template expressions 
+
+*ou "interpolation" ou "la moustache")*
+
+![moustache](images/moustache.JPG)
+
+---
+
+* pas de changement avec AngularJS
+* pas de modif dans la moustache  {{ toto = 'titi'}}
+* concaténation et opérations arithmétiques {{ 'toto' + 'titi' }}
+* opérateur ternaire {{ grosseCom ? 'caca' : 'pipi' }}
+
+---
+
+### Structural directives
+```
+*ngIf
+*ngFor
+[ngSwitch] 
+```
+
+*1 seule directive par élément*
+
+---
+
+### Attribute directives
+
+``` 
+ngStyle="{ 'style1': i==5, 'style2': true }"
+ngClass="{ 'classe1': i==5, 'classe2': true }"
+``` 
+
+---
+
+_Exercice 1_
+
+
+---
+
+### ng-container
+
+Elément transparent pour le DOM
+
+Le code suivant plante :
+```
+<tbody>
+    <tr *ngIf="gridData1" *ngFor="let row of gridData1.rows">
+    <tr *ngIf="gridData2" *ngFor="let row of gridData2.rows">
+```
+
+Une solution :
+```
+<tbody>
+  <ng-container *ngIf="gridData1">
+    <tr *ngIf="gridData1" *ngFor="let row of gridData1.rows">
+```
+
+---
+
+### ngTemplate
+
+* code HTML à afficher que dans certains cas
+* par exemple dans le "else" du ngIf :
+```
+<div *ngIf="!inProgress; else progressBar">
+  ...
+<ng-template #progressBar>
+```
+_code plus lisible_
+
+---
+
+### ngTemplateOutlet
+
+* permet de rendre dynamique ng-template
+* sans s'embêter avec un composant et les passages de paramètre
+
+```
+    <ng-template #progressBar let-progression="percentage">
+        <div> {{ percentage }} % </div>
+    </ng-template>
+    <ng-container *ngTemplateOutlet="progressBar;context:ctx"></ng-container>
+
+    ....
+
+    ctx = {percentage: this.percentage};
+```
+
+---
+
+_Exercice 2_
+
+                    
+        </script>
+      </section>     
+      
+      
+      <section data-markdown data-separator="^\n--\n$" data-separator-vertical="^\n---\n$">
+        <script type="text/template">
+## Le standard HTML5 
+## *web component*
+
+---
+
+### Custom element
+
+```
+class Character extends HTMLElement {
+  ...
+}
+customElements.define('character', Character);
+```
+
+---
+
+
+### shadow DOM 
+
+*isolation DOM/CSS*
+
+```
+character-container = element.attachShadow({mode: open})
+.character-inner {
+  background-color: #dedede;
+}
+```
+
+---
+
+
+### Template
+
+*html caché, réutilisable*
+
+```
+<template id="character-template">
+  <div class="character-inner">
+    <h2 class="character-name"></h2>
+    <span class="character-gender"></span>
+  </div>
+</template>
+```
+
+---
+
+### HTML import
+
+*importer un template HTML à partir d'un fichier séparé*
+
+```
+<link rel="import" href="./character/character.html">
+```
+
+---
+
+
+## Angular components
+
+---
+
+### Structure
+
+* 1 fichier html
+* 1 fichier scss, 
+* 1 fichier ts
+  - selector: nom de la balise HTML
+  - template: référence vers le fichier HTML
+  - style: référence vers le fichier SCSS
+  - classe controller, annotée @Component
+* importé/exporté dans un module
+
+---
+
+### Dumb components 
+
+![stupid](images/dumbs.gif)
+
+---
+
+* Composant de _présentation_
+* Indépendant du contexte
+* Pas de logique métier 
+* Réutilisables
+
+---
+
+Exemple: 
+
+tous les composants angular-material
+
+---
+
+
+### Smart components 
+
+![smart](images/smart.gif)
+
+
+---
+
+* _Containers_
+* Connaissent le contexte
+* Exécutent de la logique métier 
+* Peu réutilisables
+
+---
+
+Exemple: 
+
+tous les composants qui modifient vos objets métiers directement
+
+---
+
+
+_Exercice 3.1_
+
+
+        </script>
+      </section>   
+      
+      
+      <section data-markdown data-separator="^\n--\n$" data-separator-vertical="^\n---\n$">
+        <script type="text/template">
+
+## Databinding
+
+---
+
+### ngModel
+
+* AngularJS databinding
+
+```
+<input ng-model="name">
+```
+
+---
+
+* Equivalent Angular 2+
+
+```
+<input [(ngModel)]="name">
+```
+
+![snow-happy](images/snow-happy.gif)
+
+---
+
+### 2 bananes dans une boîte
+
+[()]
+
+![snow-think](images/snow-think.gif)
+
+---
+
+![bananas](images/bananas-box.JPG)
+
+---
+
+### [] === Passer des données
+
+```
+<input [value]="name">
+```
+
+### () === Ecouter un évènement
+
+```
+<input (change)="name = $event">
+```
+
+---
+
+## Composants personnalisés avec @Input
+
+```
+<character-grid [characters]="characters">
+
+@Input() characters: Character[];
+```
+
+---
+
+_exercice 3.2_
+
+_exercice 4_
+
+---
+
+### Evénements utilisateur @Output
+
+```
+@Output() select = new EventEmitter<Character>();
+
+onSelect(it: Character) {
+  this.select.emit(it);
+}
+```
+
+---
+
+
+_exercice 5_
+
+
+---
+
+
+### Directives personalisées
+
+```
+<p appHighlight>Highlight me!</p>
+
+
+@Directive({
+  selector: '[appHighlight]'
+})
+export class HighlightDirective {
+    constructor(el: ElementRef) {
+       el.nativeElement.style.backgroundColor = 'yellow';
+    }
+}
+```
+
+---
+
+## ngContent
+
+_Transclusion_:
+
+* quand on veut un composant "conteneur" assez générique
+* on place le contenu HTML dans un placeholder *<ng-content>*
+
+---
+
+### Exemple avec angular-material
+
+```
+<mat-grid-tile *ngFor="let character of charactersAsync">
+  <!-- <ng-content> --> 
+  <div>{{ character.name }}</div>
+  <!-- </ng-content> --> 
+</mat-grid-tile>
+```          
+
+---
+
+_Exercice 6_
+
+
+        </script>
+      </section>   
+
+
+      <section data-markdown data-separator="^\n--\n$" data-separator-vertical="^\n---\n$">
+        <script type="text/template">
+## Lifecycle
+
+---
+
+### OnInit
+* appelé après le constructeur
+* privilégier cette méthode pour 
+    - s'abonner à des observables
+    - manipuler les attributs @Input
+    - appeler des services
+    - appeler des requêtes http, etc.
+
+---
+
+### OnDestroy
+* peut être utilisé pour désallouer des ressources
+* unsubscribe sur les observables qui auraient été souscrits dans le code
+* ex: autocomplete 
+
+---
+
+### DoCheck
+* appelé énormément de fois, à chaque évènement du DOM en fait
+* à utiliser très prudemment seulement si Angular ne détecte pas un changement particulier
+* utilisé pour le déboggage
+
+![catelyn2](images/catelyn2.gif)
+
+---
+
+### OnChanges
+* à chaque évènement qui va effectuer une màj du composant
+* utilisé pour le déboggage... pas d'autres idées 
+
+![catelyn1](images/catelyn1.gif)
+
+---
+
+### AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked
+
+*voir la doc!*
+
+![catelyn3](images/catelyn3.gif)
+
+---
+
+_Exercice 6_
+
+
+</script>
+</section>   
+
+
+<section data-markdown data-separator="^\n--\n$" data-separator-vertical="^\n---\n$">
+  <script type="text/template">
+
+## Change Detection
+
+---
+
+### Changements
+
+le state (les objets JS) changent
+
+=> on veut mettre à jour la vue
+
+* Events
+* Requête HTTP
+* setTimeout(), setInterval()
+
+---
+
+### Change detectors
+
+* observe les changements du state 
+    - _les attributs des controlleurs_
+
+* Angular fait le tour des composants en 1 passe
+    - en partant du root component jusqu'au feuilles
+
+---
+
+    
+_Unidirectional dataflow_
+
+![dragon-oneshot](images/dragon-oneshot.gif)
+
+![dataflow](images/change-detection-1.JPG)
+---
+
+### CD Strategy
+
+Angular observe par défaut les modifs
+
+* référence des objets : `myObj = new Obj()` 
+* des propriétés des objets : 
+`myObj.name = 'toto'`
+
+**c'est ça qui coûte cher**
+
+---
+
+ChangeDetectionStrategy.OnPush
+
+```
+@Component({
+  template: `
+    <h2>{{myObj.name}}</h2>
+  `,
+  changeDetection: ChangeDetectionStrategy.OnPush
+})
+class VCardCmp {
+  @Input() myObj;
+}
+```
+
+* Angular n'observe que les changement de références
+* si `myObj.name` est modifié, rien ne se passe
+
+---
+
+**Plus performant!**
+
+![dataflow](images/change-detection-1.JPG)
+
+---
+
+**Mais ça ne marche pas tout le temps!**
+
+![snow-sad](images/snow-sad.gif)
+
+---
+
+* il faut s'assurer que rien ne modifiera `myObj.name`
+* si on veut modifier le nom, créer un nouvel obj systématiquement
+* utiliser une lib comme Immutable.js 
+
+---
+
+### Observables / ChangeDetectorRef
+
+![snow-sad](images/chaton.gif)
+
+il est tard, on verra ça demain!
+
+---
+
+Référence: 
+
+https://blog.thoughtram.io/angular/2016/02/22/angular-2-change-detection-explained.html#what-causes-change
+
+
+        </script>
+      </section>   
     </div>
   </div>
 
