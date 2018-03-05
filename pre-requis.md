@@ -11,9 +11,6 @@ https://join.slack.com/t/cgi-formation-angular/shared_invite/enQtMzIyMzY5MzkzNzQ
       * mise à jour:
 `npm install npm@latest -g `
 
-   * yarn 1.3.2+ 
-`npm install yarn@latest -g `
-
    * @angular/cli 1.6.8
 `npm install @angular/cli -g ` 
 
