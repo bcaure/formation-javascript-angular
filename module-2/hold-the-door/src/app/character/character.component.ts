@@ -8,7 +8,7 @@ import { Character } from '../model/character';
 })
 export class CharacterComponent {
 
-  @Input() character: Character[];
+  @Input() character: Character;
 
   constructor() { }
 
