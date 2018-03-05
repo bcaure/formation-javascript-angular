@@ -169,9 +169,10 @@
       <div style="flex:3">
         <h3>Mettre la carte du personnage dans un composant dédié prenant un objet character</h3>
         <h3>
-          <code>ng generate component characters-grid --module app.module.ts --spec=false</code>
+          <code>ng generate component character --module app.module.ts --spec=false</code>
+          <code><![CDATA[<app-character [character]="selected"></app-character>]]></code>
         </h3>
-        <h3>Transformer le composant app-characters-grid pour gérer la sélection avec @Output</h3>
+        <h3>Transformer le composant grid pour gérer la sélection avec @Output</h3>
         <h3>
           <code><![CDATA[<app-characters-grid [characters]="characters" (select)="select($event)"></app-characters-grid>]]></code>
         </h3>
