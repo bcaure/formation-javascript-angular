@@ -37,6 +37,15 @@
         <img class="plain" src="images/angular.svg" width="256" />
         <h2>Partie 3</h2>
       </section>
+	  
+	  <section>
+        <img class="plain" src="images/nerd.gif" width="256" />
+        <h3>Jeremy Paris</h3>
+		<p class="fragment fadeIn" >Développeur AngularJS & Angular dans la Web Mobile Squad</p>
+		<p class="fragment fadeIn" >Organisateur de COP Angular Michelin <span class="fragment fadeIn" >†</span></p>
+		<p class="fragment fadeIn" >Organisateur de COP JS CGI</p>
+		<p class="fragment fadeIn" >Formateur et apprenant en Angular</p>
+      </section>
 
       <section>
         <section>
@@ -194,11 +203,20 @@
 		
 		<section>
           <h3>Exercice</h3>
-		  <p>Créer un formulaire d’ajout de personnage</p><br/>
+		  <img class="plain" src="./images/exercice1.gif" width=512 />
+        </section>
+		
+		<section>
+          <h3>Exercice</h3>
 		  <ul>
-			<li>NgForm, NgSubmit, variable de template, désactiver le bouton si pas de nom, ajout dans la liste des personnages, reactive form et validator</li>
+			<li>Créer un composant "personnages"</li>
+			<li>Créer un composant pour ajouter un personnage</li>
+			<li>Créer un formulaire d'ajout de personnage avec la sélection de la maison</li>
+			<li>Utiliser les variable de template et désactiver le bouton submit si pas valide</li>
+			<li>Vérifier l'ajout dans le composant liste des personnages</li>
+			<br/>
+			<li style="font-style: italic !important;">Bonus : utiliser les reactive forms et créer un validateur</li>
 		  </ul>
-		  <img class="plain" src="./images/got-characters.jpg" width=512 />
         </section>
 		
         <!--<section>
@@ -315,11 +333,11 @@
 		<section>
           <h3>Exercice</h3>
 		  <ul>
-			<li>Implémenter un service vide</li>
+			<li>Implémenter un service qui renvoie des personnages en dur</li>
 			<li>Déclarer votre service</li>
 			<li>Injecter votre service dans le composant liste des personnages</li>
 		  </ul>
-		  <img class="plain" src="./images/got-house.jpg" width=512/>
+		  <img class="plain" src="./images/got-house.jpg" width=400/>
         </section>
 		
 		<section>
@@ -365,12 +383,11 @@
 		
 		<section>
           <h3>Exercice</h3>
-		  <p>Brancher à l'API :</p>
 		  <ul>
 			<li>Appeler l’api get des personnages</li>
 			<li>Vérifier sur votre page de liste des personnages le branchement</li>
 		  </ul>
-		  <img class="plain" src="./images/got-hodor.jpg"/>
+		  <img class="plain" src="./images/got-hodor.jpg" width=400 />
         </section>
 		
 		<section>
@@ -704,19 +721,9 @@ Couplé à ngFor, permet de sélectionner les éléments à afficher
           <ul>
 			<li>Utiliser le pipe async dans notre liste de personnage avec l’appel API</li>
 			<li>Créer son propre pipe pour classer les personnages par ordre alphabétique
-				<ul>
-					<li>Les classer également par sexe féminin si deux personnages ont le même nom (cas de changement de sexe)</li>
-					<li>L’appeler à travers le code et le template</li>
-				</ul>
-			</li>
+			<li>L’appeler à travers le code et le template</li>	
           </ul>
         </section>
-		
-		
-		
-		
-		
-		
 
        <!-- <section>
           <h3>Let's try ECMAScript</h3>	
@@ -950,6 +957,8 @@ Couplé à ngFor, permet de sélectionner les éléments à afficher
 			<li>Créer une route vers la liste des personnages</li>
 			<li>Créer un lien vers cette route</li>
 			<li>Mettre en place une garde</li>
+			<br/>
+			<li style="font-style: italic !important;">Bonus : passer un paramètre à la route pour afficher un personnage</li>
 		  </ul>
         </section>			
 		

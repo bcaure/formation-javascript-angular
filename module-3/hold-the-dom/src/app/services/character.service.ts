@@ -17,10 +17,10 @@ export class CharacterService {
     }
 
     /** Function to get all characters from the api */
-    pullCharacters() {
+    pullCharacters(): Observable<Character> {
         let options: any;
         let url = 'https://anapioficeandfire.com/api/characters/';
-        return this.http.get(url);
+        return this.http.get<Character>(url);
     }
 }
 
