@@ -207,7 +207,7 @@ Une solution :
 ```
 <tbody>
   <ng-container *ngIf="gridData1">
-    <tr *ngIf="gridData1" *ngFor="let row of gridData1.rows">
+    <tr *ngFor="let row of gridData1.rows">
 ```
 
 ---
@@ -615,7 +615,7 @@ class VCardCmp {
 
 **Plus performant!**
 
-![dataflow](images/change-detection-1.JPG)
+![dataflow](images/change-detection-2.JPG)
 
 ---
 
@@ -633,6 +633,11 @@ class VCardCmp {
 
 _Exercice 8_
 
+![cd1](images/change-detection1.svg)
+
+---
+
+![cd2](images/change-detection2.svg)
 
 ---
 
