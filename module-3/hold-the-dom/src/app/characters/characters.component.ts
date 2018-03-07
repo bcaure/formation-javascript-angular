@@ -4,6 +4,7 @@ import { Character } from '../model/character';
 import { House } from '../model/house';
 import { CharacterService } from '../services/character.service';
 import { SortByAlphAndSex } from '../pipes/sort-by-alph-and-sex';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-characters',
@@ -15,6 +16,8 @@ export class CharactersComponent implements OnInit {
   selected: any;
   characters: Character[];
 
+  charactersObs: Observable<Character>;
+
   @Input() houses : House[];
   @Output() selectEvent = new EventEmitter<Character>();
 
@@ -25,14 +28,17 @@ export class CharactersComponent implements OnInit {
   }
 
   loadCharacters() {
-    this.characters = charactersData.map(props => new Character(props));
+    //this.characters = charactersData.map(props => new Character(props));
     
-
     /** use my service, and change the data binding from the api */
-    this.characterService.pullCharacters()
+    /*this.characterService.pullCharacters()
     .subscribe((characters: Array<Character>) => {
       this.characters = this.sortByAlphAndSex.transform(characters);
-    });
+    });*/
+
+    /** Use directly observable */
+    this.charactersObs = this.characterService.pullCharacters();
+    console.log(this.charactersObs);
   }
 
   select(character) {

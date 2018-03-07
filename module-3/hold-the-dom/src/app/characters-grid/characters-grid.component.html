@@ -1,7 +1,8 @@
 <mat-grid-list cols="3" rowHeight="2:1" gutterSize="20px">
-  <mat-grid-tile *ngFor="let character of characters" (click)="onSelect(character)">
+  <mat-grid-tile *ngFor="let character of (characters | async)" (click)="onSelect(character)">
     <div [ngClass]="{'female': character.isFemale, 'male':!character.isFemale}">
-      {{ character.aliases && character.aliases[0] ? character.aliases[0] : character.name }}
+        {{ character.aliases && character.aliases[0] ? character.aliases[0] : character.name }}
+        <!--<a routerLinkActive="active" [routerLink]="['/character', character.aliases && character.aliases[0] ? character.aliases[0] : character.name]">{{ character.aliases && character.aliases[0] ? character.aliases[0] : character.name }}</a>-->
     </div>
   </mat-grid-tile>
 </mat-grid-list>

@@ -8,4 +8,4 @@
 <app-character-add [houses]="houses" (outputCharacter)="addCharacter($event)"></app-character-add>
 
 <!-- Liste des personnages -->
-<app-characters-grid [characters]="characters" (select)="select($event)"></app-characters-grid>
+<app-characters-grid [characters]="charactersObs" (select)="select($event)"></app-characters-grid>
