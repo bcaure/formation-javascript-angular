@@ -98,7 +98,7 @@ export class AppComponent {
     this.inProgress = true;
     setTimeout(() => {
       state.characters = charactersData.map(props => new Character(props));
-      state.selected = state.characters[0];
+      state.selected = new Character({});
       this.inProgress = false;
     }, 2000);
   }
