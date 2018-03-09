@@ -44,6 +44,8 @@
   {id: i++, content: 'RxJs', start: '2014-01-01', className: 'blue', group: 3},
   {id: i++, content: 'Redux', start: '2015-06-01', className: 'blue', group: 3},
   {id: i++, content: 'Flux', start: '2015-01-01', className: 'blue', group: 3},
+  {id: i++, content: 'Inferno', start: '2017-01-01', group: 3},
+  {id: i++, content: 'Preact', start: '2016-01-01', group: 3},
 
   {id: i++, content: 'Node.js', start: '2009-01-01', className: 'orange important', group: 4},
   {id: i++, content: 'Express.js', start: '2010-01-01', className: 'orange', group: 4},
