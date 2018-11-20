@@ -1,8 +1,9 @@
-  // DOM element where the Timeline will be attached
-  var container = document.getElementById('visualization');
+(function() {
+    // DOM element where the Timeline will be attached
+  var container = document.getElementById('jshistory');
 
   // Create a DataSet (allows two way data-binding)
-  let i = 0;
+  var i = 0;
   var items = new vis.DataSet([
   {id: i++, content: 'Mosaic', start: '1993-01-01', end: '1993-01-01', group: 1},
   {id: i++, content: 'ECMAScript 1', className: 'magenta', start: '1997-01-01', group: 1},
@@ -71,3 +72,4 @@
 
   // Create a Timeline
   var timeline = new vis.Timeline(container, items, groups, options);
+})();
